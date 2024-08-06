@@ -1,0 +1,8 @@
+<div class="divTableCell"><%= line.description %></div>
+<div class="divTableCell"><%= line.discount %></div>
+<div class="divTableCell"><%= line.price %></div>
+<div class="divTableCell"><%= line.quantity %></div>
+<div class="divTableCell">
+  <%= link_to t('Edit'), edit_line_path(line), remote: true %>
+  <%= link_to t('Destroy'), line, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

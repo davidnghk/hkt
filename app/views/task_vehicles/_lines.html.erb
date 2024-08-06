@@ -1,0 +1,34 @@
+<table  class="table table-striped" style="width: 100%" >
+    <thead>
+      <tr>
+        <th><%= t("vehicle") %></th>
+        <th><%= t("driver") %></th>
+        <th><%= t("start_km") %></th>
+        <th><%= t("end_km") %></th>
+        <th><%= t("tunnel_expense") %></th>
+        <th><%= t("parking_expense") %></th>
+        <th colspan="1"></th> 
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% task.task_vehicles.each do |task_vehicle| %>
+        <tr>
+          <td><%= task_vehicle.vehicle.display_name if task_vehicle.vehicle_id? %></td>
+          <td><%= task_vehicle.driver.display_name if task_vehicle.driver_id? %></td>
+          <td><%= task_vehicle.start_km %></td>
+          <td><%= task_vehicle.end_km %></td>
+          <td><%= task_vehicle.tunnel_expense %></td>
+          <td><%= task_vehicle.parking_expense  %></td>
+          <td><%= link_to '<i class="fa fa-trash" style="color:red"></i>'.html_safe, task_vehicle, 
+            data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <script type="text/javascript">
+    $("tr[data-link]").click(function() {
+        window.location = $(this).data('link');
+    });
+  </script> 

@@ -1,0 +1,41 @@
+      <%= simple_form_for(@assignment) do |f| %>
+        <%= f.hidden_field :parent_id %>
+        <%= f.input_field :origin, as: :hidden, :value => "Calendar" %>
+
+        <div class="form-inputs">
+          <div class="row ">
+            <div class="col-xs-6 col-md-6  ">
+              <%= f.association :work, :collection => Work.where('team_id = ? or id =1 ', current_team.id) %> 
+            </div>
+            <div class="col-xs-6 col-md-6 ">
+              <%= f.association :location, :collection => Location.where('team_id = ? or id =1 ', current_team.id) %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-xs-12 col-md-12 ">
+              <%= f.input :name %>
+            </div> 
+          </div>
+
+          <div class="row ">
+            <div  class="col-xs-12 col-md-12  ">
+              <%= f.association :operation_team %>
+            </div>
+
+          </div>
+
+          <% if !@assignment.work_id? %>
+          <%= f.input :date_range, label: t('date_range'), input_html: { class: "form-control input-sm date-range-picker" } %>
+          <%= f.input_field :start_datetime, as: :hidden, class: 'form-control input-sm start_hidden' %>
+          <%= f.input_field :due_datetime, as: :hidden, class: 'form-control input-sm end_hidden' %>
+          <% end %>
+        </div>
+        <br/>
+        <div class="form-actions">
+          <%= button_tag type: 'submit', class: "button my-button", id: "register-button" do %>
+              <i class="fa fa-save fa-2x" aria-hidden="true"></i>
+          <% end %>
+            <%= link_to '<i class="fa fa-file fa-2x"  style="color:blue"></i>'.html_safe, @assignment, data: { turbolinks: false } %>
+        </div>
+      <% end %>

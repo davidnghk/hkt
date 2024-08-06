@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Assignement:</strong>
+  <%= @assignee.assignement_id %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @assignee.team_id %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @assignee.role_id %>
+</p>
+
+<%= link_to 'Edit', edit_assignee_path(@assignee) %> |
+<%= link_to 'Back', assignees_path %>

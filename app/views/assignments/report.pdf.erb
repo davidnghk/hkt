@@ -1,0 +1,223 @@
+<style>
+@media print {
+#scores {
+      page-break-before: always;
+    }
+}
+.break { page-break-before: always; }
+h1 {
+    font-size: 25px;
+}
+h2 {
+    font-size: 18px;
+}
+h3 {
+    font-size: 16px;
+}
+p {
+    font-size: 15px;
+    line-height: 80%;
+}
+.space { margin-top: 1000px; }
+
+table, th, td {
+    table-layout: fixed;
+    border-spacing: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 16px;
+    padding: 6px;
+    width:100%; 
+    padding-bottom: 6px;
+    line-height: 100%;
+}
+
+thead { display: table-header-group }
+tfoot { display: table-row-group }
+tr { page-break-inside: avoid }
+
+table#t01 {
+    padding: 5px;
+    padding-bottom: 5px;
+    width:88%; 
+    height:88%;
+    border: 0;
+}
+
+table#t02 {
+  table-layout: fixed;
+  height: 2000%; 
+  width: 100%;  
+}
+
+#table1, th, td {
+    table-layout: fixed;
+    border-spacing: 5px;
+    border-collapse: collapse;
+    font-size: 16px;
+    padding: 6px;
+    width:100%; 
+    padding-bottom: 6px;
+    line-height: 100%;
+}
+
+.noBorder {
+    border:none !important;
+    border: 0;
+}
+
+table2 {
+    table-layout: fixed;
+    border-spacing: 5px;
+    border-collapse: collapse;
+    font-size: 16px;
+    padding: 6px;
+    width:100%; 
+    padding-bottom: 6px;
+    line-height: 100%;
+    border: 0;
+} 
+
+.footer,
+.push {
+  height: 120px;
+}
+.page-break { display:block; clear:both; page-break-after:always; }
+</style>
+<html>
+<head>
+	<%= wicked_pdf_stylesheet_link_tag "pdf" %>
+</head>
+<body>
+<div>
+  <center>
+      <h3>CHIU HING CONSTRUCTION & TRANSPORTATION CO. LIMITED</h3>
+      <p>Contract No.: 01/HY/2016</p>
+      <p>Safety Walk on: <%= @first.start_datetime.strftime('%F') if @first.start_datetime %></p>
+  </center>
+</div>
+<br>
+
+ <table  >
+  <thead>
+  	  <tr>
+	  </tr>
+  </thead>
+  <tbody>
+  	  <tr>
+	    <th>Location</th>
+	    <th colspan="2">Situation Requireing follow up action</th>
+      <th colspan="2">Situation AFTER follow up action </th>
+	  </tr>
+	  <% @assignments.each do |assignment| %>
+	  	<% if assignment.defects.count > 0 %>
+		    <% assignment.defects.each do |defect| %>
+		      <tr>
+	            <td><%= assignment.location_address %> <%= defect.remarks %></td>
+		          <td colspan="2"><%= wicked_pdf_image_tag defect.before_photo.medium.url , :width => "330"  if defect.before_photo? %><br>
+                  <%= defect.issue.code %> <%= defect.issue.name %></td>
+		          <td colspan="2"><%= wicked_pdf_image_tag defect.after_photo.medium.url if defect.after_photo? %></td>
+	        </tr>
+		  	<% end %>
+      <% end %>
+	  <% end %>
+  </tbody>
+ </table>
+
+<% @assignments.each do |assignment| %>
+  <p style="page-break-before: always"></p>
+  <center>
+    <h1>Chiu Hing Construction & Transportation Company Limited</h1>
+    <h2>Highways Department Term Contract, Hong Kong Island excluding High Speed Roads 2017-2023</h2>
+    <p>Contract No.: 01/HY/2016</p>
+    <p>Weekly Safety Inspection Checklist by Safety Officer</p>
+  </center>
+  <table style="width:100%">
+    <thead>
+      <tr></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Works Order No.: <%= assignment.work_order %></td>
+        <td>Works Description: </td>
+      </tr>    
+      <tr>
+        <td>Location: <%= assignment.location_address %></td>
+        <td>Date of Inspection: <%= assignment.start_datetime.strftime('%F') if assignment.start_datetime? %></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table class="noBorder" style="width:100%">
+    <thead>
+      <tr></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="noBorder">Rating: </td>
+        <td class="noBorder" colspan="3">A = Adequate / Satisfactory at time of inspection</td>
+        <td class="noBorder" colspan="3"> B = Needs improvement</td>
+      </tr>    
+      <tr>
+        <td class="noBorder"></td>
+        <td class="noBorder" colspan="3">C = Needs immediate attention</td>
+        <td class="noBorder" colspan="3">N/A. = Not applicable</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <% @issues = Master.where("parent_id = ?", assignment.work_id) %>
+  <table class="noBorder" style="width:100%; line-height: 70%;">
+    <thead>
+      <tr>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Section</td> 
+        <td colspan="3">Content Title</td>
+        <td colspan="2">Serial #</td>
+        <td>Rating</td> 
+        <td colspan="3">Remarks</td>
+      </tr>      
+      <% @issues.each do |issue| %>
+
+        <% @items = Defect.where("assignment_id = ? and issue_id = ?", assignment.id, issue.id) %>
+        <% if @items.count == 0 %>
+            <tr>
+              <td><%= issue.code %></td> 
+              <td colspan="3"><%= issue.name %></td>
+              <td colspan="2"><%= issue.serial_number %></td>
+              <td><%= issue.param_1 %></td> 
+              <td colspan="3"></td>
+            </tr>
+        <% else %>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= issue.code %></td> 
+              <td colspan="3"><%= issue.name %></td>
+              <td colspan="2"><%= issue.serial_number %></td>
+              <td><%= item.rating %></td> 
+              <td colspan="3"><%= item.remarks %></td>
+            </tr>
+          <% end %>
+        <% end %> 
+
+      <% end %> 
+    </tbody>
+  </table>
+  <br>
+  <table class="noBorder"style="width:100%">
+    <tr>
+      <td class="noBorder">Inspected By: <%= assignment.inspector.name if assignment.inspector_id? %></td>
+      <td class="noBorder">Signature: __________________</td>
+      <td class="noBorder">Designation: <%= assignment.inspector.designation if assignment.inspector_id? %></td>
+    </tr>
+    <tr>
+      <td class="noBorder">Witnessed By: <%= assignment.witness.name if assignment.witness_id? %></td>
+      <td class="noBorder">Signature: __________________</td>
+      <td class="noBorder">Designation: <%= assignment.witness.designation if assignment.witness_id? %></td>
+    </tr>
+  </table>
+
+<% end %>

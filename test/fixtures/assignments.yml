@@ -1,0 +1,53 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_id: 1
+  location: one
+  team: one
+  operation_team_id: 1
+  name: MyString
+  start_datetime: 2020-02-19 13:56:12
+  due_datetime: 2020-02-19 13:56:12
+  end_datetime: 2020-02-19 13:56:12
+  status: 1
+  aasm_state: MyString
+  aasm_supplement: 1
+  ref_no: 1
+  ancestry: MyString
+  user_ref: MyString
+  parent_id: 1
+  comments: MyText
+  color: MyString
+  date_range: MyString
+  address: MyString
+  longitude: 9.99
+  altitude: 9.99
+  latitude: 9.99
+  block_hash: MyString
+  nonce: 1
+
+two:
+  work_id: 1
+  location: two
+  team: two
+  operation_team_id: 1
+  name: MyString
+  start_datetime: 2020-02-19 13:56:12
+  due_datetime: 2020-02-19 13:56:12
+  end_datetime: 2020-02-19 13:56:12
+  status: 1
+  aasm_state: MyString
+  aasm_supplement: 1
+  ref_no: 1
+  ancestry: MyString
+  user_ref: MyString
+  parent_id: 1
+  comments: MyText
+  color: MyString
+  date_range: MyString
+  address: MyString
+  longitude: 9.99
+  altitude: 9.99
+  latitude: 9.99
+  block_hash: MyString
+  nonce: 1

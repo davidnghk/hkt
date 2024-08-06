@@ -1,0 +1,23 @@
+<div class="card" >
+  <div class="card-header">
+    <h2>
+            <%= t('laboratory')   %> 
+    </h2>
+  </div>
+  <div class="card-body">
+    <p><strong><%= t('code') %>:</strong> <%= @laboratory.code %></p>
+
+    <p><strong><%= t('name') %>:</strong> <%= @laboratory.name %></p>
+
+    <p><strong><%= t('local_name') %>:</strong> <%= @laboratory.local_name %></p>
+
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to t('edit'), edit_laboratory_path(@laboratory), data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+    <%= link_to t('list'), laboratories_path, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+    <%= link_to t('delete'), @laboratory, method: :delete, data: { confirm: 'Are you sure?' }, 
+    class: "btn btn-tab btn-danger btn-sm " %> 
+  </div>
+</div>
+
+

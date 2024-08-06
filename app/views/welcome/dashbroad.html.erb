@@ -1,0 +1,184 @@
+  <div class="container mx-auto p-4"></div>
+    <div class="my-12">
+
+      <% if user_signed_in? %>
+        <h2><%= current_team.display_name %></h2>
+
+            <!-- Content Row -->
+            <div class="row"> 
+
+                <!-- Sales Chart -->
+                <div class="col-xl-6 col-lg-6">
+                  <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary"><%= t('quotation') %></h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body ">
+                      <div class="chart-area">
+                        <%= link_to sales_path, data: { turbolinks: false }  do %>
+                            <% if browser.platform.windows? or browser.platform.mac? or browser.platform.linux? or browser.device.ipad?  %>
+                              <%= column_chart Sale.group(:aasm_state).group_by_week(:sale_date, last: 6, current: true).count, stacked: true %>
+                            <% else %>
+                              <%= column_chart Sale.group(:aasm_state).group_by_week(:sale_date, last: 6, current: true).count, height: 200, stacked: true %>
+                            <% end %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                      <%= link_to '<i class="fa fa-list fa-2x"  ></i>'.html_safe, 
+                          sales_path(:commit => "Search"), data: { turbolinks: false } %>
+                      <%= link_to '<i class="fa fa-plus-circle fa-2x" ></i>'.html_safe, 
+                          new_sale_path, data: { turbolinks: false } %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Collection Chart -->
+                <div class="col-xl-6 col-lg-6">
+                  <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary"><%= t('collection') %></h6>
+
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                      <div class="chart-area">
+                        <%= link_to sales_path, data: { turbolinks: false }  do %>
+                            <% if browser.platform.windows? or browser.platform.mac? or browser.platform.linux? or browser.device.ipad?  %>
+                              <%= column_chart Collection.group_by_week(:created_at, last: 6, current: true).count, stacked: true %>
+                            <% else %>
+                              <%= column_chart Collection.group_by_week(:created_at, last: 6, current: true).count, height: 200, stacked: true %>
+                            <% end %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                      <%= link_to tasks_path, data: { turbolinks: false } do %>
+                            <i class="fa fa-list fa-2x" aria-hidden="true"></i>
+                      <% end %>
+                      <%= link_to new_task_path, data: { turbolinks: false } do %>
+                            <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                      <% end %>
+                      <%= link_to '<i class="fa fa-calendar fa-2x"  ></i>'.html_safe, 
+                          calendar_path, data: { turbolinks: false } %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Work Order Chart -->
+                <div class="col-xl-6 col-lg-6">
+                  <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary"><%= t('task') %></h6>
+
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                      <div class="chart-area">
+                        <%= link_to sales_path, data: { turbolinks: false }  do %>
+                            <% if browser.platform.windows? or browser.platform.mac? or browser.platform.linux? or browser.device.ipad?  %>
+                              <%= column_chart Task.group(:aasm_state).group_by_week(:start_time, last: 6, current: true).count, stacked: true %>
+                            <% else %>
+                              <%= column_chart Task.group(:aasm_state).group_by_week(:start_time, last: 6, current: true).count, height: 200, stacked: true %>
+                            <% end %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                      <%= link_to tasks_path, data: { turbolinks: false } do %>
+                            <i class="fa fa-list fa-2x" aria-hidden="true"></i>
+                      <% end %>
+                      <%= link_to new_task_path, data: { turbolinks: false } do %>
+                            <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                      <% end %>
+                      <%= link_to '<i class="fa fa-calendar fa-2x"  ></i>'.html_safe, 
+                          calendar_path, data: { turbolinks: false } %>
+                    </div>
+                  </div>
+                </div>
+
+                  <!-- Task Materials Chart -->
+                  <div class="col-xl-6 col-lg-6">
+                    <div class="card shadow mb-4">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary"><%= t('task') %>(<%= t('material') %>)</h6>
+  
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <div class="chart-area">
+                          <%= link_to sales_path, data: { turbolinks: false }  do %>
+                              <% if browser.platform.windows? or browser.platform.mac? or browser.platform.linux? or browser.device.ipad?  %>
+                                <%= column_chart TaskMaterial.group(:category).group_by_week(:booking_date, last: 6, current: true).sum('task_materials.cost'), ytitle: "HK$", stacked: true %>
+                              <% else %>
+                                <%= column_chart TaskMaterial.group(:category).group_by_week(:booking_date, last: 6, current: true).sum('task_materials.cost'), ytitle: "HK$", height: 200, stacked: true %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!-- Task Staff Chart -->
+                  <div class="col-xl-6 col-lg-6">
+                    <div class="card shadow mb-4">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary"><%= t('task') %>(<%= t('staff') %>)</h6>
+  
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <div class="chart-area">
+                          <%= link_to sales_path, data: { turbolinks: false }  do %>
+                              <% if browser.platform.windows? or browser.platform.mac? or browser.platform.linux? or browser.device.ipad?  %>
+                                <%= column_chart TaskStaff.group(:category).group_by_week(:booking_date, last: 6, current: true).count, stacked: true %>
+                              <% else %>
+                                <%= column_chart TaskStaff.group(:category).group_by_week(:booking_date, last: 6, current: true).count, height: 200, stacked: true %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!-- Task Staff Chart -->
+                  <div class="col-xl-6 col-lg-6">
+                    <div class="card shadow mb-4">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary"><%= t('task') %>(<%= t('vehicle') %>)</h6>
+  
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                        <div class="chart-area">
+                          <%= link_to sales_path, data: { turbolinks: false }  do %>
+                              <% if browser.platform.windows? or browser.platform.mac? or browser.platform.linux? or browser.device.ipad?  %>
+                                <%= column_chart TaskVehicle.group(:category).group_by_week(:booking_date, last: 6, current: true).sum('task_vehicles.run_km'), ytitle: "km", stacked: true %>
+                              <% else %>
+                                <%= column_chart TaskVehicle.group(:category).group_by_week(:booking_date, last: 6, current: true).sum('task_vehicles.run_km'), ytitle: "km", height: 200, stacked: true %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+            </div>
+            <!-- Content Row -->
+      <% else %>
+        <div class="p-2 text-center">
+          <%#= link_to t("subscribe"), pricing_path, class: "d-none d-sm-inline-block btn btn-success shadow-sm" %>
+        </div>
+        <% end %>
+    </div>
+  </div>

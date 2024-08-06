@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header">
+        <%= link_to teams_path, data: { turbolinks: false } do %>
+          <i class="fa fa-list fa-2x" style="color:grey; "aria-hidden="true"></i>
+        <% end %>
+  </div>
+  <div class="card-body">  
+      <dl class="dl-horizontal">
+        <dt><%= t('code') %>: <%= @team.code %></dt>
+        <dt><%= t('name') %>: <%= @team.name %></dt>
+        <dt><%= t('local_name') %>: <%= @team.local_name %></dt>
+      </dl>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <tbody>
+              <% @team.members.each do |member| %>
+                <tr data-link="<%= member_path(member) %>">
+                  <td><%= member.user.email %></td>
+                  <td><%= member.user.name %></td>
+                  <td><%= member.role %></td>
+                </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <h6><%= t('invite') %></h6>
+      <%= form_for [@team, Member.new] do |f| %>
+        <div>
+          <%= f.text_field :email, required: true %>
+          <%= button_tag type: 'submit',  class: 'btn btn-primary' do %>
+          <i class="fa fa-save" aria-hidden="true"></i>
+          <% end %>
+       </div>
+      <% end %>
+    </div>
+    <div class="card-footer">
+      <%= link_to edit_team_path(@team), data: { turbolinks: false } do %>
+        <i class="fa fa-edit fa-2x" style="color:blue;" aria-hidden="true"></i>
+      <% end %>
+      <% if @team.members.count == 0 %>
+        <%= link_to '<i class="fa fa-trash fa-2x" style="color:red; ; float: right"></i>'.html_safe, @team, 
+          data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+      <% end %>
+    </div>
+    
+</div>

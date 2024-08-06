@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header">
+    <%= @member.team.name %>
+    <%= link_to @member.team, data: { turbolinks: false } do %>
+      <i class="fa fa-list fa-2x" style="color:grey; float: right" aria-hidden="true"></i>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <p class="card-title"><strong><%= t('member') %>: </strong><%= @member.user.name %></p>
+    <p class="card-text">
+    	<%= simple_form_for(@member) do |f| %>
+		  <div class="form-inputs">
+		    <%= f.input :role %>
+		  </div>
+
+		  <%= button_tag type: 'submit',  class: 'btn btn-primary' do %>
+		    <i class="fa fa-save" aria-hidden="true"></i>
+		    <% end %>
+		<% end %>
+    </p>
+  </div>
+</div>

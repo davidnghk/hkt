@@ -1,0 +1,14 @@
+<% @lines.each do |line| %>
+    <%= content_tag :div, class: 'divTableRow', id: dom_id(line) do %>
+      
+      <div class="divTableCell"><%= line.code %></div>
+      <div class="divTableCell"><%= line.percentage %></div>
+      <div class="divTableCell"><%= line.price %></div>
+      <div class="divTableCell"><%= line.quantity %></div>
+      <div class="divTableCell">
+        <%= link_to t('Edit'), edit_line_path(line), remote: true %>
+        <%= link_to t('Destroy'), line, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+
+    <% end %>
+  <% end %>

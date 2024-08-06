@@ -1,0 +1,57 @@
+<div class="card" >
+  <div class="card-body">
+    <table  class="table striped">
+      <thead>
+          <tr>
+            <th><%= t('work') %></th> 
+            <th><%= t('heading') %></th> 
+            <th><%= t('start_date') %></th>
+            <th><%= t('due_date') %></th>
+            <th><%= t('mgr') %></th>
+            <th><%= t('opr') %></th>
+            <th><%= t('status') %></th>        
+            <th><%= t('state') %></th>        
+            <% if false %>             %>
+            <th><%= t('BC') %></th>
+            <% end %>
+          </tr> 
+      </thead>
+
+      <tbody>
+        <% if (@assignments != nil) then %>
+          <% @assignments.each do |assignment| %>
+            <tr data-link="<%= assignment_path(assignment) %>">
+              <td>
+                <%= name_avatar(assignment.work.display_name, 24) %>
+                (# <%= assignment.id %>)
+                <%= assignment.user_ref%> 
+              </td>  
+              <td><b><%= assignment.name %></b><br>
+                <%= assignment.address %>
+              </td>
+              <td><%= assignment.start_datetime.strftime('%F %H:%M') if assignment.start_datetime? %></td>
+              <td><b><%= assignment.due_datetime.strftime('%F %H:%M') if assignment.due_datetime? %></b><br>
+                <%= assignment.end_datetime.strftime('%F %H:%M') if assignment.end_datetime? %>
+              </td>            
+               <td><%= name_avatar(assignment.team.display_name, 24) %>
+               <td><%= name_avatar(assignment.operation_team.display_name, 24) %>
+               <td><%= name_avatar(assignment.status, 24) %><%= t(assignment.status) %>
+               <td><%= t(assignment.aasm_state) %></td> 
+
+              <% if false %>  
+                 <td><% if assignment.valid_block? %> 
+                      <%=  image_tag("bc-25.png") %>
+                     <% else %>
+                      <%= image_tag("bbc-25.png") %>
+                     <% end %>
+                 </td>
+               <% end %>
+
+          <% end %>
+        <% end %>
+      </tbody>
+
+    </table>
+
+  </div>
+

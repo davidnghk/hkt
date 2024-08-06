@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <%= t('line') %>
+      </div>
+    </div>
+  <div class="card-body">
+
+    <div class="divTable paleBlueRows">
+      <div class="divTableHeading">
+        <div class="divTableRow">
+          <div class="divTableHead"><%= t('description') %></div>
+          <div class="divTableHead"><%= t('testing') %></div>
+          <div class="divTableHead"><%= t('discount') %></div>
+          <div class="divTableHead"><%= t('price') %></div>
+          <div class="divTableHead"><%= t('unit') %></div>
+          <div class="divTableHead"><%= t('quantity') %></div>
+
+          <div class="divTableHead"><%= t('action') %></div>
+        </div>
+      </div>
+      <div class="divTableBody">
+        <% @lines.each do |line| %>
+          <%= content_tag :div, class: 'divTableRow', id: dom_id(line) do %>
+          <div class="divTableCell" style="text-align:left" ><%= line.product.code %> 
+            <%= line.description %>
+            </div>
+            
+          <div class="divTableCell" style="text-align:left" ><%= line.method %>
+            </div>
+          <div class="divTableCell"><%= line.percentage %></div>
+          <div class="divTableCell"><%= line.price %></div> 
+          <div class="divTableCell"><%= line.unit %></div> 
+          <div class="divTableCell"><%= line.quantity %></div>
+
+          <div class="divTableCell">
+            <%= link_to t('edit'), edit_line_path(line), remote: true,
+            class: "btn btn-tab btn-warning btn-sm " %> 
+            <%= link_to t('delete'), line, method: :delete, data: { confirm: 'Are you sure?' }, 
+              class: "btn btn-tab btn-danger btn-sm " %> 
+            <%#= link_to t('edit'), edit_line_path(line), remote: true %>
+            <%#= link_to t('delete'), line, method: :delete, 
+              data: { confirm: 'Are you sure?' } %>
+          </div>
+
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-footer">
+  </div>
+
+  <%= link_to t('quotation'), @lineable, data: { turbolinks: false }, class: 
+  "btn btn-tab btn-warning btn-tab "  %> 

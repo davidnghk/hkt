@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Assignment:</strong>
+  <%= @assignment_item.assignment_id %>
+</p>
+
+<p>
+  <strong>Work item:</strong>
+  <%= @assignment_item.work_item %>
+</p>
+
+<p>
+  <strong>Work item:</strong>
+  <%= @assignment_item.serial_number %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @assignment_item.rating %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @assignment_item.remarks %>
+</p>
+
+<%= link_to 'Edit', edit_assignment_item_path(@assignment_item) %> |
+<%= link_to 'Back', assignment_items_path %>

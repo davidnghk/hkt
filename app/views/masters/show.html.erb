@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    	<h4>
+	 	    	<%= @master.display_name %> 
+	    </h4>
+    </div>
+    <div class="panel-body">
+    	<br>
+		<p><strong><%= t('code') %>: </strong><%= @master.code %></p>
+		<p><strong><%= t('name') %>: </strong><%= @master.name %></p>
+		<p><strong><%= t('local_name') %>: </strong><%= @master.local_name %></p>
+		<% if @master.icon? %>
+			<p><strong><%= t('icon') %>: </strong><%= @master.icon %></p>
+		<% end %>
+		<% if  @master.setting1? %>
+			<p><strong><%= t('setting1') %>: </strong><%= @master.setting1 %></p>
+		<% end %>
+		<% if  @master.param1? %>
+			<p><strong><%= t('param1') %>: </strong><%= @master.param1 %></p>
+		<% end %>
+
+		<%= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe, edit_master_path(@master), data: { turbolinks: false }  %>  
+		<%= link_to '<i class="fa fa-list-alt fa-2x" style="color:blue"></i>'.html_safe,  masters_path, data: { turbolinks: false } %>
+		<%= link_to '<i class="fa fa-level-up-alt fa-2x" style="color:blue"></i>'.html_safe,  @master.parent, data: { turbolinks: false } if @master.parent_id? %>
+		</div>
+	</div>
+  </div>
+<br>
+
+	<div class="card" >
+	  <div class="card-header">
+	    <%= @master.display_name %> 
+	  </div>
+	  <div class="card-body">
+
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th><%= t('code') %></th>
+		      <th><%= t('name') %></th>
+		      <th><%= t('local_name') %></th>
+		      <th></th>
+		    </tr>
+		  </thead> 
+
+		  <tbody>
+		    <% @master.children.each do |master| %>
+		      <tr data-link="<%= master_path(master) %>">
+		        <td><%= master.code %></td>
+		        <td><%= master.name %></td>
+		        <td><%= master.local_name %></td>
+		        <td><%= link_to '<i class="fa fa-trash fa-2x" style="color:red"></i>'.html_safe, master, method: :delete, data: {confirm: "Are your sure? "}  %>
+		        </td>
+		      </tr>
+		    <% end %>
+		  </tbody>		  
+		</table>
+	  </div>
+  	  <div class="card-footer text-muted">
+  	  	<%= link_to '<i class="fa fa-plus-circle fa-2x" style="color:blue"></i>'.html_safe, new_master_path(:parent_id => @master.id), data: { turbolinks: false }  %>
+  	  </div>
+</div>
+

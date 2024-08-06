@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        function number_pages() {
+            var vars={};
+            var x=document.location.search.substring(1).split('&');
+            for(var i in x) {var z=x[i].split('=',2);vars[z[0]] = unescape(z[1]);}
+            var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
+            for(var i in x) {
+            var y = document.getElementsByClassName(x[i]);
+            for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <% if @sale.category == "Quotation" %>
+            <table style="width: 905px;">
+                <tbody>
+                    <tr>
+                        <td style="width: 385px;">
+                            <p>For and on Behalf of<br /> <strong>Hong Kong Testing Co., Ltd.</strong></p>
+                        </td>
+                        <td style="width: 140px;">&nbsp;</td>
+                        <td style="width: 385px;">
+
+                            <p>Accepted By (Signature &amp; Co. Chop)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 385px;">&nbsp;
+                            <p><span style="text-decoration: underline;">&nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                </span></p>
+                            <p><%= @sale.authorised_person %><br /><%= @sale.authorised_person2 %><br><br><br></p>
+                        </td>
+                        <td style="width: 140px;">&nbsp;</td>
+                        <td style="width: 420px;">&nbsp;
+                            <p><span style="text-decoration: underline;">&nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                </span></p>
+                            <p>Name in full :<br /> Designation : <br />
+                                Company : <%= @sale.client.client_name %><br /> Date :</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <% else %>
+        <table style="width: 900px;">
+            <tbody>
+                <tr>
+                    <td style="width: 660px;">
+                        <p>Remarks : <br></p>
+                        <p>Credit Terms:  30 days </p>
+                        <p>Cheque Should be crossed and made payabe to HONG KONG TESTING CO., LTD.<br>
+                        Interest will be charged on all overdue amount<br>
+                        A separate official receipt will be issued on payment</p>
+                    </td>
+
+                    <td style="width: 240px;">
+                        <p>For and on Behalf of<br /> <strong>Hong Kong Testing Co., Ltd</strong></p>
+
+                        <p><span style="text-decoration: underline;">&nbsp; &nbsp; &nbsp; &nbsp;
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        </span></p>
+                    </td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <% end %>
+        <div class="page-count" style="text-align: center;" ><span class="page"></span> of <span class="topage"></span></div>
+    </body>
+</html>

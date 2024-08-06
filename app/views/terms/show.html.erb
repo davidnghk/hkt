@@ -1,0 +1,30 @@
+<div class="card" >
+  <div class="card-header">
+    <h2>
+            <%= t('term')   %> 
+    </h2>
+  </div>
+  <div class="card-body">
+    <p><strong><%= t('code') %>:</strong> <%= @term.code %></p>
+
+    <p><strong><%= t('name') %>:</strong> <%= @term.name %></p>
+
+    <p><strong><%= t('local_name') %>:</strong> <%= @term.local_name %></p>
+
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to t('edit'), edit_term_path(@term), data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+    <%= link_to t('list'), terms_path, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+    <%= link_to t('delete'), @term, method: :delete, data: { confirm: 'Are you sure?' }, 
+    class: "btn btn-tab btn-danger btn-sm " %> 
+
+    <%#= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe,  
+      edit_term_path(@term), data: { turbolinks: false }  %>
+    <%#= link_to '<i class="fa fa-trash fa-2x" style="color:red"></i>'.html_safe,  
+      @term, method: :delete, data: { confirm: 'Are you sure?' }  %>
+    <%#= link_to '<i class="fa fa-list fa-2x" style="color:blue"></i>'.html_safe,  
+      terms_path, data: { turbolinks: false }  %>
+  </div>
+</div>
+
+    

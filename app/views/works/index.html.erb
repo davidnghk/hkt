@@ -1,0 +1,47 @@
+<div class="card" >
+  <div class="card-header">
+    <h6>
+      <%= t('work')   %> 
+    </h6>
+  </div>
+  <div class="card-body">
+
+    <table>
+  <thead>
+    <tr>
+
+      <th><%= t('code') %></th>
+      <th><%= t('name') %></th>
+      <th><%= t('local_name') %></th>
+
+      <th><%= t('workflow') %></th>
+      <th><%= t('audit') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @works.each do |work| %>
+      <tr data-link="<%= work_path(work) %>">
+
+        <td><%= work.code %></td>
+        <td><%= work.name %></td>
+        <td><%= work.local_name %></td>
+
+        <td>
+          <%= work.workflow.display_name if work.workflow_id?  %>
+        </td>
+        <td>
+          <%=link_to work_path(work, :commit => "Audit"), data: { turbolinks: false } do%>
+            <i class="fas fa-history"></i>
+          <%end%>       
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to '<i class="fa fa-plus-circle fa-2x" style="color:blue"></i>'.html_safe,  new_work_path, data: { turbolinks: false }  %>
+  </div>
+</div>

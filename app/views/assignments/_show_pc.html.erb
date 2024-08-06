@@ -1,0 +1,270 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <%= name_avatar(@assignment.work.display_name, 24) %> 
+        <%= @assignment.work.display_name %>(#<%= @assignment.id %>)
+      </div>
+
+      <% if @assignment.parent_id? %>
+          <span class="col">
+            <%= link_to '<i class="fas fa-arrow-circle-up fa-2x" style="color:blue"></i>'.html_safe,  @assignment.parent, data: { turbolinks: false } %>
+              <%= t('parent') %> (#<%= @assignment.parent_id %>)
+          </span>
+      <% end %>
+      <%= link_to '<i class="fa fa-file-pdf fa-2x" style="color:blue"></i>'.html_safe,  [@assignment, format: :pdf]  %>
+
+    </div>
+  <div class="card-body">
+
+          <div class="row ">
+            <div  class="col-xs-8 col-md-8  ">
+              <strong><%= t('heading') %>: </strong> 
+              <%= @assignment.name %>  
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('status') %>: </strong>
+              <%= name_avatar(@assignment.status, 24) %><%= t(@assignment.status) %>
+            </div>
+          </div>
+
+          <div class="row "> 
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('client') %>: </strong> 
+              <%= @assignment.client.name if @assignment.client_id? %> <br>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('site') %>: </strong>
+              <%= @assignment.project_site %><br>
+              <strong><%= t('attention') %>: </strong>
+              <%= @assignment.attention %> <br>
+              <strong><%= t('phone') %>: </strong>
+              <%= @assignment.phone %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('client_ref') %>: </strong>
+              <%= @assignment.client_ref %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('start_date') %>: </strong>
+              <%= @assignment.start_datetime.strftime('%F %I:%M %P') if @assignment.start_datetime? %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('due_date') %>: </strong>
+              <%= @assignment.due_datetime.strftime('%F %I:%M %P') if @assignment.due_datetime? %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('end_date') %>: </strong>
+              <%= @assignment.end_datetime.strftime('%F %I:%M %P') if @assignment.end_datetime? %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('manager') %>: </strong>
+              <%= name_avatar(@assignment.team.display_name, 24) %> 
+              <%= @assignment.team.display_name %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('operator') %>: </strong>
+              <%= name_avatar(@assignment.operation_team.display_name, 24) %> 
+              <%= @assignment.operation_team.display_name if @assignment.operation_team_id? %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('state') %>: </strong>
+              <%= t(@assignment.aasm_state) %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div  class="col-xs-12 col-md-12 ">
+              <strong><%= t('comments') %>: </strong>
+            </div>
+          </div>
+          <p class="card-text"><%= @assignment.comments %></p>
+
+          <% if @assignment.work.work_items.count > 0 %>
+
+            <div class="card">
+                <div class="card-header">
+                  <%= t('work_items') %> 
+                  <%= link_to '<i class="fas fa-plus-circle fa-2x" style="color:blue"></i>'.html_safe, new_assignment_item_path(assignment_id: @assignment.id) %>
+                </div>
+                <div class="card-body">
+                  <% if @assignment.assignment_item.count > 0 %>
+                    <table  class="table table-striped">
+                      <tbody>
+                          <% @assignment.assignment_item.each do |assignment_item| %>
+                            <tr data-link="<%= edit_assignment_item_path(assignment_item) %>">
+                            <td><%= assignment_item.work_item.display_name %> </td>
+                            <td><%= assignment_item.serial_number %> </td>
+                            <td><%= assignment_item.rating %> </td>
+                            <td><%= link_to '<i class="fa fa-trash" style="color:red"></i>'.html_safe, assignment_item, data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %>  
+                            </td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  <% end %>
+                </div>
+            </div> <br>
+          <% end %>
+
+  <ul class="nav nav-tabs nav-fill nav-justified">
+  <li class="active btn btn-warning btn-icon-split btn-sm">
+    <a data-toggle="tab" href="#item">
+      <span class="icon text-white-50"><i class="fas fa-list"></i></span>
+      <span class="text"><%= t('item') %></span>
+    </a>
+  </li>
+  <li class="btn btn-warning btn-icon-split btn-sm">
+      <a data-toggle="tab" href="#home">
+        <span class="icon text-white-50"><i class="fas fa-arrow-circle-down"></i></span>
+        <span class="text"><%= t('children') %></span>
+      </a>
+    </li>
+    <li class="btn btn-success btn-icon-split btn-sm">
+      <a data-toggle="tab" href="#menu1">
+        <span class="icon text-white-50"><i class="fas fa-history"></i></span>
+        <span class="text"><%= t('workflow') %></span>
+      </a>
+    </li>
+  </ul>
+
+  <% if browser.device.mobile? %> 
+    <%= render partial: "lines/lines", locals: {lineable: @assignment} %>
+    <%= render partial: "lines/form", locals: {lineable: @assignment} %>
+  <% else %>
+    <div class="tab-content">
+      <div id="item" class="tab-pane active">
+        <div class="card">
+          <div class="card-body">
+            <%= render partial: "lines/lines", locals: {lineable: @assignment} %>
+            <%= render partial: "lines/form", locals: {lineable: @assignment} %>
+          </div>
+        </div> 
+      </div>
+
+      <div id="home" class="tab-pane fade">
+            <div class="card">
+              <div class="card-header">
+                <%= t('children') %> 
+                <%= link_to '<i class="fas fa-plus-circle fa-2x" style="color:blue"></i>'.html_safe, new_assignment_path(parent_id: @assignment) %>
+              </div>
+              <div class="card-body">
+                <% if @assignment.children.count > 0 %>
+                  <table  class="table table-striped">
+                    <tbody>
+                        <% @assignment.children.each do |assignment| %>
+                          <tr data-link="<%= assignment_path(assignment) %>">
+                          <td>
+                              <%= name_avatar(@assignment.work.display_name, 24) %> 
+                              <%= assignment.work.display_name %>(#<%= assignment.id %>)
+                          </td>
+                          <td><%= assignment.name %> </td>
+                          <td><%= assignment.start_datetime.strftime('%F %I:%M %P') if assignment.start_datetime? %></td>
+                          <td>
+                              <%= name_avatar(assignment.team.display_name, 24) %> 
+                          </td>
+                          <td><%= name_avatar(@assignment.status, 24) %><%= t(assignment.status) %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+
+                  </table>
+                <% end %>
+              </div>
+            </div>
+      </div>
+
+
+      <div id="menu1" class="tab-pane fade">
+        <div class="card">
+          <div class="card-header">
+                <%= t('audit') %>
+            </div>
+          <div class="card-body">
+              <table  class="table table-striped">
+                <tbody>
+                    <% @assignment.assignment_logs.each do |assignment_log| %>
+                      <tr>
+                        <td><%= assignment_log.created_at.strftime('%F %I:%M %P') %></td>
+                        <td><%= t(assignment_log.action.titlecase) %></td>
+                        <td><%= assignment_log.operation_team.display_name %></td>
+                        <td><%= assignment_log.actor.name %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+  <% end %>
+
+          <br>
+          <% if @assignment.work.workflow.code == "SIMPLE" %>
+            <%= render 'workflow_simple' %>
+          <% end %>
+          <% if @assignment.work.workflow.code == "OS" %>
+            <%= render 'workflow_os' %>
+          <% end %>
+          <% if @assignment.work.workflow.code == "INT" %>
+            <%= render 'workflow_int' %>
+          <% end %>
+          <br>
+          <%= render 'photo_upload' %>
+
+</div>
+  <div class="card-footer text-muted">
+    <div class="row">
+      <div class="col">
+        <%= link_to '<i class="fa fa-list-alt fa-2x"  style="color:blue"></i>'.html_safe,  
+          assignments_path, data: { turbolinks: false } %>
+      </div>
+      <div class="col">
+        <%= link_to '<i class="fa fa-calendar fa-2x"  style="color:blue"></i>'.html_safe, 
+           calendar_path, data: { turbolinks: false } %>
+      </div>
+        <%= link_to '<i class="fa fa-edit fa-2x"  style="color:blue"></i>'.html_safe, 
+           edit_assignment_path(@assignment), data: { turbolinks: false } %>
+    </div>
+  </div>
+</div>
+
+  <br>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="row ">
+        <% @assignment.uploadfiles.each do |upload| %>
+          <div  class="col-xs-1 col-md-1 ">
+              <% if upload.variable? %>
+                <%= link_to image_tag(upload.variant(resize: "150x150")), upload %>
+              <% elsif upload.previewable? %>
+                <%= link_to image_tag(upload.preview(resize: "150x150")), rails_blob_path(upload, disposition: :attachment) %>
+              <% elsif upload.image? %>
+                <%= link_to image_tag(upload, width: 400), upload %>
+              <% else %>
+                <%= link_to '<i class="fa fa-file fa-2x"  style="color:blue"></i>'.html_safe, rails_blob_path(upload, disposition: :attachment) %>
+              <% end %><br>
+              <%= link_to delete_uploadfile_assignment_url(upload.id),
+                    remote: true, method: :delete,
+                    data: {confirm: "Are your sure? "} do %>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div id="photo_details"><%= render 'photos/photo_details' %> </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <%= t('line') %>
+      </div>
+    </div>
+  <div class="card-body">
+    <%= simple_form_for(@line) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    
+        <div class="form-inputs">
+        <%= f.input  :description %>      
+        <%= f.input  :percentage %>      
+        <%= f.input :price %>
+        <%= f.input :quantity %>
+        </div>
+    
+        <div class="form-actions">
+        <%= f.button :submit %>
+        </div>
+    <% end %>
+  </div>
+
+  <div class="card-footer">
+  </div>

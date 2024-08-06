@@ -1,0 +1,140 @@
+<div class="card">
+  <div class="card-header">
+    <%= @task.category %>
+  </div>
+  <div class="card-body">
+
+    <%= simple_form_for(@task) do |f| %>
+    <%= f.input :category, :as => :hidden %>
+
+    <div class="form-inputs">
+      <div class="row ">
+        <div class="col-xs-4 col-md-4  ">
+          <%#= f.input :category %>
+        </div>
+      </div>
+
+      <div class="row ">
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.input :task_date, as: :date, html5: true %>
+        </div>
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.association :laboratory %>
+        </div>
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.association :client %>
+        </div>
+      </div>
+
+      <div class="row ">
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.input :location %>
+        </div>
+          <div class="col-xs-4 col-md-4  ">
+            <%= f.input :sample %>
+          </div>
+          <div class="col-xs-4 col-md-4  ">
+            <%= f.input :no_of_sample %>
+          </div>
+        </div>
+
+
+      <div class="row ">
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.input :contact %>
+        </div>
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.input :phone %>
+        </div>
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.input :fax %>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="card">
+      <div class="card-header">
+        <%= t("report")  %>
+      </div>
+      <div class="card-body">
+
+        <div class="row ">
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :sample_received_date, as: :date, html5: true %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :test_start_date, as: :date, html5: true %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :test_end_date, as: :date, html5: true %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :report_drafted_date, as: :date, html5: true %>
+          </div>
+        </div>
+
+        <div class="row ">
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :report_typed_date, as: :date, html5: true %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :report_checked_date, as: :date, html5: true %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :report_signed_date, as: :date, html5: true %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :report_dispatched_date, as: :date, html5: true %>
+          </div>
+        </div>
+
+      </div>
+    </div><br>
+
+    <div class="card">
+      <div class="card-header">
+        <%= t("invoice")  %>
+      </div>
+      <div class="card-body">
+
+        <div class="row ">
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :report_no %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :quotation_no  %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :invoice_no %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :invoice_date, as: :date, html5: true %>
+          </div>
+        </div>
+
+        <div class="row ">
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :invoice_amount %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :account_signoff_date, as: :date, html5: true %>
+          </div>
+          <div class="col-xs-3 col-md-3  ">
+            <%= f.input :laboratory_signoff_date, as: :date, html5: true %>
+          </div>
+        </div>
+
+      </div>
+    </div><br>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
+  <% end %>
+</div>
+  <div class="card-footer text-muted">
+    <%= link_to t('list'), tasks_path, data: { turbolinks: false }, class: 
+    "btn btn-tab btn-warning btn-tab "  %> 
+  </div>
+</div>

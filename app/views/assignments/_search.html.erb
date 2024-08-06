@@ -1,0 +1,107 @@
+<%= search_form_for @search do |f| %>
+ 
+  <div class="row">
+    <div class="col-md-2"><%= t('start_date') %></div>
+    <div class="col-md-4"><%= f.text_field :start_datetime_gteq, :size=>"10", readonly: true %> : 
+      <%= f.text_field :start_datetime_lteq, :size=>"10", readonly: true %></div>
+    <div class="col-md-2"><%= t('end_date') %></div>
+    <div class="col-md-4"><%= f.text_field :end_datetime_gteq, :size=>"10", readonly: true %> : <%= f.text_field :end_datetime_lteq, :size=>"10", readonly: true %></div>
+  </div>
+ 
+  <div class="row">
+    <div class="col-md-2"><%= t('ref') %></div>
+    <div class="col-md-4"><%= f.search_field :id_eq %></div>
+    <div class="col-md-2"><%= t('user_ref') %></div>
+    <div class="col-md-4"><%= f.search_field :user_ref_cont %></div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= t('work') %></div>
+    <div class="col-md-4"><%= f.select :work_id_eq, options_from_collection_for_select(Work.where('team_id = ? or id =1 ', current_team.id),  "id", "name", @search.work_id_eq), include_blank: true  %></div>
+    <div class="col-md-2"><%= t('heading') %></div>
+    <div class="col-md-4"><%= f.search_field :name_cont %></div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-2"><%= t('location') %></div>
+    <div class="col-md-4"><%= f.select :location_id_eq, options_from_collection_for_select(Location.where('team_id = ? or id =1 ', current_team.id),  "id", "name", @search.location_id_eq), include_blank: true  %></div>
+    <div class="col-md-2"><%= t('address') %></div>
+    <div class="col-md-4"><%= f.search_field :address_cont %></div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-2"><%= t('team') %></div>
+    <div class="col-md-4"><%= f.select :team_id_eq, options_from_collection_for_select(current_user.teams,  "id", "display_name", @search.team_id_eq), include_blank: true  %></div>
+    <div class="col-md-2"><%= t('operator') %></div>
+    <div class="col-md-4"><%= f.select :operation_team_id_eq, options_from_collection_for_select(current_user.teams,  "id", "display_name", @search.operation_team_id_eq), include_blank: true  %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= t('status') %></div>
+    <div class="col-md-4"> <%= f.select  :aasm_state_eq, 
+    options_for_select([
+        [],
+        ['acknowledged'],
+        ['appraised'],
+        ['approved'],
+        ['assigned'],
+        ['booked'],
+        ['cancelled'],
+        ['completed'],
+        ['rejected'],
+        ['inProgress']
+      ], @search.aasm_state_eq)
+       %></div>
+  </div>
+
+ <br>
+
+  <div class="actions"><%= f.submit 'Search' %> 
+    <% if @assignments.count > 0  %>
+      <%#= f.submit 'Summary' %> <%#= f.submit 'Report' %>
+    <% end %>      
+    </div>
+<% end %>
+
+<% if @assignments.where(" latitude is not null").count > 0  %>
+  <div id="map" style="width: 100%; height: 100%"></div>
+<% end %>
+
+<%= render 'index_pc_list' %>
+
+<script type="text/javascript">
+  $("tr[data-link]").click(function() {
+      window.location = $(this).data('link');
+  });
+
+  $('#q_start_datetime_gteq').datepicker({ dateFormat: 'yy-mm-dd' });
+  $('#q_start_datetime_lteq').datepicker({ dateFormat: 'yy-mm-dd' });
+  $('#q_end_datetime_gteq').datepicker({ dateFormat: 'yy-mm-dd' });
+  $('#q_end_datetime_lteq').datepicker({ dateFormat: 'yy-mm-dd' });
+
+  function initialize() {
+    var location = {lat: 22.233, lng: 114.191}
+
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: location,
+      zoom: 12.5
+    });
+
+    <% @assignments.each do |assignment| %>
+      <% if assignment.latitude.present? %>
+        new google.maps.Marker({
+          position: {lat: <%= assignment.latitude %>, lng: <%= assignment.longitude %> },
+          map: map
+        })
+      <% end %> 
+    <% end %>
+
+  }
+
+ google.maps.event.addDomListener(window, 'load', initialize);
+
+</script> 

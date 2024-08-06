@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sales Terms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sale</th>
+      <th>Term</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales_terms.each do |sales_term| %>
+      <tr>
+        <td><%= sales_term.sale_id %></td>
+        <td><%= sales_term.term_id %></td>
+        <td><%= link_to 'Show', sales_term %></td>
+        <td><%= link_to 'Edit', edit_sales_term_path(sales_term) %></td>
+        <td><%= link_to 'Destroy', sales_term, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sales Term', new_sales_term_path %>

@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: one
+  category: 1
+  sale_date: 2020-06-26
+  our_ref: MyString
+  client_ref: MyString
+  client: one
+  project_site: MyString
+  attention: MyString
+  phone: MyString
+  total_amount: 9.99
+  authorised_person: MyString
+  authorised_date: 2020-06-26
+  aasm_state: MyString
+
+two:
+  team: two
+  category: 1
+  sale_date: 2020-06-26
+  our_ref: MyString
+  client_ref: MyString
+  client: two
+  project_site: MyString
+  attention: MyString
+  phone: MyString
+  total_amount: 9.99
+  authorised_person: MyString
+  authorised_date: 2020-06-26
+  aasm_state: MyString

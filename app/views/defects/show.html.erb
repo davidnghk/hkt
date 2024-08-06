@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Assignment:</strong>
+  <%= @defect.assignment_id %>
+</p>
+
+<p>
+  <strong>Issue:</strong>
+  <%= @defect.issue_id %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @defect.rating %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @defect.remarks %>
+</p>
+
+<%= link_to 'Edit', edit_defect_path(@defect) %> |
+<%= link_to 'Back', defects_path %>

@@ -1,0 +1,323 @@
+category_name,code,name,local_name,unit_name,unit_rate
+Bituminous Materials,BIT-PHY-0101,Quantitative Extraction of Bitumen From Bituminous Paving Mix,ASTM D2172-95 (Method A using washing method),No.,1000
+Bituminous Materials,BIT-PHY-0102,Quantitative Extraction of Bitumen From Bituminous Paving Mix,ASTM D2172-88 (Method A using washing method),No.,1000
+Bituminous Materials,BIT-PHY-0201,Bulk Specific Gravity and Density of Non-Absorptive Compacted Bituminous Mix,ASTM D2726-96a,No.,1000
+Bituminous Materials,BIT-PHY-0202,Bulk Specific Gravity and Density of Non-Absorptive Compacted Bituminous Mix,ASTM D2726-88,No.,1000
+Bituminous Materials,BIT-PHY-0301,Theoretical Maximum Specific Gravity and Density of Bituminous Paving Mixtures (Weighing in water method using typr A container),ASTM D2041-95,No.,1000
+Bituminous Materials,BIT-PHY-0302,Theoretical Maximum Specific Gravity and Density of Bituminous Mix; (Weighing in water method using typr A container),ASTM D2041-78,No.,1000
+Bituminous Materials,BIT-PHY-0401,Sieve Analysis of Fine and Coarse Aggregates and Materials ; by Washing for aggregates finer than 75 Micron. ,ASTM C117-95 and ASTM C136-95a,No.,1000
+Bituminous Materials,BIT-PHY-0402,Sieve Analysis of Fine and Coarse Aggregates ; for Materials Finer than 75 Micron Sieve in Mineral Aggregates by Washing,ASTM C117-95 and ASTM C136-96a,No.,1000
+Bituminous Materials,BIT-PHY-0403,Sieve Analysis of Fine and Coarse Aggregates and Materials  ; by Washing for aggregates finer than 75 Micron. ,ASTM C117-87 and ASTM C136-84a,No.,1000
+Bituminous Materials,BIT-PHY-0406,Sieve Analysis of Fine and Coarse Aggregates and Materials ; by Washing for aggregates finer than 75 Micron. ,ASTM C117-95 and ASTM C136-84a,No.,1000
+Bituminous Materials,BIT-PHY-0501,Percent Air Voids in Compacted Mixtures,ASTM D3203-94,No.,1000
+Bituminous Materials,BIT-PHY-0502,Percent Air Voids in Compacted Mixtures,ASTM D3203-88,No.,1000
+Bituminous Materials,BIT-PHY-0503,Percent Air Voids in Compacted Mixtures,ASTM D3203/D3203M-11,No.,1000
+Bituminous Materials,BIT-PHY-0601,Permeability of Friction Course Material,G.S. for Civil Eng. Works (1992 / 2006),No.,1000
+Bituminous Materials,BIT-PHY-0701,Asphalt Content of Hot Mix Asphalt by Ignition Method,ASTM D6307-98 Method A,No.,1000
+Bituminous Materials,BIT-PHY-0702,Polymer Modified Binder Content of Hot Mix Asphalt by Ignition Method,Appendix 9.2 of P.S. for Highways Department; (RD/GN/032),No.,1000
+Bituminous Materials,BIT-PHY-0703,Asphalt Content of Hot Mix Asphalt by Ignition Method,ASTM D6307-05 Method A,No.,1000
+Bituminous Materials,BIT-PHY-0801,Bulk Specific Gravity and Density of Compacted Bituminous Mix ; using Coated Specimen,ASTM D1188-96 (Reapproved 2002),No.,1000
+Bituminous Materials,BIT-PHY-0901,Percent Air Voids in Compacted Mix,ASTM D3203-94 and ASTM D3549-93a,No.,1000
+Bituminous Materials,BIT-PHY-1001,Mechanical Size Analysis of Extracted Aggregate,ASTM D5444-08,No.,1000
+Bituminous Materials,BIT-PHY-1101,Thickness or Height of Compacted Bituminous Paving Mix;,ASTM D3549-93a (excluding C1. 6.2 & 6.3),No.,1000
+Bituminous Materials,BIT-PHY-1201,Bulk Specific Gravity and Density of Compacted Bituminous Mix ; using Automatic Vacuum Sealing Method,ASTM D6752/D6752M-11/17,No.,1000
+Blocks & Bricks,BLK-COM-0101,Characteristic Compressive Strength of Interlocking Block - Set of 8 nos. per test,"G.S. 2006 Edition, Appendix 11.1",No.,300
+Blocks & Bricks,BLK-COM-0102,Characteristic Compressive Strength of Interlocking Block - Set of 8 nos. per test,"HKHA Specification 2000 Edition, RAP 3.T010.3 to 3.T060.3",No.,300
+Blocks & Bricks,PAV-PHY-0101,Determination of Dimension of Clay and Calcium Silicate; Pavers (Set of 24 nos. per test),BS6677 : Part 1 : 1986 App. A & C,No.,300
+Blocks & Bricks,PAV-PHY-0101,Determination of Transverse Breaking Load of Clay Paver- Set of 10 nos. per test,BS 6677 : Part 1 : 1986 App. D,No.,300
+Blocks & Bricks,PAV-PHY-0201,Water Absorption Test of Masonry Unit and Segmental Pavers,AS/NZS 4456.14 : 2003,No.,300
+Blocks & Bricks,PAV-PHY-0301,Dimension Check of Paving Flags - Set of 8 nos. per test,BS 7261 : 2001 Annex B,No.,300
+Blocks & Bricks,PAV-PHY-0401,Determination of Dimensions of Paving Block - Set of 8 nos. per test,BS 6717 : 2001 : Annex B,No.,300
+Blocks & Bricks,PAV-PHY-0501,Determination of Dimensions of Natural Granite Pavers - Set of 8 nos. per test,BS EN 1341 : 2001 Annex A; BS EN 1342 : 2001 Annex A,No.,300
+Blocks & Bricks,PAV-PHY-0501-1,Slip / Skid Resistance Test of Granite Pavers - Set of 5 nos. per test,BS EN 1341 : 2001 Annex D; BS EN 1342 : 2001 Annex C,No.,300
+Blocks & Bricks,PAV-PHY-0501-2,Determination of Flexural Strength of Granite Paving Slab -'- Set of 10 nos. per test,BS EN 1341 : 2001 Annex B / BS EN 12372 : 2006,No.,300
+Blocks & Bricks,PAV-PHY-0601,Determination of Dimension of Clay Paver- Set of 10 nos. per test,BS EN 1344 : 2002 Annex B,No.,300
+Blocks & Bricks,PAV-PHY-0601-1,Transverse Breaking Load Test of Clay Pavers- Set of 10 nos. per test,BS EN 1344 : 2002 Annex D,No.,300
+Blocks & Bricks,PAV-PHY-0601-2,Slip / Skid Resistance Test of Clay Pavers,BS EN 1344 : 2002 Annex F,No.,300
+Calibration Services,CAL-FTM-001,Calibration of 2000/3000kN Compression Testing Machine (Including 2 Range of Load Verification & 1 nos. of Performance Verification),BS 1610 : Part 1 : 1992;   CS1 : 1990 App. D;    BS EN 12390-4 : 2000 Annex B & Table 1,No.,550
+Calibration Services,CAL-FTM-001,Load Verification Test of Compression Machine (up to 50kN / 50 to 500kN / 500 to 3000kN),BS 1610 : Part 1 : 1992 ;    CS1 : 1990 App. D;   BS EN 12390-4 : 2000 Annex B & Table 1,No.,550
+Calibration Services,CAL-FTM-008,Performance Verification Test (Stability Test) of Compression Machine,BS 1881 : Part 115 : 1986 (AMD 6536); CS1 : 2010 App. D; BS EN 12390-4 : 2000 Annex B & Table 3,No.,550
+Calibration Services,CAL-CON-0101 & 0102,Calibration of Temperature Distribution & Circulation of Curing Tank,"CS1 : 2010, Volume 1, Appendix A28",No.,550
+Calibration Services,CAL-FSH-0301 & 0303,Calibration of 100mm Cube Mould with HOKLAS Cert.,CS1 : 2010 : Vol. 1 App. A25,No.,550
+Calibration Services,CAL-FSH-0301 & 0303,Calibration of 150mm Cube Mould with HOKLAS Cert.,CS1 : 2010 : Vol. 1 App. A25,No.,550
+Calibration Services,CAL-FSH-0101 & 0102,Calibration of Compacting Bar with HOKLAS Cert.,CS1 : 2010 : Vol. 1 App. A10,No.,550
+Calibration Services,CAL-FSH-0201 & 0202,Calibration of Slump Cone - Including Tamping Rod with HOKLAS Cert.,CS1 : 2010 : Vol. 1 App. A5 & A6,No.,550
+Calibration Services,Z-CAL-BAL-0101,"Full Calibration of Electronic Balance (up to 60kg) - Including repeatability, departure from nominal value,   hysteresis, scale value & effect of off-centre loading (NON-HOKLAS)",In-house method : CAL-BAL-0101 ~ 0501,No.,550
+Calibration Services,Z-CAL-DG-0101,Calibration of Dial Gauge,In-House Method (NON-HOKLAS),No.,550
+Calibration Services,Z-CAL-ELC-0101,Calibration of Elcometer (Ferrous or Non-Ferrous) & Accessories (Calibration Foils),In-House Method (NON-HOKLAS),No.,550
+Calibration Services,Z-CAL-EQU-0301,Provision of 100mm Concrete Cube Mould with HOKLAS Cert.,CS1 : 2010 : Vol. 1 App. A25,No.,550
+Calibration Services,Z-CAL-EQU-0302,Provision of 150mm Concrete Cube Mould with HOKLAS Cert.,CS1 : 2010 : Vol. 1 App. A25,No.,550
+Calibration Services,Z-CAL-EQU-0303,Provision of Compacting Bar with HOKLAS Cert.,CS1 : 2010 : Vol. 1 App. A10,No.,550
+Calibration Services,Z-CAL-EQU-0304,"Provision of Set of Slump Test Equipment with HOKLAS Cert. (Including of Slump Cone, Steel Plate & Tamping Rod)",CS1 : 2010 : Vol. 1 App. A5 & A6,No.,550
+Calibration Services,Z-CAL-EQU-0305,Provision of Liquid-in-glass Thermometer with HOKLAS Cert. (-0 to 60 degree) - 3 Points Check,In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0306,Calibration of Spirit Level with Calibration Cert.,In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0307,Calibration of 0-10m Measuring Tape with Calibration Cert.,In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0308,Calibration of 0-30m Measuring Tape with Calibration Cert.,In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0309,Calibration of 0-50m Measuring Tape with Calibration Cert.,In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0310,Calibration of 0-100m Measuring Tape with Calibration Cert.,In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0311,Calibration of Sound Level Meter with CNAS Cert. (equivalent cert. of HOKLAS),In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0312,Calibration of Sound Level Calibrator with CNAS Cert. (equivalent cert. of HOKLAS),In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0313,Calibration of up to 300mm Steel Ruler,In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0314,Calibration of up to 1000mm Steel Ruler,In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0315,Calibration of Max. / Min. Thermometer at 0°C to 100°C (3 Points check) ,In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0316,Calibration of Thermometer  0°C to 100°C (3 Points check),In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0317,Calibration of Vernier Caliper (up to 300mm),In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0318,Calibration of Vernier Caliper (up to 600mm),In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0319,Calibration of Stop Watch (0 - 30 min.),In-House Method ,No.,550
+Calibration Services,Z-CAL-EQU-0320,Calibration of 3m Rolling Straight Edge in according with TRRL Supplementary Report 290.,In-House Method ,No.,550
+Calibration Services,Z-CAL-MISS-0101,Sample Collection & Return Fee,,No.,550
+Cement (Physical),CEM-PHY-0000,"Cement Complete Set of Physical Test Included Standard Consistence, Setting Time, Soundness, Flexural & Compressive Strength in 7 & 28 days",BS EN 196,No.,180
+Cement (Physical),CEM-PHY-0102,Fineness of Cement,BS EN 196-6 : 1992 Cl. 4,No.,180
+Cement (Physical),CEM-PHY-0202,Density of Cement,"BS EN 196-6 : 1992 : Annex, NC",No.,180
+Cement (Physical),CEM-PHY-0302,Standard Consistence of Cement,BS EN 196-3 : 1995 Cl.5,No.,180
+Cement (Physical),CEM-PHY-0402,Setting Time of Cement,BS EN 196-3: 1995 Cl.6,No.,180
+Cement (Physical),CEM-PHY-0502,Soundness of Cement,BS EN196-3 : 1995 Cl.7,No.,180
+Cement (Physical),CEM-PHY-0601,Compressive Strength of Cement ,BS EN 196-1 : 1995,No.,180
+Cement (Physical),CEM-PHY-0602,Flexural Strength of Cement ,BS EN 196-1 : 1995,No.,180
+Cement / PFA (Chemical),CEM-CHM-0101,Total Silica Content (SiO2),BS 4550 : Part 2 : 1970 (Clause 4.2),No.,780
+Cement / PFA (Chemical),CEM-CHM-0201,Total Calcium Oxide (CaO),In-House Method : CEM-CHM-0201,No.,780
+Cement / PFA (Chemical),CEM-CHM-0301,Magnesia Content (MgO),In-House Method : CEM-CHM-0301,No.,780
+Cement / PFA (Chemical),CEM-CHM-0401,Alumina Content (Al2O3),BS 4550 : Part 2 : 1970 (Clause 7.2),No.,780
+Cement / PFA (Chemical),CEM-CHM-0501,Iron Oxide Content (Fe2O3),BS 4550 : Part 2 : 1970 (Clause 8),No.,780
+Cement / PFA (Chemical),CEM-CHM-0601,Insoluble Residue Content,BS 4550 : Part 2 : 1970 (Clause 3.1),No.,780
+Cement / PFA (Chemical),CEM-CHM-0602,Residue Insoluble in Hydrochloric Acid and Sodium Carbonate,BS EN 196-2 : 1995 Clause 9,No.,780
+Cement / PFA (Chemical),CEM-CHM-0701,Sulphuric Anhydride (SO3),BS 4550 : Part 2 : 1970 (Clause 10),No.,780
+Cement / PFA (Chemical),CEM-CHM-0702,Gravimetric Determination of Sulfate,BS EN 196-2 : 1995 Clause 8,No.,780
+Cement / PFA (Chemical),CEM-CHM-0801,Total Sulphur Content (SO3),BS 4550 : Part 2 : 1970 (Clause 12),No.,780
+Cement / PFA (Chemical),CEM-CHM-0901,Loss on Ignition,BS 4550 : Part 2 : 1970 (Clause 13.2),No.,780
+Cement / PFA (Chemical),CEM-CHM-0902,Loss on Ignition,BS EN 196-2 : 1995 Clause 7,No.,780
+Cement / PFA (Chemical),CEM-CHM-1001,Lime Saturation Factor,BS 12 : 1978,No.,780
+Cement / PFA (Chemical),CEM-CHM-1101,Tricalcium Aluminate Content (C3A),BS 12 : 1989,No.,780
+Cement / PFA (Chemical),CEM-CHM-1201,Heat of Hydrated of Portland Cement,BS 4550 : Part 3 : Section 3.8 : 1978,No.,780
+Cement / PFA (Chemical),CEM-CHM-1301,Proportion of PFA,BS 6588 : 1985 App. A.3,No.,780
+Cement / PFA (Chemical),CEM-CHM-1302,Magnesium Oxide Content of PFA,BS 3892 : Part 1 : 1982 App. C,No.,780
+Cement / PFA (Chemical),CEM-CHM-1303,Sulphur Trioxide Content of PFA,BS EN 196-2 : 1995 Clause 8,No.,780
+Cement / PFA (Chemical),CEM-CHM-1304,Chloride Content of PFA,BS EN 196-21 : 1992 Cl. 4,No.,780
+Cement / PFA (Chemical),CEM-CHM-1305,Sulphuric Anhydride Content of PFA,BS EN 196-2 : 1995 Clause 8,No.,780
+Cement / PFA (Chemical),CEM-CHM-1306,Loss on Ignition of PFA,BS EN 196-2 : 1995 Clause 7,No.,780
+Cement / PFA (Chemical),CEM-CHM-1307,Chloride Content of PFA,BS EN 196-21 : 1992 Cl. 4,No.,780
+Concrete (Chemical Tests),CON-CHM-0101,Density of Hardened Concrete,BS 1881 : Part 114 : 1983 Clause 10,No.,680
+Concrete (Chemical Tests),CON-CHM-0201,Density of Hardened Concrete,CS1 : 1990 : Section 16 (Amd. 1201),No.,680
+Concrete (Chemical Tests),CON-CHM-0202,Density of Hardened Concrete,CS1 : 2010 : Section 16.7 & 16.10,No.,680
+Concrete (Chemical Tests),CON-CHM-0301,Cement and Aggregate Content (by CaO determination),BS 1881 : Part 124 : 1988 Clause 5.4 & 5.9,No.,680
+Concrete (Chemical Tests),CON-CHM-0403,Cement and Aggregate Content (by CaO determination),CS1 : 2010 : Section 21.6,No.,680
+Concrete (Chemical Tests),CON-CHM-0501,Chloride Content of Hardened Concrete,BS 1881 : Part 124 : 1988 (Clause 10.2),No.,680
+Concrete (Chemical Tests),CON-CHM-0602,Chloride Content of Hardened Concrete,CS1 : 2010 : Section 21.10.2,No.,680
+Concrete (Chemical Tests),CON-CHM-0701,Sulphate Content of Hardened Concrete,BS 1881 : Part 124 : 1988 (Clause 10.3),No.,680
+Concrete (Chemical Tests),CON-CHM-0703,Sulphate Content of Hardened Concrete,CS1 : 2010 : Section 21.10.3,No.,680
+Concrete (Chemical Tests),CON-CHM-0801,pH Value of Hardened Concrete,HKHA/MTS (97/99) Specification Part D : Clause 1.4.14 with Modifications,No.,680
+Concrete (Chemical Tests),CON-CHM-0901,Original Water Content,BS 1881 : Part 124 : 1988 (Clause 7),No.,680
+Concrete (Chemical Tests),CON-CHM-0903,Original Water Content,CS1 : 2010 : Section 21.7,No.,680
+Concrete (Chemical Tests),CON-CHM-1001,Acid Soluble Alkali Content (equivalent Na2O),In-House Method : CEM-CHM-1001,No.,680
+Concrete (Chemical Tests),CON-CHM-1101,Acid Soluble Alkali Content of Cement (equivalent Na2O),In-House Method : CEM-CHM-1101,No.,680
+Concrete (Chemical Tests),CON-CHM-1102,Total Alkali Content of P.F.A.,In-House Method : CEM-CHM-1102,No.,680
+Concrete (Chemical Tests),CON-CHM-1107,Total Alkali Content of GGBS,In-House Method : CEM-CHM-1107,No.,680
+Concrete (Chemical Tests),CON-CHM-1201,Acid Soluble Alkali Content of Admixture (equivalent Na2O),In-House Method : CON-CHM-1201,No.,680
+Concrete (Chemical Tests),CON-CHM-1301,Acid Soluble Alkali Content of Water (equivalent Na2O),In-House Method : CON-CHM-1301,No.,680
+Concrete (Chemical Tests),CON-CHM-1401,Water-Soluble Chloride Salts of Aggregate (equivalent Na2O),BS 812 : Part 4 : 1976,No.,680
+Concrete (Chemical Tests),CON-CHM-1501,Detection of PFA,In-House Method : CON-CHM-1502,No.,680
+Concrete (Physical Tests),CON-PHY-0101,Compressive Strength on Cube,BS 1881 : Part 116 : 1983,No.,50
+Concrete (Physical Tests),CON-PHY-0201,Compressive Strength on 100mm / 150mm Concrete Cube,CS1 : 1990 : Section 12 (Amd. 1201),No.,50
+Concrete (Physical Tests),CON-PHY-0202,Compressive Strength on 100mm Concrete Cube,CS1 : 2010 : Section 12,No.,50
+Concrete (Physical Tests),CON-PHY-0202,Compressive Strength on 150mm Concrete Cube,CS1 : 2010 : Section 12,No.,50
+Concrete (Physical Tests),CON-PHY-0501,Curing of Concrete Cubes at 27°C,BS 1881 : Part 111 : 1983,No.,50
+Concrete (Physical Tests),CON-PHY-0601,Curing of Concrete Cubes at 27°C,CS1 : 1990 : Section 10 (Amd. 1101),No.,50
+Concrete (Physical Tests),CON-PHY-0602,Curing of Concrete Cubes at 27°C,CS1 : 2010 Section 10,No.,50
+Concrete (Physical Tests),CON-PHY-0701,Saturated & Dry Density of Concrete Cube,BS 1881 : Part 114 : 1983 : Section 6 (Amd. 6098),No.,50
+Concrete (Physical Tests),CON-PHY-0801,Saturated & Dry Density of Concrete Cube,CS1 : 1990 : Section 16 (Amd. 1201 & 1203),No.,50
+Concrete (Physical Tests),CON-PHY-0802,Determination of Density of Hardened Concrete,CS1:2010: section 16,No.,50
+Concrete (Physical Tests),CON-PHY-0901,Water Absorption Test of Hardened Concrete,BS 1881 : Part 122 : 1983,No.,50
+Concrete (Physical Tests),CON-PHY-1001,Flexural Strength of 150mm x 150mm x 750mm Concrete Beam,CS1 : 1990 Section 14 (Amd. 1201); CS1 : 2010 Section 14,No.,50
+Concrete (Physical Tests),CON-PHY-1002,Determination of Flexural Strength,BS 1881 : Part 118 : 1983,No.,50
+Concrete (Physical Tests),CON-PHY-1102,Tensile Splitting Strength of Concrete Cylinder,CS1 : 1990 : Section 13; CS1 : 2010 Section 13,No.,50
+Concrete (Physical Tests),CON-PHY-1103,Flow of Concrete,BS 1881 : Part 105 : 1984,No.,50
+Concrete (Physical Tests),CON-PHY-1201,Determination of Concrete Surface Hardness Testing by Rebound Hammer,BS 1881 : Part 202 : 1986 : Clause 6,visit,2500
+Concrete (Physical Tests),CON-PHY-1202,Determination of Concrete Surface Hardness Testing by Rebound Hammer,BS EN 12504 : Part 2 : 2012,visit,2500
+Concrete (Physical Tests),CON-PHY-1301,Covermeter Survey on Concrete Surface by not exceeding 500mm x 500mm Area,BS 1881 : Part 204 : 1988,No.,500
+Concrete (Physical Tests),CON-PHY-1401,Half Cell Potential Test,ASTM C876-91,No.,500
+Concrete (Physical Tests),CON-PHY-1501,Carbonation Depth Measurement of Concrete Core Sample,BS EN 14630 : 2006,No.,500
+Concrete (Physical Tests),CON-PHY-1502,Carbonation Depth Measurement of Concrete Core Sample,BRE IP6/81,No.,50
+Concrete (Physical Tests),CON-PHY-1601,Determination of Stiffening Time,CS1: 2010 Section 3,No.,50
+Concrete (Physical Tests),CON-PHY-1701,Determination of Alkali Silica Reaction Potential by Ultra-accelerated mortar bar test,CS1: 2010: Section 22,No.,50
+Concrete (Physical Tests),Z-CON-MISS-0101,"Extra Over for Compressive Strength Test on Sunday or Public Holiday or Outsides Normal Working Hour (@ 10 nos. of cube per hour, min. charge 2 hours)",,sum,2500
+Concrete (Physical Tests),Z-CON-MISS-0102,Collection Charge of Cubes (Casted Cube by Client),,No.,200
+Concrete Core,COR-COM-0001,Compressive Strength of Concrete Cores,BS 1881 : Part 4 : 1970,no.,200
+Concrete Core,COR-COM-0002,Compressive Strength of Concrete Cores,BS 1881 : Part 120 : 1983,no.,200
+Concrete Core,COR-COM-0003,Compressive Strength of Concrete Cores,CS1: 1990: Section 15 (Amd. 1201 & 1205),no.,200
+Concrete Core,COR-COM-0005,Compressive Strength of Concrete Cores,CS1 : 2010 Section 15,no.,200
+Concrete Core,COR-DRI-0101,Drilling of 75mm dia. Concrete Core Sample for Carbonation or Compressive Strength Test,"HKHA MTS (02/04) Specification, Part D CI. 4.1",no.,200
+Concrete Core,COR-DRI-0102,Core Extraction,CS1 : 1990 : Section 15 (Amd. 1201),no.,200
+Concrete Core,COR-DRI-0201,Dry Cutting of Mini-Cores,"HKHA MTS (02/04) Specification, Part D CI. 4.4",no.,200
+Concrete Core,COR-DRI-0301,Cutting of Stitch Core,"HKHA MTS (02/04) Specification, Part D CI. 6.3",no.,200
+Concrete (Site Test),FSH-PHY-0101,Sampling of Fresh Concrete,BS 1881 : Part 101 : 1983,No.,100
+Concrete (Site Test),FSH-PHY-0201,Sampling of Fresh Concrete,CS1 : 1990 : Section 1 (Amd. 1101),No.,100
+Concrete (Site Test),FSH-PHY-0301,Determination of Slump,BS 1881 : Part 102 : 1983,No.,100
+Concrete (Site Test),FSH-PHY-0401,Determination of Slump,CS1 : 1990 : Section 2 (Amd. 1101) ,No.,100
+Concrete (Site Test),FSH-PHY-0501,Making Test Cubes from Fresh Concrete,BS 1881 : Part 108 : 1983,No.,100
+Concrete (Site Test),FSH-PHY-0601,Making of 100mm Test Cube from Fresh Concrete,CS1 : 2010 : Section 7,No.,100
+Concrete (Site Test),FSH-PHY-0601,Making of 150mmTest Cube from Fresh Concrete,CS1 : 2010 : Section 7,No.,100
+Concrete (Site Test),FSH-PHY-0604,Casting of 150mm x 150mm x 750mm Long Concrete Beam,CS1 : 1990 : Section 8 Amd. 1101; CS1 : 2010 : Section 8,No.,100
+Concrete (Site Test),FSH-PHY-0605,Casting of 150mm dia. x 300mm length Cylinder on site,"CS1 : 1990 : Section 9 (Amd. 1101, 1102) ; CS1 : 2010 : Section 9",No.,100
+Concrete (Site Test),FSH-PHY-0701,Determination of Density of Fresh Concrete,BS 1881 : Part 107 : 1983 ,No.,100
+Concrete (Site Test),FSH-PHY-0801,Determination of Density of Fresh Concrete,CS1 : 1990 : Section 5 (Amd. 1101); CS1 : 2010 : Section 5 ,No.,100
+Concrete (Site Test),FSH-PHY-1001,"Assessment of the Cement, Agg. & Water Content of Fresh Concrete",In House Method Based on Buoyancy Method DD83 : 1983 : Section 3 : C15,No.,100
+Concrete (Site Test),FSH-PHY-1101,Setting Time Monitoring,"HKHA MTS (00/02) Specification, Part D : Clause 1.3.9",No.,100
+Concrete (Site Test),FSH-PHY-1301,Compacting Factor Test of Concrete,BS 1881 : Part 103 : 1983,No.,100
+Concrete (Site Test),FSH-PHY-1302,Compacting Factor Test of Concrete,CS1 : 1990 : Section 3 ; CS1 : 2010 : Section 2 Part II,No.,100
+Concrete (Site Test),FSH-PHY-1601,Determination of Flow of Concrete,CS1 : 2010 : Section 2 Part IV,No.,100
+Concrete (Site Test),FSH-PHY-1701,Flow Table Test,CS1 2010 : Section 2 Part IV,No.,100
+Concrete (Site Test),FSH-PHY-1801,Determination of the Bleeding of Concrete,ASTM C232-99 Method A/ ASTM C232/C232 M-09 Method A,No.,100
+Concrete (Site Test),Z-FSH-PHY-0101,Temperature Test of Fresh Concrete,In-House Method,No.,100
+Concrete (Site Test),Z-FSH-MISS-0101,Demoulding of Cube on Non-Concreting Day,,No.,100
+Concrete (Site Test),Z-FSH-MISS-0102,Order Cancelled on Site,,No.,100
+Concrete (Site Test),Z-FSH-MISS-0103,Min. Charge of Making Cube & Slump Test on Site- Half Day (From 9:00 to 12:00 or 13:00 to 17:00),,No.,100
+Concrete (Site Test),Z-FSH-MISS-0104,Min. Charge of Making Cube & Slump Test on Site - Half Day (From 9:00 to 12:00 or 13:00 to 17:00),,No.,100
+(GGBS),GBS-PHY-0101,Density of GGBS,BS EN 15167 Part 1 : 2006 Cl. 5.5,No.,1800
+(GGBS),GBS-PHY-0201,Fineness of GGBS,BS EN 15167 Part 1 : 2006 Cl. 5.3.1,No.,1800
+(GGBS),GBS-PHY-0301,Initial Setting Time of GGBS,BS EN 15167 Part 1 : 2006 Cl. 5.3.2.2,No.,1800
+(GGBS),GBS-PHY-0401,Standard Consistence of GGBS,BS EN 15167 Part 1 : 2006 Cl. 5,No.,1800
+(GGBS),GBS-PHY-0501,Moisture content of GGBS,BS EN 15167 Part 1 : 2006 Annex A,No.,1800
+(GGBS),GBS-PHY-0601,Activity index of GGBS,BS EN 15167 Part 1 : 2006 Cl. 5.3.2.3,No.,1800
+(GGBS),GBS-PHY-0701,Flexural strength of GGBS,BS EN 15167 Part 1 : 2006 Cl. 5.3.2.3,No.,1800
+Grout,GRO-PHY-0101,Flow of Grout (Flow Cone Method),ASTM C939-94a,No.,1800
+Grout,GRO-PHY-0201,Bleeding and Free Expansion,ASTM C940-89 / 98a,No.,1800
+Coating,MIS-PHY-0201,Pull Off Test of Coating by Saw Cut Method,In-House Method : MIS-PHY-0201,No.,1200
+Coating,MIS-PHY-0202,Pull Off Test of Coating by Coring Method,In-House Method : MIS-PHY-0202,No.,1200
+Coating,Z-MIS-DFT-0101,Dry Film Thickness of Coating by Coring Method,In-House Method,No.,1200
+Coating,Z-MIS-DFT-0102,Dry Film Thickness of Coating by using Microscope Method,In-House Method,No.,1200
+Coating,Z-MIS-DFT-0103,Dry Film Thickness of Coating by Elcometer Method,In-House Method,No.,1200
+Anchor Bolts ,MIS-PHY-0301,Pull Out Test of Anchor Bolt (up to M16); - Test load maintain for 2 min.,In-House Method : MIS-PHY-0301,No.,1200
+Anchor Bolts ,MIS-PHY-0301,Pull Out Test of Anchor Bolt (M20 to M24); - Test load maintain for 2 min.,In-House Method : MIS-PHY-0301,No.,1200
+Anchor Bolts ,MIS-PHY-0301,Pull Out Test of Anchor Bolt (up to M16); - Max. load maintain for 60 min.,In-House Method : MIS-PHY-0301,No.,1200
+Anchor Bolts ,MIS-PHY-0301,Pull Out Test of Anchor Bolt (M20 to M24); - Max. load maintain for 60 min.,In-House Method : MIS-PHY-0301,No.,1200
+Dowel Bar,MIS-PHY-0301,Pull Out Test of Grouted Dowel Bar (up to Y16); - Max. load maintain for 2 min.,In-House Method : MIS-PHY-0301,No.,1200
+Dowel Bar,MIS-PHY-0301,Pull Out Test of Grouted Dowel Bar (Y20-Y32); - Test load maintain for 2 min.,In-House Method : MIS-PHY-0301,No.,1200
+Dowel Bar,MIS-PHY-0301,Pull Out Test of Grouted Dowel Bar (Y40); - Test load maintain for 2 min.,In-House Method : MIS-PHY-0301,No.,1200
+Tiles,MIS-PHY-0101,Pull Off Test of Tile by Saw Cut Method,In-House Method : MIS-PHY-0101,No.,1200
+Tiles,MIS-PHY-0102,Pull Off Test of Tile by Coring Method,In-House Method : MIS-PHY-0102,No.,1200
+Tiles,MIS-PHY-0102,Static Coefficient of Friction for Wet & Dry Condition (Slip Resistance) of Tile/Granite/Marble - Set of 6 nos. per test,ASTM C1028-96,No.,1200
+Tiles,Z-MIS-MISS-0101,Min. Charge of Pull Out / Pull Off Test on site per visit (Excluding overtime work & transporting charge),,sum,2500
+Tiles,Z-MIS-MISS-0102,Additional Charge of Pull Out / Pull Off Test by use of Gondola / Scaffold,,sum,5000
+Tiles,Z-MIS-MISS-0103,Extra Over for Transporting Staff & Equipment to Site,,visit,3000
+Repair Mortar,MTS-PHY-0101,Pull Out Test for Mortar (By Coring 75mm dia. Method),"HKHA MTS (00/02) Specification, Part D Cl. 2.1.15",No.,700
+Repair Mortar,MTS-PHY-0102,Pull Out Test for Mortar (By Saw Cutting Method),In-House Method : MTS-PHY-0102,No.,700
+Repair Mortar,MTS-PHY-0201,Repair Mortar Inspection Core Test - Including drilling of 75mm dia. core sample,"HKHA MTS (00/02) Specification, Part D Cl. 2.1.22",No.,700
+Repair Mortar,MTS-PHY-0301,Flow Test of Fresh Repair Mortar,"HKHA MTS (00/02) Specification, Part D Cl. 2.1.18",No.,700
+Repair Mortar,MTS-PHY-0601,Trial Mix of Polymer Modified Mortar,"HKHA MTS (00/02) Specification, Part D Cl. 2.1.20",No.,700
+Repair Mortar,MTS-PHY-0701,Compressive Strength of 70.7mm Mortar Cube,HKHA MTS (00/02) Spec. Part D Cl. 2.1.1 ,No.,700
+Repair Mortar,Z-MTS-MISS-0101,Min. Charge for Field Work per visit (Excluding overtime work & transporting charge),,sum,2500
+Repair Mortar,Z-MTS-MISS-0102,Additional Charge of Pull Out / Pull Off Test by use of Gondola / Scaffold,,sum,5000
+Repair Mortar,Z-MTS-MISS-0103,Extra Over for Transporting Staff & Equipment to Site,,visit,3000
+Building Stone,NAT-PHY-0601,Flexural Strength Test of Dimension Stone in Dry & Wet Condition- Set of 12 nos. per test; Sample Size : 102mm(W) x 380mm(L) x 30mm (T),ASTM C880-98,no.,80
+Building Stone,NAT-PHY-0602,Flexural Strength Test of Dimension Stone in Dry & Wet Condition - Set of 12 nos. per test; Sample Size : 100mm(W) x 350mm(L) x 30mm (T),ASTM C880/C880M-15,no.,80
+Building Stone,NAT-PHY-0101,Absorption & Bulk Specific Gravity of Dimension Stone- Set of 5 nos. per test; Specimen Size : 50mm x 50mm x 50mm,ASTM C97-02,no.,80
+Building Stone,NAT-PHY-0102,Absorption & Bulk Specific Gravity of Dimension Stone- Set of 5 nos. per test; Specimen Size : 50mm x 50mm x 50mm,ASTM C97/C97M-15,no.,80
+Building Stone,NAT-PHY-0501,Compressive Strength of Dimension Stone- Set of 10 nos. per test; Specimen Size : 50mm x 50mm x 50mm,ASTM C170-90,no.,80
+Building Stone,NAT-PHY-0502,Compressive Strength of Dimension Stone- Set of 10 nos. per test; Specimen Size : 50mm x 50mm x 50mm,ASTM C170/C170M-15a,no.,80
+Building Stone,NAT-PHY-0701,Perpendicular Loading Test of Edge Anchorage on Wet or Dry; Condition in Outward Load - Set of 7 nos. per test; Specimen Size : 305mm(W) x 320mm(L) x 30mm(T),ASTM C1354-96,no.,80
+Building Stone,NAT-PHY-0701,Perpendicular Loading Test of Back Anchorage on Wet or Dry; Condition in Outward Load - Set of 7 nos. per test; Specimen Size : 305mm(W) x 305mm(L) x 30mm(T),ASTM C1354-96,no.,80
+Building Stone,NAT-PHY-0702,Perpendicular Loading Test of Edge Anchorage on Wet or Dry; Condition in Outward Load - Set of 7 nos. per test; Specimen Size : 300mm(W) x 320mm(L) x 30mm(T),ASTM C1354/C1354M-15,no.,80
+Building Stone,NAT-PHY-0702,Perpendicular Loading Test of Back Anchorage on Wet or Dry; Condition in Outward Load - Set of 7 nos. per test; Specimen Size : 300mm(W) x 300mm(L) x 30mm(T),ASTM C1354/C1354M-15,no.,80
+Building Stone,NAT-PHY-0801,Static Coefficient of Friction for Wet & Dry Condition (Slip Resistance) of Tile/Granite/Marble - Set of 6 nos. per test,ASTM C1028-96,no.,80
+Loading Test,LOA-PHY-0101,Loading Test of Hoisting System,In-House Method,no.,180
+Loading Test,LOA-PHY-0102,Loading Test of Eye Bolt,In-House Method,no.,180
+Loading Test,LOA-PHY-0103,Loading Test of Steel Hook,In-House Method,no.,180
+Loading Test,LOA-PHY-0104,Loading Test of Hoisting Beam,In-House Method,no.,180
+Loading Test,Z-LOA-MISS-0101,Issue Certificate of Form 4 & Form 5 by RPE,,no.,600
+Loading Test,Z-LOA-MISS-0102,Issue Certificate of Form 6 & Form 7 by RPE,,no.,600
+Loading Test,Z-LOA-MISS-0103,Extra Over for Transporting Staff & Equipment to Site,,visit,3000
+Road Surfaces /Marking,ROA-PHY-0101,Surface Regularity Test (Use a 3M Long Rolling Straightedge),G.S. 1992 / 2006 / HY Guidance Notes RD/GN/009,no.,80
+Road Surfaces /Marking,ROA-PHY-0101,Surface Regularity Test (Use a 3M Long Static Straightedge),G.S. 1992 / 2006 / HY Guidance Notes RD/GN/009,no.,80
+Road Surfaces /Marking,ROA-PHY-0302,Skid Resistance Test,HY Guidance Notes RD/GN/009,no.,80
+Road Surfaces /Marking,ROA-PHY-0303,Skid Resistance Test of Road Markings,BS EN 1436 : 1998 (Amd. 14288 : 2003),no.,80
+Road Surfaces /Marking,ROA-PHY-0401,Luminance Coefficient under Diffuse Illumination (Qd) & Retro-reflected Luminance (RL) of Road Markings '- Set of 5 no. per test,BS EN 1436 : 1998 Annex A & B (HOKLAS),no.,80
+Road Surfaces /Marking,ROA-PHY-0501,On Lab. Measurement of Thickness on New Thermoplastic Road Marking - Set of 3 specimens per test,BS 3262 : Part 3 : 1989 (HOKLAS),no.,80
+Road Surfaces /Marking,Z-ROA-MISS-0101,Min. Charge for Field Work per visit (Excluding overtime work & transporting charge),,visit,2500
+Road Surfaces /Marking,Z-ROA-MISS-0102,Additional Charge for Working on Night Shift or Sunday & Public Holiday,,visit,2000
+Road Surfaces /Marking,Z-ROA-MISS-0103,Extra over charge for the staff idling or waiting during working hour as instructed by client,,hour,50
+Road Surfaces /Marking,Z-ROA-MISS-0104,Extra Over for Transporting Staff & Equipment to Site,,visit,3000
+Road Surfaces /Marking,SOL-PHY-2801,Texture Depth (Sand Patch Test) of Carriageway (Set of 10 nos. per test),G.S. 1992 / 2006 Appendix 10.1 ,no.,380
+Soil (Chemical),SOL-CHM-0201,Organic Matter Content of Soil,"GEOSPEC 3, Test 9.1",no.,380
+Soil (Chemical),SOL-CHM-0301,Organic Matter Content of Soil,"GEOSPEC 3, Test 9.1",no.,380
+Soil (Chemical),SOL-CHM-0401,Water-Soluble Chloride Content of Soil,"GEOSPEC 3, Test 9.4",no.,380
+Soil (Chemical),SOL-CHM-0501,pH Value of Soil,"GEOSPEC 3, Test 9.5",no.,380
+Soil (Chemical),SOL-CHM-0601,Total Sulphate Content of Soil by the Gravimetric Method,"GEOSPEC 3, Test 9.3",no.,380
+Soil (Chemical),SOL-CHM-0602,Sulphate Content of Aqueous Soil Extracts by the Gravimetric Method,"GEOSPEC 3, Test 9.3",no.,380
+Soil (Physical Test),SOL-PHY-0102,Moisture Content by Oven-Drying at 105°C ±5°C,"GEOSPEC 3, Test 5.2",no.,380
+Soil (Physical Test),SOL-PHY-0202,Moisture Content by Oven-Drying at 45°C ±5°C,"GEOSPEC 3, Test 5.1",no.,380
+Soil (Physical Test),SOL-PHY-0302,Moisture Content by Oven-Drying at 45 / 105 Degree,"GEOSPEC 3, Test 5.1 / 5.2",no.,380
+Soil (Physical Test),SOL-PHY-0402,"Liquid Limit, Plastic Limit and Plasticity Index","GEOSPEC 3, Test 6.1",no.,380
+Soil (Physical Test),SOL-PHY-0402,Liquidity Index,"GEOSPEC 3, Test 6.2",no.,380
+Soil (Physical Test),SOL-PHY-0602,Particle Size Distribution by Wet Sieving (with dispersant),"GEOSPEC 3, Test 8.1",no.,380
+Soil (Physical Test),SOL-PHY-0702,Particle Size Distribution by Wet Sieving (without dispersant),"GEOSPEC 3, Test 8.2",no.,380
+Soil (Physical Test),SOL-PHY-1002,Particle Size Distributio by Hydrometer (with Dispersant),"GEOSPEC 3, Test 8.5",no.,380
+Soil (Physical Test),SOL-PHY-1102,Particle Size Distributio by Hydrometer (without Dispersant),"GEOSPEC 3, Test 8.6",no.,380
+Soil (Physical Test),SOL-PHY-1202,Construction of a Continuous Particle Size Distribution,"GEOSPEC 3, Test 8.7",no.,380
+Soil (Physical Test),SOL-PHY-1302,Determination of the Dry - Density / Moisture Content; Relationship of Crushable/Non-Crushable Soils,"GEOSPEC 3, Test 10.1 / 10.2",no.,380
+Soil (Physical Test),SOL-PHY-1502,Determination of the Dry - Density / Moisture Content;  Relationship of Crushable/Non-Crushable Soils in a CBR Mould,"GEOSPEC 3, Test 10.3 / 10.4",no.,380
+Soil (Physical Test),SOL-PHY-1702,Sand Replacement Test (Small Pouring Cylinder),"GEOSPEC 3, Test 11.1",no.,380
+Soil (Physical Test),SOL-PHY-1802,Sand Replacement Test (Large Pouring Cylinder),"GEOSPEC 3, Test 11.2",no.,380
+Soil (Physical Test),SOL-PHY-1901,Determination of the Particle Density by Gas Jar Method,"GEOSPEC 3, Test 7.1",no.,380
+Soil (Physical Test),SOL-PHY-2001,Determination of the Particle Density by Small Pyknometer,"GEOSPEC 3, Test 7.2",no.,380
+Soil (Physical Test),SOL-PHY-2101,Relative Compaction of Fill Material,"GEOSPEC 3, Test 11.4",no.,380
+Soil (Physical Test),SOL-PHY-2301,Determination of the Density / Moisture Content Relationship of Soils Containing Particles which are not Susceptible to Crushing (using 1000cc mould and 4.5kg Rammer),"GEOSPEC3, Test 10.5 / 10.6",no.,380
+Soil (Physical Test),SOL-PHY-2501,Determination of Dry Density / Moisture Content Relationship of Soils Containing Particles which are not Susceptible to Crushing (using CBR mould and 4.5kg Rammer),Crushing (using CBR mould and 4.5kg Rammer),no.,380
+Soil (Physical Test),SOL-PHY-2901,Determination of the California Bearing Ratio (CBR),"GEOSPEC 3, Test 12.1",no.,380
+Soil (Physical Test),SOL-PHY-4201,Pull-Off Test of Soil Nails,CEDD Particular Specification,no.,380
+Soil (Physical Test),SOL-PHY-4301,Lift Off Test on Ground Anchor,HyD Spec. (2004) CI. 35.07; GEOSPEC 1 App. A.16,no.,380
+Soil (Physical Test),SOL-PHY-4402,Time Domain Reflectometry  (TDR) Test of Soil Nails,In-House Method : SOL-PHY-4402,no.,380
+Soil (Physical Test),Z-SOL-MISS-0101,Min. Charge for Field Work per visit (Excluding overtime work & transporting charge),,no.,380
+Soil (Physical Test),Z-SOL-MISS-0102,Extra Over for Transporting Staff & Equipment to Site or Sample Collection,,no.,380
+Steel Fabric,STL-PHY-0603,Bend Test of Steel Fabrics,BS 4483 : 2005,no.,1380
+Steel Fabric,STL-PHY-0603,"Dimension, Mass and Tolerance of Steel Fabric",BS 4483 : 2005,no.,1380
+Steel Fabric,STL-PHY-0603,Tensile Test of Steel Fabrics,BS 4483 : 2005,no.,1380
+Steel Fabric,STL-PHY-0603,Weld Test of Steel Fabric,BS 4483 : 2005,no.,1380
+Reinforcement Bar,STL-PHY-0402,Tensile Test of 6 to 20mm dia. Reinforcement Bar,CS2 : 2012 + Amd. 1/2016 + Amd. 2/2018 CI. 6.1 & 6.4,no.,85
+Reinforcement Bar,STL-PHY-0402,Tensile Test of 25 to 40mm dia. Reinforcement Bar,CS2 : 2012 + Amd. 1/2016 + Amd. 2/2018 CI. 6.1 & 6.4,no.,85
+Reinforcement Bar,STL-PHY-0402,Tensile Test of 50mm dia. Reinforcement Bar,CS2 : 2012 + Amd. 1/2016 + Amd. 2/2018 CI. 6.1 & 6.4,no.,90
+Reinforcement Bar,STL-PHY-0402,Rebend Test of 6 to 20mm dia. Reinforcement Bar,CS2 : 2012 + Amd. 2/2018 CI. 6.1 & 6.5,no.,280
+Reinforcement Bar,STL-PHY-0402,Rebend Test of 25 to 40mm dia. Reinforcement Bar,CS2 : 2012 + Amd. 2/2018 CI. 6.1 & 6.5,no.,280
+Reinforcement Bar,STL-PHY-0402,Rebend Test of 50mm dia. Reinforcement Bar,CS2 : 2012 + Amd. 2/2018 CI. 6.1 & 6.5,no.,280
+Reinforcement Bar,STL-PHY-0402,Mass per Meter of Reinforcement Bar,CS2 : 2012 + Amd. 1/2016 + Amd. 2/2018 CI. 6.1 & 6.2,no.,50
+Reinforcement Bar,STL-PHY-0902,Surface Geometry of 6 to 32mm dia.,CS2 : 2012 + Amd. 1/2018 + Amd. 2/2018 CI. 6.1 & 6.7,no.,50
+Reinforcement Bar,STL-PHY-0902,Surface Geometry of 40 to 50mm dia.,CS2 : 2012 + Amd. 1/2018 + Amd. 2/2018 CI. 6.1 & 6.7,no.,50
+Reinforcement Bar,STL-CHM-0101,"Chemical Composition Include C, Mn, P, S, N, Cu, Cr, Mo, V, Ni ; (up to 16mm dia.)",In house method : STL-CHM-0101 (HOKLAS),no.,1280
+Reinforcement Bar,STL-CHM-0101,"Chemical Composition Include C, Mn, P, S, N, Cu, Cr, Mo, V, Ni ; (20 to 50mm dia.)",In house method : STL-CHM-0101 (HOKLAS),no.,1280
+Coupler,STL-PHY-0706,Tensile Test of Coupler (up to 16mm dia.),COP for Structural Use of Concrete 2013 Cl. 3.2.8.1(a),no.,900
+Coupler,STL-PHY-0706,Tensile Test of Coupler (20 to 40mm dia.),COP for Structural Use of Concrete 2013 Cl. 3.2.8.1(a),no.,900
+Coupler,STL-PHY-0706,Tensile Test of Coupler (50mm dia.),COP for Structural Use of Concrete 2013 Cl. 3.2.8.1(a),no.,900
+Coupler,STL-PHY-0706,Slip Test (up to 50mm dia.),COP for Structural Use of Concrete 2013 Cl. 3.2.8.1(a),no.,280
+Coupler,STL-PHY-0707,Static Compression Test (10 to 16mm dia. Coupler),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,800
+Coupler,STL-PHY-0707,Static Compression Test (20 to 40mm dia. Coupler),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,800
+Coupler,STL-PHY-0707,Static Compression Test (50mm dia. Coupler),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,800
+Coupler,STL-PHY-0707,Cyclic Tension and Compression Test (10 to 16mm dia. Coupler),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,1500
+Coupler,STL-PHY-0707,Cyclic Tension and Compression Test (20 to 40mm dia. Coupler),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,1500
+Coupler,STL-PHY-0707,Cyclic Tension and Compression Test (50mm dia. Coupler),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,1500
+Coupler,STL-PHY-0707,Static Tension Test (10 to 16mm dia. Coupler),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,900
+Coupler,STL-PHY-0707,Static Tension Test (20 to 40mm dia. Coupler),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,900
+Coupler,STL-PHY-0707,Static Tension Test (50mm dia. Coupler),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,900
+Coupler,STL-PHY-0707,Reference Bar Tensile Test (up to 16mm dia.),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,280
+Coupler,STL-PHY-0707,Reference Bar Tensile Test (20 to 40mm dia.),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,280
+Coupler,STL-PHY-0707,Reference Bar Tensile Test (50mm dia.),AC133 / COP for Structural use of Concrete 2013 cl.3.2.8.1(b),no.,280
+Structural Steel,STL PHY-0503,Tensile Strength Test of Structural Steel Section,"BS EN 10002-1:2001/BS EN 10025-1,2&4 : 2004 /           BS EN 10210-1 : 1994/ BS EN 12019-1: 2006    ",no.,2000
+Structural Steel,STL PHY-0801,Structural Steel Impact Test (machining of specimen included and 1 set of 3 specimens per sample),BS EN 10045-1 : 1990,no.,2000
+Structural Steel,STL PHY-0801-1,Preparation (Machining) of Structural Steel Specimen to BS Requirement for Tensile Test (below 26mm thk.),,no.,2000
+Structural Steel,Z-STL-MISS-0101,Sample Sample Collection Fee ,,no.,200
+Structural Steel,Z-STL-MISS-0102,Additional charge of Express Service for Steel Bar Test - preliminary report in 3 working days : Standard Price + 50%. (Standard price for 10 working days with preliminary report.),,sum,
+Structural Steel,Z-STL-MISS-0103,Additional charge of Express Service for Steel Bar Test;  preliminary report in 5 working days : Standard Price + 30%. (Standard price for 10 working days with preliminary report.),,sum,
+Water ,WAT-CHM-0501,Total Dissolved Solids,In-House Method : WAT-CHM-0501,no.,280
+Water ,WAT-CHM-0401,Sulphate Content,In-House Method : WAT-CHM-0401 GEO Report 36 : 1994 Test 3.5.5,no.,280
+Water ,WAT-CHM-0301,pH Value,In-House Method : WAT-CHM-0301,no.,280
+Water ,WAT-CHM-0201,Chloride Content,"APHA 18th ed, 4500-C1- B",no.,280
+Water ,WAT-CHM-0101,Total Alkalinity,APHA 18th ed. 2320B,no.,280
+Water ,ENV-CHM-0401,Total Suspended Solids,APHA 17e 2540D,no.,280
+Water ,ENV-CHM-0301,Oil and Grease,APHA 18e 5520B Solvent B (Partition & Gravimetric),no.,280
+Water ,ENV-CHM-0201,Chemical Oxygen Demand,APHA 18e 5220B (Open Reflux),no.,280
+Water ,ENV-CHM-0101,Biochemical Oxygen Demand,APHA 18e 5210B (BOD-5 Days),no.,280
+Welding Test,WEL-MT-0101,Magnetic Particle Inspection - Include One Set of Consumable,BS 6072 : 1981 / BSEN 1290 : 1998 / BSEN ISO 9934-1 : 2001 / BS EN ISO 17638:200,no.,900
+Welding Test,WEL-DT-0101,Dye Penetrant Inspection - Including One Set of Consumable,BS EN 571-1 : 1997 / BS 6443 : 1984,no.,700
+Welding Test,WEL-UT-0101,Ultrasonic Test,BS 3923 : Part 1 : 1981 / BSEN 1714 : 1998 / BS EN ISO 17640 : 2010,no.,1500
+Welding Test,WEL-VT-0101,Visual Inspection Test,BS EN 970 : 1997 / BS EN ISO 17637 : 2011,no.,700
+Welding Test,Z-WEL-MISS-0101,Any 2 item of welding tests are testing by same technician at the same visit,,visit,14
+Welding Test,Z-WEL-MISS-0102,Any 3 item of welding tests are testing by same technician at the same visit,,visit,2000
+Welding Test,Z-WEL-MISS-0103,Extra Over Charge for Welding Testing Outside Normal Working Hours or Public Holidays,,sum,2000

@@ -1,0 +1,36 @@
+<div class="card" >
+  <div class="card-header">
+    <h2>
+        <% if @product.parent_id?  %>
+          <%= @product.parent.display_name %> 
+        <% else %> 
+            <%= t('product')   %> 
+        <% end %>
+    </h2>
+  </div>
+  <div class="card-body">
+  <%= simple_form_for(@product) do |f| %>
+
+        <div class="form-inputs">
+          <%= f.hidden_field :parent_id %>
+          <%= f.input :code %>
+          <%= f.input :name %>
+          <%= f.input :local_name %>
+          <%= f.input :unit_rate %>
+          <%= f.input :unit_name %>
+          <%#= f.association :unit_type, :collection => Master.where('parent_id == 9 ') %>
+        </div>
+
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
+      <% end %>
+
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to t('show'), @product, data: { turbolinks: false },  
+      class: "btn btn-tab btn-warning btn-sm " %> 
+    <%#= link_to '<i class="fa fa-file-alt fa-2x" style="color:blue"></i>'.html_safe,  
+      @product, data: { turbolinks: false }  %>
+  </div>
+</div>

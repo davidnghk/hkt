@@ -1,0 +1,48 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <table style="height: 50px; line-height: 3px;">
+        <tbody>
+          <tr>
+              <td style="width: 65px; padding-left: 00px;">
+                  <%= image_tag image_url('HKT-logo.jpeg'), size: "98x98" %>
+              </td>
+              <td style="width: 35px; padding-left: 00px;">
+              </td>
+              <td style="width: 800px;">
+                <h2 style="font-size: 21px;"><b>香港試驗有限公司</b></h2>
+                <h2 style="font-size: 21px;"><b>HONG KONG TESTING CO., LTD.</b></h2>
+                <p style="font-size: 12px;">Room 205, 2/F, Fuk Shing Commercial Building, 28 On Lok Mun Street, On Lok Tsuen, Fanling, N.T. Hong Kong</p>
+                <p style="font-size: 12px;">Tel: (852) 2692 2171&nbsp; Fax: (852) 2691 4874&nbsp; Email: info@hktesting.com.hk</a></p>
+                <p style="font-size: 12px;">Website: www.hktesting.com.hk</p>
+                <p style="font-size: 12px;">地址：香港新界粉嶺安樂村安樂門街28號福成商業大廈2樓205室 電話: (852)2692 2171&nbsp; 傳真: (852) 2691 4874</p>
+              </td>
+              <td>
+                <%= @svg.html_safe %>
+              </td>
+          <tr>
+              <td colspan="12">
+                <h3 style="text-align: center;"><u><%= @sale.category.upcase %></u></h3>
+              </td>
+          </tr>
+        </tbody>
+    </table>
+
+    <table style="height: 50px; line-height: 3px;">
+        <tbody>
+          <tr>
+            <td style="width: 525px;">
+                <strong><%= @sale.category %> No.: </Strong><%= @sale.our_ref %>
+              <% if @sale.parent_id? %>
+                ( <strong>supersede: </Strong><%= @sale.parent.our_ref %> )
+              <% end %>     
+            </td>
+            <td style="width: 400px;">
+                <strong><%= @sale.category %> Date: </Strong><%= @sale.sale_date %>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+
+      <div class="col">
+        <%= name_avatar(@assignment.work.display_name, 24) %> 
+        <%= @assignment.work.display_name %>(#<%= @assignment.our_ref %>)
+      </div>
+
+
+            <div  class="col-xs-8 col-md-8  ">
+              <strong><%= t('heading') %>: </strong> 
+              <%= @assignment.name %>  
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('status') %>: </strong>
+              <%= name_avatar(@assignment.status, 24) %><%= t(@assignment.status) %>
+            </div>
+
+
+
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('client') %>: </strong> 
+              <%= @assignment.client.name if @assignment.client_id? %> <br>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('client_ref') %>: </strong>
+              <%= @assignment.client_ref %>
+            </div>
+
+
+
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('start_date') %>: </strong>
+              <%= @assignment.start_datetime.strftime('%F %I:%M %P') if @assignment.start_datetime? %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('due_date') %>: </strong>
+              <%= @assignment.due_datetime.strftime('%F %I:%M %P') if @assignment.due_datetime? %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('end_date') %>: </strong>
+              <%= @assignment.end_datetime.strftime('%F %I:%M %P') if @assignment.end_datetime? %>
+            </div>
+
+
+  
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('manager') %>: </strong>
+              <%= name_avatar(@assignment.team.display_name, 24) %> 
+              <%= @assignment.team.display_name %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('operator') %>: </strong>
+              <%= name_avatar(@assignment.operation_team.display_name, 24) %> 
+              <%= @assignment.operation_team.display_name if @assignment.operation_team_id? %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <strong><%= t('state') %>: </strong>
+              <%= t(@assignment.aasm_state) %>
+            </div>
+
+
+
+            <div  class="col-xs-12 col-md-12 ">
+              <strong><%= t('comments') %>: </strong>
+            </div>
+
+          <p class="card-text"><%= @assignment.comments %></p>
+
+    <%= render partial: "lines/lines", locals: {lineable: @assignment} %>
+
+          <br>
+          <% if @assignment.work.workflow.code == "SIMPLE" %>
+            <%= render 'workflow_simple' %>
+          <% end %>
+          <% if @assignment.work.workflow.code == "OS" %>
+            <%= render 'workflow_os' %>
+          <% end %>
+          <% if @assignment.work.workflow.code == "INT" %>
+            <%= render 'workflow_int' %>
+          <% end %>
+          <br>
+          <%= render 'photo_upload' %>
+
+
+
+    <div class="row">
+      <div class="col">
+        <%= link_to '<i class="fa fa-list-alt fa-2x"  style="color:blue"></i>'.html_safe,  
+          assignments_path, data: { turbolinks: false } %>
+      </div>
+      <div class="col">
+        <%= link_to '<i class="fa fa-calendar fa-2x"  style="color:blue"></i>'.html_safe, 
+           calendar_path, data: { turbolinks: false } %>
+      </div>
+        <%= link_to '<i class="fa fa-edit fa-2x"  style="color:blue"></i>'.html_safe, 
+           edit_assignment_path(@assignment), data: { turbolinks: false } %>
+    </div>
+  </div>
+
+
+  <br>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="row ">
+        <% @assignment.uploadfiles.each do |upload| %>
+          <div  class="col-xs-1 col-md-1 ">
+              <% if upload.variable? %>
+                <%= link_to image_tag(upload.variant(resize: "150x150")), upload %>
+              <% elsif upload.previewable? %>
+                <%= link_to image_tag(upload.preview(resize: "150x150")), rails_blob_path(upload, disposition: :attachment) %>
+              <% elsif upload.image? %>
+                <%= link_to image_tag(upload, width: 400), upload %>
+              <% else %>
+                <%= link_to '<i class="fa fa-file fa-2x"  style="color:blue"></i>'.html_safe, rails_blob_path(upload, disposition: :attachment) %>
+              <% end %><br>
+              <%= link_to delete_uploadfile_assignment_url(upload.id),
+                    remote: true, method: :delete,
+                    data: {confirm: "Are your sure? "} do %>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div id="photo_details"><%= render 'photos/photo_details' %> </div>
+      </div>
+    </div>
+  </div>

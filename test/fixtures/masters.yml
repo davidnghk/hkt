@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: one
+  code: MyString
+  name: MyString
+  local_name: MyString
+  parent_id: 1
+  icon: MyString
+  setting1: 1
+  param1: MyString
+
+two:
+  team: two
+  code: MyString
+  name: MyString
+  local_name: MyString
+  parent_id: 1
+  icon: MyString
+  setting1: 1
+  param1: MyString

@@ -1,0 +1,58 @@
+<% if browser.device.mobile? %> 
+    <table  class="table table-striped">
+        <tbody>
+            <% lineable.lines.each do |line| %>            
+                    <tr data-link="<%= line_path(line) %>">
+                        <td><%= line.product.name %> <%= line.thing  %> </td>
+                        <td><%= line.quantity %> (<%= line.no_of_things  %>) 
+                        </td>
+                    </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+    <table  class="table table-striped" style="width: 100%" >
+        <colgroup>
+            <col span="1" style="width: 62%;">
+            <col span="1" style="width: 8%;">
+            <col span="1" style="width: 14%;">
+            <col span="1" style="width: 6%;">
+            <col span="1" style="width: 10%;">
+         </colgroup>
+        <thead>
+            <tr>
+                <th><%= t('description') %></th>
+                <th style="text-align:right" ><%= t('discount') %></th>
+                <th style="text-align:right" ><%= t('price') %></th>
+                <th style="text-align:right" ><%= t('qty') %></th>
+                <th style="text-align:right" ><%= t('total') %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% lineable.lines.each do |line| %>            
+                <tr data-link="<%= line_path(line) %>">
+                    <td><b><%= line.category %> <%= line.product.code %></b><br> <%= line.description %>
+                        <br> <%= line.method %> </td>
+                    <td align="right" ><%= line.percentage %>%</td> 
+                    <% if line.price? %>
+                        <td align="right" style="color:red;" ><%= number_to_currency(line.actual_price, unit: '$', precision: 0) %>
+                        /<%= line.unit %></td> 
+                    <% else %>
+                        <td align="right" ><%= number_to_currency(line.actual_price, unit: '$', precision: 0) %>
+                        /<%= line.unit %></td> 
+                    <% end %>
+                    <td align="right" ><%= line.quantity %>
+
+                    </td>
+                    <td align="right" ><%= number_to_currency(line.quantity * line.price, unit: '$', precision: 0) if line.quantity? %> </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>
+
+<script type="text/javascript">
+  $("tr[data-link]").click(function() {
+      window.location = $(this).data('link');
+  });
+</script> 

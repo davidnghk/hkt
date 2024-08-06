@@ -1,0 +1,30 @@
+
+      <div class="card">
+      <div class="card-header">
+        <%= t('items') %> 
+        <%= link_to '<i class="fas fa-plus-circle fa-2x" style="color:blue"></i>'.html_safe, new_sale_item_path(sale_id: @sale.id) %>
+      </div>
+      <div class="card-body">
+        <% if @sale.sale_items.count > 0 %>
+          <table  class="table table-striped">
+            <tbody>
+                <% @sale.sale_items.each do |sale_item| %>
+                  <tr data-link="<%= edit_sale_item_path(sale_item) %>">
+                  <td><%= sale_item.work_item.display_name %> <%= sale_item.work_item.heading %> </td>
+                  <td><% if sale_item.quantity %> 
+                      <%= sale_item.quantity %> x 
+                    <% end %>                        
+                  </td>
+                  <td><%= number_to_currency(sale_item.price, unit: '$', precision: 0) %>/<%= sale_item.work_item.unit_type.display_name %>
+                   </td>
+                  <td><%= number_to_currency(sale_item.price * sale_item.quantity, unit: '$', precision: 0) if sale_item.quantity? %> </td>
+                  <td><%= link_to '<i class="fa fa-trash" style="color:red"></i>'.html_safe, sale_item, data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %>  
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+  </div> <br>
+

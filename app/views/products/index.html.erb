@@ -1,0 +1,47 @@
+<table id="products" class="table table-striped">
+
+  <thead>
+    <tr>
+      <th><%= t('code') %></th>
+      <th><%= t('name') %></th>
+      <th><%= t('local_name') %></th>
+    </tr>
+  </thead> 
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr data-link="<%= product_path(product) %>">
+        <td><%= product.code %></td>
+        <td><%= product.name.truncate(60) %></td>
+        <td><%= product.local_name.truncate(60) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+  <%= link_to t('add'), new_product_path, class: "btn btn-tab btn-warning btn-sm " %> 
+  <br><br>
+<%= form_tag import_products_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<!-- Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#products').DataTable({
+        "order": [[ 1, "desc" ]]
+    } );
+  });
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data('link');
+  });
+</script>
+
+

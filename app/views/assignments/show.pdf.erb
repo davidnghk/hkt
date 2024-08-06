@@ -1,0 +1,175 @@
+<style>
+.break { page-break-before: always; }
+h1 {
+    font-size: 25px;
+}
+h2 {
+    font-size: 18px;
+}
+h3 {
+    font-size: 16px;
+}
+p {
+    font-size: 15px;
+    line-height: 80%;
+}
+.space { margin-top: 1000px; }
+
+table, th, td {
+    table-layout: fixed;
+    border-spacing: 5px;
+    border: 1px solid black;
+    border-collapse: collapse; 
+    font-size: 16px;
+    padding: 6px;
+    padding-bottom: 6px;
+    line-height: 150%;
+}
+
+thead { display: table-header-group }
+tfoot { display: table-row-group }
+tr { page-break-inside: avoid }
+
+table#t01 {
+    padding: 5px;
+    padding-bottom: 5px;
+    width:88%; 
+    height:88%;
+}
+
+table#t02 {
+  height: 2000%;
+  width: 100%;  
+  border: 0;  
+}
+
+#table1 {
+    border:0px solid transparent;
+        font-size: 16px;
+} 
+
+.footer,
+.push {
+  height: 120px;
+}
+
+
+</style>
+<html>
+<head></head>
+<body>
+  <div class="Complaint">
+    <center>
+        <h1>Chiu Hing Construction & Transportation Company Limited</h1>
+        <h2>Highways Department Term Contract, Hong Kong Island excluding High Speed Roads 2017-2023</h2>
+        <h1>Contract No.: 01/HY/2016</h1>
+        <h1><%= @assignment.work.name  %></h1>
+    </center>
+    <br><br>
+
+    <table style="width:100%">
+      <tr>
+        <th colspan="2">Works Description : <%= @assignment.work.name %></th>
+        <th>Location : <%= @assignment.location.name %></th>
+      </tr>
+      
+      <tr>
+        <th>W.O. No.: <%= @assignment.id %></th>
+        <th>Weather: Cloudy</th>
+        <th>Date of Inspection: <%= @assignment.start_datetime.strftime('%F') if @assignment.start_datetime? %> </th>
+      </tr>
+    </table>
+
+  <br style = “height: 4000px;”><br>
+      <div >
+
+      <div class="row">
+          <div class="col-md-2"><h3>Rating:</h3></div>
+          <div class="col-md-6"><h3>A = Adequate /Satisfactory at time of inspection</h3></div>
+          <div class="col-md-4"><h3>B = Needs improvement</h3></div>
+      </div>
+      <div class="row">
+          <div class="col-md-6"><h2>C = Needs immediate attention</h2></div>
+          <div class="col-md-4"><h2>N/A = Not applicable </h2></div>
+      </div>
+      </div>
+      <br>
+  <br style=“height: 2000px;”><br>
+
+            <% if @assignment.assignment_item.count > 0 %>
+              <table  class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                      <th colspan="2"><center>Item</center></th> 
+                      <th><center>remarks</center></th>
+                      <th><center>Rating</center></th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    <% @assignment.assignment_item.each do |assignment_item| %>
+                      <tr>
+                        <td colspan="2"><%= assignment_item.work_item.display_name  %>:
+                          <%= assignment_item.serial_number  %><br></td>
+                        <td><%= assignment_item.remarks %></td>
+                        <td><center><%= assignment_item.rating  %></center></td>
+                      </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            <% end %>
+</body>
+<br>
+
+<footer class="footer ">
+  <table id= "t01" style="width:100%">
+    <tr>
+      <% if @assignment.assignment_logs.where(action: "asked").count > 0 %>
+        <td>Inspected By: <%= @assignment.assignment_logs.where(action: "asked").first.actor.name %></td>
+      <% else %>
+        <td>Inspected By: </td>
+      <% end %>
+      <td>Signature:</td>
+      <td>Designation: </td>
+    </tr>
+    <tr>
+      <% if @assignment.assignment_logs.where(action: "approved").count > 0 %>
+        <td>Witnessed By: <%= @assignment.assignment_logs.where(action: "approved").first.actor.name %></td>
+      <% else %>
+        <td>Witnessed By: </td>
+      <% end %>
+      <td>Signature:</td>
+      <td>Designation: </td>
+    </tr>
+  </table>
+</footer>
+</div>
+
+<p style="page-break-before: always"></p>
+
+
+<br><br>
+
+      <table class="noBorder" style="width:100%; line-height: 100%;">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @assignment.photos.count > 0 %>
+              <% photo_no = 1 %>
+              <% @assignment.photos.each do |photo| %>
+                <% if photo_no.odd? %>
+                  <tr>
+                <% end %>
+                <td>
+                <%= wicked_pdf_image_tag photo.image.medium.url.gsub('https', 'http') %>
+                </td>
+                <% if photo_no.even? %>
+                  <tr>
+                <% end %>
+               <% photo_no = photo_no + 1 %>
+              <% end %>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>

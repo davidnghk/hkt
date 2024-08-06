@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Task Materials</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Material</th>
+      <th>Quantity</th>
+      <th>Cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_materials.each do |task_material| %>
+      <tr>
+        <td><%= task_material.task_id %></td>
+        <td><%= task_material.material_id %></td>
+        <td><%= task_material.quantity %></td>
+        <td><%= task_material.cost %></td>
+        <td><%= link_to 'Show', task_material %></td>
+        <td><%= link_to 'Edit', edit_task_material_path(task_material) %></td>
+        <td><%= link_to 'Destroy', task_material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task Material', new_task_material_path %>

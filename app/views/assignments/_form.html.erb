@@ -1,0 +1,85 @@
+<div class="card" >
+  <div class="card-header">
+    <%= t('assignment') %>
+  </div>
+  <div class="card-body">
+      <%= simple_form_for(@assignment) do |f| %>
+        <%= f.hidden_field :parent_id %>
+        <%= f.input_field :date_range, as: :hidden, :value => nil  %>
+        <%= f.input_field :origin, as: :hidden, :value => "Form" %>
+
+        <div class="form-inputs">
+          <div class="row ">
+            <div class="col-xs-4 col-md-4  ">
+              <%= f.association :work, :collection => Work.where('team_id = ? or id =1 ', current_team.id), selected: 1 %>
+            </div>
+            <div  class="col-xs-8 col-md-8  ">
+              <%= f.association :client %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div  class="col-xs-4 col-md-4  ">
+              <%= f.input :user_ref %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <%= f.input :attention %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <%= f.input :phone %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div  class="col-xs-12 col-md-12  ">
+              <%= f.input :address %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div  class="col-xs-4 col-md-4  ">
+              <%= f.input :start_datetime, as: :datetime, html5: true %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <%= f.input :due_datetime, as: :datetime, html5: true %>
+            </div>
+            <div  class="col-xs-4 col-md-4  ">
+              <%= f.input :end_datetime, as: :datetime, html5: true %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div  class="col-xs-4 col-md-4  ">
+              <%= f.association :operation_team %>
+            </div>
+
+          </div>
+
+           <div class="row ">
+              <div class="col s12  ">
+                <%= f.file_field :uploadfiles, as: :file, multiple: true  %>
+              </div>
+           </div><br>
+ 
+           <div class="row ">
+              <div class="col s12  ">
+                <%= f.input :comments, as: :text, input_html: {rows: 3, cols: 40}  %>
+              </div>
+           </div>
+        </div>
+
+        <div class="form-actions">
+            <%= button_tag type: 'submit', class: "button my-button", id: "register-button" do %>
+              <i class="fa fa-save fa-2x" style="color:blue" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+  <div class="card-footer text-muted">
+      <%= link_to '<i class="fa fa-list-alt fa-2x" style="color:blue"></i>'.html_safe,  assignments_path %>
+      <% if @assignment.persisted? %>
+        <%= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe, edit_assignment_path(@assignment) %> 
+      <% end %>
+  </div>
+</div>
+

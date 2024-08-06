@@ -1,0 +1,17 @@
+  <% if params[:commit] == "Search" or params[:commit] == "Summary" or params[:commit] == "Report" %>
+      <%= render 'search' %>
+  <% else %> 
+    <% if browser.device.mobile? %> 
+      <%= render 'index_mobile' %>   
+    <% else %>
+      <%= render 'index_pc' %>
+    <% end %>
+
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $("tr[data-link]").click(function() {
+      window.location = $(this).data('link');
+  });
+</script> 

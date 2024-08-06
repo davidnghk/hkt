@@ -1,0 +1,106 @@
+<% if user_masquerade? %>
+  <div class="alert alert-warning text-center">
+    You're logged in as <b><%= current_user.name %> (<%= current_user.email %>)</b>
+    <%= link_to back_masquerade_path(current_user) do %><%= icon("fas", "times") %> Logout <% end %>
+  </div>
+<% end %>
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+          <% if user_signed_in? %>
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1 my-3">
+              <%= link_to tickets_path, data: { turbolinks: false } do %>
+                <i class="fa fa-bell fa-2x icon-babu"></i>
+                <span class="badge badge-danger badge-counter" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
+              <% end %>
+            </li>
+            
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+          <%# if user_signed_in? %>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-900 small"><%= current_user.name %><br><h6><%= current_team.display_name %></h6></span>
+                
+                <%= image_tag user_avatar(current_user.email, 35), class: "rounded-circle" %>
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu px-4 dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+ 
+                  <a class="dropdown-item" ></a>
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-600"></i>
+                  <%=  link_to t("profile"), edit_user_registration_path, class: 'border-t text-xs uppercase font-bold text-gray-800 no-underline block px-6 py-3 bg-white hover:bg-gray-300 whitespace-no-wrap'  %>
+
+                <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" ></a>
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  <%= link_to t('logout'), destroy_user_session_path, method: :delete  %>
+              </div>
+            </li>
+          <% else %>
+            <div class="z-10 inline-flex items-center align-middle leading-none rounded no-underline text-gray-700 hover:text-gray-800 hover:bg-white py-4">
+              <%#= link_to 'Log In', new_user_session_path, class: 'btn btn-primary' %>
+              <%= link_to ('<i class="fa fa-sign-in-alt fa-fw fa-2x"></i>').html_safe, new_user_session_path  %>
+            </div>
+          <% end %>
+          <div class="z-10 inline-flex items-center align-middle leading-none rounded no-underline text-gray-700 hover:text-gray-800 hover:bg-white my-2">
+              <% if I18n.locale == :zh %> 
+                  <li><%= link_to image_tag("hkflag32.png") , url_for( :locale => 'en' ), data: { turbolinks: false }, class: "nav-link"  %></li>    
+              <% else %>
+                  <li><%= link_to image_tag("usflag32.png") , url_for( :locale => 'zh' ), data: { turbolinks: false }, class: "nav-link"  %></li>
+              <% end %>
+          </div>
+
+        </nav>
+        <!-- End of Topbar -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#sidebarToggleTop").click(function(e) {
+            e.preventDefault();
+            $("#accordionSidebar").toggleClass("toggled");
+            $('#accordionSidebar.toggled').find("#sidebar-wrapper").find(".collapse").collapse('hide');
+        });
+    });
+</script>

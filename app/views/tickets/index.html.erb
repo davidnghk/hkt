@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= t('user') %></th>
+            <th><%= t('message') %></th>
+            <th><%= t('read_at') %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @tickets.each do |ticket| %>
+           <tr data-link="<%=  polymorphic_url(ticket.notifiable) %> ">
+              <td><%= image_tag user_avatar(ticket.user, 25), class: "rounded-circle" %></td>
+              <td><%= ticket.message %></td>
+              <td><%= ticket.read_at.strftime('%F %I:%M %P') if ticket.read_at? %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <br>
+
+</div> 

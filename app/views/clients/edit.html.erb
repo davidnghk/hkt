@@ -1,0 +1,21 @@
+<div class="card" >
+  <div class="card-header">
+    <% if @client.parent_id? %>
+      <%= @client.parent.display_name  %>
+    <% else %>
+      <%= t('client') %>
+    <% end %>
+  </div>
+  <div class="card-body">
+
+	<%= render 'form', client: @client %>
+
+  </div>
+
+  <div class="card-footer">
+
+    <%= link_to clients_path, data: { turbolinks: false } do %>
+      <i class="fa fa-list fa-2x" style="color:blue"></i>
+    <% end %>
+
+  </div>

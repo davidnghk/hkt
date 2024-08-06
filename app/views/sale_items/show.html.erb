@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sale:</strong>
+  <%= @sales_term.sale_id %>
+</p>
+
+<p>
+  <strong>Term:</strong>
+  <%= @sales_term.term_id %>
+</p>
+
+<%= link_to 'Edit', edit_sales_term_path(@sales_term) %> |
+<%= link_to 'Back', sales_terms_path %>

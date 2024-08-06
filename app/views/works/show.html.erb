@@ -1,0 +1,85 @@
+<div class="card" >
+  <div class="card-header">
+    <h6>
+      <%= t('work') %> 
+    </h6>
+  </div>
+  <div class="card-body">
+
+    <p><strong><%= t('code') %>: </strong><%= @work.code %></p>
+    <p><strong><%= t('name') %>: </strong><%= @work.name %></p>
+    <p><strong><%= t('local_name') %>: </strong><%= @work.local_name %></p>
+
+    <p><strong><%= t('workflow') %>: </strong><%= @work.workflow.display_name %></p>
+
+  </div>
+  <div class="card-footer text-muted ">
+    <%= link_to '<i class="fa fa-list fa-2x" style="color:blue"></i>'.html_safe,  works_path, data: { turbolinks: false }  %>
+    <%= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe,  edit_work_path(@work), data: { turbolinks: false }  %>
+  </div>
+</div>
+
+<% if params[:commit] == "Audit"  %>
+  <br>
+  <div class="card" >
+    <div class="card-header">
+      <h2>Versions</h2>
+    </div>
+    <div class="card-body">
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Modifier</th>
+            <th>Action</th>
+            <th>Changes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @work.versions.each do |version| %>
+            <%= tag.tr do %>
+              <%= tag.td version.id %>
+              <%= tag.td version.whodunnit %>
+              <%= tag.td link_to 'rollback', work_rollback_path(@work, version: version) %>
+              <%= tag.td do %>
+                <%= tag.ul class: 'list-group' do %>
+                  <li class='list-group-item'>
+                    <strong>Code:</strong> 
+                    <%= version.object %>
+                  </li>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% else %>
+  <br>
+  <div class="card">
+      <div class="card-header">
+        <%= t('work_items') %> 
+        <%= link_to '<i class="fas fa-plus-circle fa-2x" style="color:blue"></i>'.html_safe, new_work_item_path(work_id: @work.id) %>
+      </div>
+      <div class="card-body">
+        <% if @work.work_items.count > 0 %>
+          <table  class="table table-striped">
+            <tbody>
+                <% @work.work_items.each do |work_item| %>
+                  <tr data-link="<%= edit_work_item_path(work_item) %>">
+                  <td><%= work_item.code %> </td>
+                  <td><%= work_item.name %> <br> <%= work_item.local_name %> </td>
+                  <td><%= work_item.description %> </td>
+                  <td><%= number_to_currency(work_item.unit_rate, precision: 0) %> / <%= work_item.unit_type.display_name %> </td>
+                  <td><%= link_to '<i class="fa fa-trash" style="color:red"></i>'.html_safe, work_item, data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %>  
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+  </div>
+<% end %>
+

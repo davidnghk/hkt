@@ -1,0 +1,52 @@
+<table  class="table table-striped" style="width: 100%" >
+  <thead>
+    <tr>
+      <th><%= t("code") %></th>
+      <th><%= t("name") %></th>
+      <th><%= t("active") %></th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% foldable.folders.each do |folder| %>
+      <tr>
+        <td>
+            <% if folder.uploadfile.attached? %>
+            asdfads
+                <div class="row ">
+                <div  class="col-xs-12 col-md-12  ">
+                    <strong><%= t('delivered-file') %>:  </strong> 
+                    <%= link_to url_for(folder.uploadfile), 
+                            class: "btn btn-sm btn-warning" do %>
+                        <i class="fas fa-paperclip fa-lg p-r-5"></i> 
+                        <%= folder.uploadfile.filename %>
+                    <% end %>
+                </div>
+                </div>
+            <% else %>
+            No attached
+            <% end %>
+
+
+
+        </td>
+        <td><%= folder.code %></td>
+        <td><%= folder.name %></td>
+        <td><%= folder.active %></td>
+        <td><%= link_to '<i class="fa fa-trash" style="color:red"></i>'.html_safe, folder, 
+            data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+        <td><%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">
+    $("tr[data-link]").click(function() {
+        window.location = $(this).data('link');
+    });
+  </script> 
+

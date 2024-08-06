@@ -1,0 +1,20 @@
+<% if @sale.prepared? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('cancel'), cancel_sale_path(@sale), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+      <%= link_to t('mail'), mail_sale_path(@sale), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+      <%= link_to t('confirm'), confirm_sale_path(@sale), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-primary btn-tab col"  %> 
+    </div>
+<% end %>
+
+<% if @sale.mailed? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('cancel'), cancel_sale_path(@sale), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+      <%= link_to t('confirm'), confirm_sale_path(@sale), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+    </div>
+<% end %>
+
+<% if @sale.confirmed? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('cancel'), cancel_sale_path(@sale), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+    </div>
+<% end %>

@@ -1,0 +1,56 @@
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+          <div  class="col-xs-12 col-md-12 ">
+            <strong><%= t('container') %>: </strong> 
+            <%= @container.code %>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('object') %>: </strong> 
+          <%= @container.object %>  
+        </div>
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('size') %>: </strong> 
+          <%= @container.size %>  
+        </div>
+      </div>
+
+      <div class="row">
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('quantity') %>: </strong>
+          <%= @container.quantity %> 
+        </div>
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('checkin_quantity') %>: </strong>
+          <%= @container.checkin_quantity %> 
+        </div>
+      </div>
+ 
+      <div class="card">
+        <div class="card-header">
+            <%= t('thing') %> 
+        </div>
+        <div class="card-body">
+          <%= render partial: "things/form", locals: {thingable: @container} %>
+          <%= render partial: "things/things", locals: {thingable: @container} %>
+        </div>
+      </div> <br>
+
+    </div>
+    <div class="card-footer">
+      <%= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe, edit_container_path(@container), 
+          data: { turbolinks: false }  %> 
+      
+      <%= link_to '<i class="fa fa-trash fa-2x" style="color:red"></i>'.html_safe, @container, 
+          data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+
+      <%= link_to '<i class="fa fa-list-alt fa-2x"  style="color:blue"></i>'.html_safe,  
+          @container.collection, data: { turbolinks: false } %>
+    </div>
+  </div>
+

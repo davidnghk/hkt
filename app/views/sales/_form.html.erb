@@ -1,0 +1,116 @@
+<%= simple_form_for(@sale) do |f| %>
+<div class="card">
+  <div class="card-header">
+    <%#= t(@sale.category) %>
+    <%#= @sale.our_ref %> 
+    <div class="row ">
+      <div class="col-xs-6 col-md-6  ">
+        <%= f.input :our_ref %>
+      </div>
+      <div class="col-xs-6 col-md-6  ">
+        <%= f.input :sale_date, as: :date, html5: true %>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <%= f.input :team_id, :as => :hidden %>
+    <%= f.input :category, :as => :hidden %>
+    <%= f.input :client_id, :as => :hidden %>
+
+    <div class="form-inputs">
+      <div class="row ">
+        <div class="col-xs-6 col-md-6  ">
+          <%= f.input :client_ref %>
+          <%= f.association :client %>
+          <% if @sale.client_id? %><br>
+            <%= @sale.client.name %><br>
+            (<%= @sale.client.code %>:<%= @sale.client.site %>)<br>
+          <% if @sale.client.address1? %>
+            <%= @sale.client.address1 %><br>
+          <% end %>
+          <% if @sale.client.address2? %>
+            <%= @sale.client.address2 %><br>
+          <% end %>
+          <% if @sale.client.address3? %>
+            <%= @sale.client.address3 %><br>
+          <% end %>
+          <% if @sale.client.address4? %>
+            <%= @sale.client.address4 %><br>
+          <% end %>
+          <% end %>
+
+        </div>
+      <div class="col-xs-6 col-md-6  ">
+          <%= f.input :ship_to %>
+          <%= f.input :ship_to_address, label: t('ship_to_address') , as: :rich_text_area  %>
+        </div>
+      </div>
+
+      <div class="row ">
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.input :attention %>
+          <%= f.input :phone  %>
+          <%= f.input :fax %>
+          <%= f.input :email  %>
+        </div>
+
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.input :cc %>
+          <%= f.input :authorised_person %>
+          <%= f.input :authorised_person2 %>
+          <%= f.input :discount %>
+        </div>
+
+        <div class="col-xs-4 col-md-4  ">
+          <%= f.input :ship_contact %>
+          <%= f.input :ship_phone  %>
+        </div>
+      </div>
+
+      <div class="row ">
+        <div class="col-xs-12 col-md-12  ">
+          <%= f.association :products, label: t('product'), as: :select2, collection: Product.Service, multiple: true  %>
+          <%#= f.association :products, label: t('product'), as: :check_boxes, collection: Product.Service  %>
+        </div>
+      </div>
+
+      <% if @sale.category == "Quotation" %>
+
+        <div class="listcontainer">
+          <%= f.association :terms, as: :check_boxes %>
+        </div>
+ 
+      <% end %>
+
+      <div class="row ">
+        <div class="col-xs-12 col-md-12  ">
+          <%= f.input :remarks, as: :rich_text_area  %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
+
+  </div>
+  <% end %>
+</div>
+<div class="card-footer text-muted">
+  <%= link_to t('list'), sales_path, data: { turbolinks: false }, class: 
+  "btn btn-tab btn-warning btn-tab "  %> 
+
+  <%#= link_to '<i class="fa fa-list-alt fa-2x" style="color:blue"></i>'.html_safe, 
+    sales_path %>
+</div>
+</div>
+
+<script type="text/javascript">
+  $(".taggable").select2(
+    tags: $('.taggable').data('options')
+     width: "252px"
+  );
+</script>

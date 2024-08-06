@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Work Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Work</th>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Local name</th>
+      <th>Parent</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_items.each do |work_item| %>
+      <tr>
+        <td><%= work_item.work_id %></td>
+        <td><%= work_item.code %></td>
+        <td><%= work_item.name %></td>
+        <td><%= work_item.local_name %></td>
+        <td><%= work_item.parent_id %></td>
+        <td><%= link_to 'Show', work_item %></td>
+        <td><%= link_to 'Edit', edit_work_item_path(work_item) %></td>
+        <td><%= link_to 'Destroy', work_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work Item', new_work_item_path %>

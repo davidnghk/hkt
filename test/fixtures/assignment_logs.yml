@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  assignment: one
+  actor_id: 1
+  action: MyString
+  team_id: 
+  operation_team_id: 1
+
+two:
+  assignment: two
+  actor_id: 1
+  action: MyString
+  team_id: 
+  operation_team_id: 1

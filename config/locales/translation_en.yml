@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    models:
+      active_storage/attachment: attachment #g
+      active_storage/blob: blob  #g
+      member: member  #g
+      team: team  #g
+      user: user #g
+      ticket: ticket
+      master: master
+      assignment: assignment
+      work: work
+
+    attributes:
+      work:
+        workflows: 
+            record: record
+            simple: simple #g
+            internal: internal #g
+            outsource: outsource #g

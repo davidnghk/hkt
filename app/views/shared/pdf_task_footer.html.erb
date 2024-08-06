@@ -1,0 +1,96 @@
+
+<html>
+<style>
+        .table-striped>tbody>tr:nth-child(2n+1)>td,
+        .table-striped>tbody>tr:nth-child(2n+1)>th {
+            background-color: #f2f2f2;
+        }        
+        .underline {
+         text-decoration: underline;
+}
+</style>
+  <body>
+    <hr>
+    <table style="text-decoration: underline; height: 50px; width: 100%; line-height: 7px; font-weight: bold;">
+        <tbody>
+          <tr>
+            <td style="width: 450px; padding-left: 00px; font-size: 24px; ">
+              <p>Report Information</p>
+            </td>
+            <td style="width: 450px; padding-left: 00px; font-size: 24px;">
+              <p>Invoice Information</p>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+    <table style="height: 50px; width: 100%; line-height: 8px;">
+        <tbody>
+          <tr>
+            <td style="width: 200px; padding-left: 00px; font-size: 18px;">
+              <br>
+              <p>Sample Received</p>
+              <p>Test Started</p>
+              <p>Test Ended</p>
+              <p>Draft Report</p>
+              <p>Report Typed</p>
+              <p>Report Checked</p>
+              <p>Report Signed</p>
+              <p>Report Despatched</p>
+            </td>
+            <td class="underline" style="width: 250px; text-align: left; font-size: 18px;">
+              <br>
+                <p><%= @task.test_end_date          || "_________________" %></p>
+                <p><%= @task.test_start_date        || "_________________" %></p>
+                <p><%= @task.test_end_date          || "_________________" %></p>
+                <p><%= @task.report_drafted_date    || "_________________" %></p>
+                <p><%= @task.report_typed_date      || "_________________" %></p>
+                <p><%= @task.report_checked_date    || "_________________" %></p>
+                <p><%= @task.report_signed_date     || "_________________" %></p>
+                <p><%= @task.report_dispatched_date || "_________________" %></p>
+              </td>
+
+              <td style="width: 220px; padding-left: 00px; font-size: 18px;">
+                <p>Report No.</p>
+                <p>Quotation No.</p>
+                <p>Invoice No.</p>
+                <p>Invoice Date</p> 
+                <p>Invoice Amount</p><br>
+                <p>_________________</p>
+                <p>Account Department</p>
+                <p>Date _____________</p>
+              </td>
+
+              <td style="width: 230px; text-align: left; font-size: 18px;">
+                <p class="underline"  ><% if @task.report_no? %> 
+                      <%= @task.report_no %>
+                    <% else %>
+                      ___________________
+                    <% end %>
+                </p>
+                <p class="underline"  ><% if @task.quotation_no? %> 
+                      <%= @task.quotation_no %>
+                    <% else %>
+                      ___________________
+                    <% end %>
+                </p>
+                <p class="underline"  ><% if @task.invoice_no? %> 
+                      <%= @task.invoice_no %>
+                    <% else %>
+                       ___________________
+                    <% end %>
+                </p>
+                <p class="underline"  ><%= @task.invoice_date || "___________________"  %></p>
+                <p class="underline"  ><%= number_to_currency(@task.invoice_amount, unit: '$', precision: 2)  || "___________________"  %></p><br>
+                <p style="text-align: left;" >___________________</p>
+                <p style="text-align: left;" >Laboratory Department</p>
+                <p style="text-align: left;" >Date _______________</p>
+              </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+  </body>
+</html>
+

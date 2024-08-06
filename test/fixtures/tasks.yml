@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: 1
+  task_date: 2020-08-01
+  our_ref: MyString
+  customer_ref: MyString
+  request_ref: MyString
+  location: MyString
+  object_type: 1
+
+two:
+  category: 1
+  task_date: 2020-08-01
+  our_ref: MyString
+  customer_ref: MyString
+  request_ref: MyString
+  location: MyString
+  object_type: 1

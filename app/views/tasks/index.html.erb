@@ -1,0 +1,90 @@
+<%= search_form_for @search do |f| %>
+
+    <div class="row">
+      <div class="col-md-2"><%= t('start_time') %></div>
+      <div class="col-md-4"><%= f.date_field :start_time_gteq, as: :date_picker %></div> 
+      <div class="col-md-2"><%= t('end_time') %></div>
+      <div class="col-md-4"><%= f.date_field :start_time_lteq, as: :date_picker %></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"><%= t('our_ref') %></div>
+      <div class="col-md-4"><%= f.search_field :id_eq %></div>
+      <div class="col-md-2"><%= t("customer_ref") %></div>
+      <div class="col-md-4"><%= f.search_field :customer_ref_cont %></div>
+    </div>
+    <br>
+    <div class="actions"><%= f.submit 'Search' %>
+    </div>
+  <% end %>
+
+<div class="card" >
+  <div class="card-header">  
+    <h4><%= t("task") %></h4>
+  </div>  
+  <div class="card-body">
+
+    <table id="tasks"  class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th><%= t("job_no") %></th>
+          <th><%= t("start_time") %></th>
+          <th><%= t("laboratory") %></th>
+          <th><%= t("client") %></th>
+          <th><%= t("request_ref") %></th>
+          <th><%= t("location") %></th>
+          <th><%= t("sample") %></th>
+          <th><%= t("no_of_sample") %></th>
+
+          <th><%= t("status") %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr data-link="<%= task_path(task) %>", data: { turbolinks: false }  >
+            <td><%= task.id %></td>
+            <td><%= task.task_date %></td>
+            <td><%= task.laboratory.name if task.laboratory_id? %></td>
+            <td><%= task.client.name if task.client_id?  %></td>
+            <td><%= task.request_ref %></td>
+            <td><%= task.location %></td>
+            <td><%= task.sample %></td>
+            <td><%= task.no_of_sample %></td>
+
+            <td><%= t(task.aasm_state) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="card-footer text-muted">
+    <% if current_user.Engineer? or current_user.SysAdmin?  %>
+      <%= link_to t('add'), new_task_path, data: { turbolinks: false }, class: 
+      "btn btn-tab btn-warning btn-tab "  %> 
+    <% end %>
+  </div>
+</div>
+
+
+<br><br>
+
+
+<!-- Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#tasks').DataTable({
+      "order": [[ 0, "desc" ]]
+    } );
+  });
+
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data('link');
+  });
+</script>
+

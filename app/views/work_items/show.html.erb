@@ -1,0 +1,33 @@
+  <p id="notice"><%= notice %></p>
+
+<div class="card">
+  <div class="card-header">
+    <%= t('work_items') %> 
+  </div>
+  <div class="card-body">
+
+    <p><strong>Work:</strong>
+      <%= @work_item.work.display_name %>
+    </p>
+
+    <p><strong>Code:</strong>
+      <%= @work_item.code %>
+    </p>
+
+    <p><strong>Name:</strong>
+      <%= @work_item.name %>
+    </p>
+
+    <p><strong>Local name:</strong>
+      <%= @work_item.local_name %>
+    </p>
+
+    <p><strong>Parent:</strong>
+      <%= @work_item.parent.display_name if @work_item.parent_id? %>
+    </p>
+  </div>
+
+  <div class="card-footer">
+    <%= link_to '<i class="fa fa-list fa-2x" style="color:blue"></i>'.html_safe,  work_path(@work_item.work), data: { turbolinks: false }  %>
+    <%= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe,  edit_work_item_path, data: { turbolinks: false }  %>
+  </div>

@@ -1,0 +1,27 @@
+<div class="card" >
+  <div class="card-header">
+    <h2>
+            <%= t('term')   %> 
+    </h2>
+  </div>
+  <div class="card-body">
+    <%= simple_form_for(@term) do |f| %>
+
+        <div class="form-inputs">
+          <%= f.input :code %>
+          <%= f.input :name,       :as => :text, :input_html => { 'rows' => 3, 'cols' => 10 } %>          
+          <%= f.input :local_name, :as => :text, :input_html => { 'rows' => 3, 'cols' => 10 }%>          
+        </div>
+
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
+      <% end %>
+
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to t('show'), @term,  data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+    <%#= link_to '<i class="fa fa-file-alt fa-2x" style="color:blue"></i>'.html_safe,  @term, data: { turbolinks: false }  %>
+  </div>
+</div>
+

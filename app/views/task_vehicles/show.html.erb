@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @task_vehicle.task_id %>
+</p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @task_vehicle.vehicle_id %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @task_vehicle.driver_id %>
+</p>
+
+<p>
+  <strong>Start km:</strong>
+  <%= @task_vehicle.start_km %>
+</p>
+
+<p>
+  <strong>End km:</strong>
+  <%= @task_vehicle.end_km %>
+</p>
+
+<p>
+  <strong>Run km:</strong>
+  <%= @task_vehicle.run_km %>
+</p>
+
+<p>
+  <strong>Tunnel expense:</strong>
+  <%= @task_vehicle.tunnel_expense %>
+</p>
+
+<p>
+  <strong>Parking expense:</strong>
+  <%= @task_vehicle.parking_expense %>
+</p>
+
+<%= link_to 'Edit', edit_task_vehicle_path(@task_vehicle) %> |
+<%= link_to 'Back', task_vehicles_path %>

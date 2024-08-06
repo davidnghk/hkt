@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    <%= t('member') %> <%= t('team') %>
+    <%= link_to @team, data: { turbolinks: false } do %>
+      <i class="fa fa-file-alt fa-2x" style="color:grey; float: right;" aria-hidden="true"></i>
+    <% end %> 
+  </div>
+  <div class="card-body">
+
+    <p class="card-text">
+      <%= simple_form_for(@team) do |f| %>
+
+        <div class="form-inputs">
+          <%= f.input :code %>
+          <%= f.input :name %>
+          <%= f.input :local_name %>
+        </div>
+
+        <div class="form-actions">
+          <%= button_tag type: 'submit',  class: 'btn btn-primary' do %>
+            <i class="fa fa-save" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </p>
+  </div>
+</div>
+

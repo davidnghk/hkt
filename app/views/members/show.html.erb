@@ -1,0 +1,18 @@
+  <div class="card">
+    <div class="card-header">
+      <%= link_to '<i class="fa fa-list fa-2x" style="color:blue"></i>'.html_safe, @member.team, 
+        data: { turbolinks: false }  %> 
+    </div>
+    <div class="card-body">  
+      <p><strong><%= t("user") %>: </strong><%= @member.user.name %></p>
+      <p><strong><%= t("email") %>: </strong><%= @member.user.email %></p>
+      <p><strong><%= t("team") %>: </strong><%= @member.team.name %></p>
+      <p><strong><%= t("role") %>: </strong><%= @member.role %></p>
+    </div>
+    <div class="card-footer">  
+      <%= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe, edit_member_path(@member), 
+          data: { turbolinks: false }  %> 
+        <%= link_to '<i class="fa fa-trash fa-2x" style="color:red"></i>'.html_safe, @member, 
+          data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+    </div>
+  </div>

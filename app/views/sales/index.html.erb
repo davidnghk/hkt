@@ -1,0 +1,100 @@
+      <%= search_form_for @search do |f| %>
+ 
+      <div class="row">
+        <div class="col-md-2"><%= t('start_date') %></div>
+        <div class="col-md-4"><%= f.date_field :sale_date_gteq, as: :date_picker %></div> 
+        <div class="col-md-2"><%= t('end_date') %></div>
+        <div class="col-md-4"><%= f.date_field :sale_date_lteq, as: :date_picker %></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"><%= t('our_ref') %></div>
+        <div class="col-md-4"><%= f.search_field :our_ref_cont %></div>
+        <div class="col-md-2"><%= t('client_ref') %></div>
+        <div class="col-md-4"><%= f.search_field :client_ref_cont %></div>
+      </div>
+      <br>
+
+      <div class="actions"><%= f.submit 'Search' %>
+        <% if @count > 0  %>
+          <%= f.submit 'Summary' %>
+        <% end %> 
+      </div>
+    <% end %>
+
+<div class="card" >
+
+  <div class="card-body">
+    <table id="sales" class="table table-striped table-bordered">
+      <thead>
+          <tr>
+            <th><%= t('sale_date') %></th> 
+            <th style="width: 8%"><%= t('our_ref') %></th>
+            <th><%= t('client') %></th>
+            <th><%= t('site') %></th>
+            <th><%= t('testing') %></th>
+            <th><%= t('contact') %></th>
+            <th><%= t('aasm_state') %></th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @sales.each do |sale| %>
+          <tr data-link="<%= sale_path(sale) %>">
+            <td><%= sale.sale_date %></td>
+            <td><%= sale.our_ref %><br><%= sale.client_ref %></td>
+            <td><b><%= sale.client.code %> <%= sale.client.client_name %></b></td>
+            <td>
+                <% if sale.client.parent_id? %>
+                  <%= sale.client.site %> <%= sale.client.name %>
+                <% end %>
+            </td>
+            <td>
+              <% current_category = "XXX" %>
+              <% sale.lines.each do |line| %>
+                <% if current_category != line.category %>
+                  <%= line.category %><br> 
+                  <% current_category = line.category %>
+                <% end %>
+              <% end %>
+            </td>
+            <td><% if sale.contact? %>
+                  <b><%= sale.contact %></b><br>
+                <% end %>
+                <% if sale.phone? %>
+                  Phone: <%= sale.phone %><br>
+                <% end %>
+                <% if sale.fax? %>
+                  Fax: <%= sale.fax %><br>
+                <% end %>
+                <%= sale.email %>
+            </td>
+            <td><%= t(sale.aasm_state) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%#= paginate @sales %>
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to t('add'), new_sale_path, data: { turbolinks: false }, class: 
+    "btn btn-tab btn-warning btn-tab "  %> 
+  </div>
+</div>
+
+<!-- Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#sales').DataTable({
+        "order": [[ 1, "desc" ]]
+    } );
+  });
+
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data('link');
+  });
+
+</script>

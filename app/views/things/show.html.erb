@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Thingable:</strong>
+  <%= @thing.thingable_id %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @thing.code %>
+</p>
+
+<p>
+  <strong>Cname:</strong>
+  <%= @thing.cname %>
+</p>
+
+<p>
+  <strong>Local name:</strong>
+  <%= @thing.local_name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @thing.category_id %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @thing.parent_id %>
+</p>
+
+<%= link_to 'Edit', edit_thing_path(@thing) %> |
+<%= link_to 'Back', things_path %>

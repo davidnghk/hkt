@@ -1,0 +1,38 @@
+<table border="1">
+    <tr>
+      <th>received_date</th>
+      <th>customer_contract_no</th>
+      <th>request_ref</th>
+      <th>location</th>
+      <th>number_of_sets</th>
+      <th>request_ref_no</th>
+      <th>object</th>
+      <th>size</th>
+      <th>quantity</th>
+      <th>set_no</th>
+      <th>mark</th>
+      <th>elabel</th>
+      <th>sample_received_date</th>
+    </tr>
+    <% @collections.each do |collection| %>
+        <% collection.containers.each do |container| %>
+          <% container.things.each do |thing| %>
+            <tr>
+              <td><%= collection.received_date %></td>
+              <td><%= collection.customer_contract_no %></td>
+              <td><%= collection.request_ref %></td>
+              <td><%= collection.location %></td>
+              <td><%= collection.number_of_sets %></td>
+              <td><%= container.code %></td>
+              <td><%= container.object %></td>
+              <td><%= container.size %></td>
+              <td><%= container.quantity %></td>
+              <td><%= thing.set_no %></td>
+              <td><%= thing.mark %></td>
+              <td><%= thing.code %></td>
+              <td><%= thing.updated_at + 8.hours %></td>
+            </tr>
+          <% end %>
+        <% end %>
+    <% end %>
+</table>

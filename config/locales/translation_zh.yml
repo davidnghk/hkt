@@ -1,0 +1,296 @@
+zh:
+  activerecord:
+    models:
+      active_storage/attachment: 存儲/附件  
+      active_storage/blob: 存儲  
+      assignment: 工作
+      assignment_item: 工作項目
+      client: 會員  
+      collection: 樣品收集
+      commodity: 物品
+      laboratory: 實驗室
+      line: 事項
+      member: 客戶
+      product: 產品服務
+      products: 產品服務
+      sale: 銷售
+      site: 工地  
+      team: 團隊  
+      user: 用户 
+      task: 工作
+      task_staff: 工作人員
+      task_material: 工作材料
+      task_vehicle: 車輛
+      term: 銷售條款 
+      thing: 事物
+      ticket: 通知單
+      master: 數據表
+      work: 工作類別
+      work_item: 工作項目
+
+    enums:
+        work:
+            workflows:
+                record: 記錄
+                simple: 簡單 
+                internal: 內部 
+                outsource: 外判 
+
+    attributes:
+      active_storage/attachment:
+        blob: 圖像  
+        name: 名稱  
+        record: :記錄  
+        record_type: 记录类型  
+
+      active_storage/blob:
+        attachments: 附件  
+        byte_size: 字节大小  
+        checksum: 校验和  
+        content_type: 内容类型  
+        filename: 文件名  
+        key: 键  
+        metadata: 元数据  
+        preview_image_attachment: :附件 
+        preview_image_blob: 圖像  
+
+      assignment:
+        name: 工作標題  
+        work: 工作類型
+        location: 位置類別
+        start_datetime: 開始日期
+        due_datetime: 目標日期
+        end_datetime: 完工日期
+        status: 狀態
+        aasm_state: 狀態
+        ancestry: 祖先記錄
+        comments: 註釋
+        ref_no: 參考編號
+        operation_team: 運營部門
+        address: 地址
+        user_ref: 用戶參考
+        date_range: 日期範圍
+        color: 顏色
+        client_ref: 客戶參考
+        client: 客戶
+        project_site: 地點
+        attention: 負責人
+        phone: 電話
+
+      assignment_item:
+        rating: 評級
+        work_item: 工作項目
+        remarks: 備註
+        serial_number: 序列號
+
+      client:
+        code: 客戶編號
+        local_name: 中文名稱  
+        name: 名稱  
+        address1: 地址1
+        address2: 地址2
+        address3: 地址3
+        address4: 地址4
+        phone: 電話
+        fax: 傳真
+        email: 電郵
+        local_address: 中文地址
+        site: 項目地盤
+        
+      collection:
+        customer_contract_no: 顧客合同  
+        request_ref: 要求参考
+        location: 地點
+        title: 標題
+        
+      commodity:
+        code: 編號
+        local_name: 中文名稱  
+        name: 名稱  
+        tag: 標籤
+
+      laboratory:
+        code: 縮寫  
+        local_name: 中文名稱  
+        name: 名稱  
+
+      line:
+        product: 產品服務
+        percentage: 折扣 
+        price: 價錢
+        thing: 包裹
+        quantity: 數量
+
+      master:
+        code: 縮寫  
+        local_name: 中文名稱  
+        name: 名稱  
+        icon: 圖標
+        setting1: 設置
+        param1: 參數
+
+      member:
+        role: 角色  
+        team: 團隊  
+        user: 用户  
+
+      product:
+        code: 縮寫  
+        local_name: 測試方法 
+        name: 名稱  
+        unit_type: 單位
+        unit_rate: 單位費率
+        description: 描述
+
+      sale:
+        category: 類別
+        sale_date: 日期
+        our_ref: 銷售參考
+        client_ref: 客戶參考
+        client: 客戶
+        project_site: 地點
+        attention: 負責人
+        phone: 電話
+        fax: 傳真
+        email: 電郵
+        contact: 聯繫人
+        ship_to: 送貨
+        ship_address: 送貨地址
+        ship_contact: 送貨聯繫人
+        ship_client: 送貨客戶
+        ship_project_site: 送貨地點
+        ship_attention: 送貨負責人
+        ship_phone: 送貨電話
+        total_amount: 總金額
+        authorised_person: 審核員
+        authorised_person2: 審核員2
+        authorised_staff: 審核員
+        authorised_date: 審核日期
+        term: 銷售條款
+        terms: 銷售條款
+        term_details: 銷售條款
+        aasm_state: 狀況
+        remarks: 備註
+        uploadfile: 上傳文件
+        discount: 折扣
+        cc: 抄送
+
+      site:
+        code: 縮寫  
+        local_name: 中文名稱  
+        name: 名稱  
+
+      task:
+        task_date: 日期
+        our_ref: 參考代碼
+        customer_ref: 客戶合同參考
+        request_ref: 要求參考
+        location: 地點
+        object_type: 物体  
+        name: 名稱  
+        category: 類別
+        contact: 聯絡人
+        phone: 電話
+        fax: 傳真
+        laboratory: 實驗室
+        client: 顧客
+        sample: 樣本
+        no_of_sample: 樣本數目
+        all_day: 整天
+        title: 標題
+        sample_received_date: 樣品接收日期
+        start_time: 開始時間
+        end_time: 結束時間
+        test_start_date: 測試開始日期
+        test_end_date: 測試結束日期
+        report_drafted_date: 報告草稿日期
+        report_typed_date: 報告輸入日期
+        report_checked_date: 報告檢查日期
+        report_signed_date: 報告簽署日期
+        report_dispatched_date: 報告發送日期
+        report_no: 報告編號
+        quotation_no: 報價單號碼
+        invoice_no: 發票號碼
+        invoice_date: 發票日期
+        invoice_amount: 發票金額
+        account_signoff_date: 會計簽署日期
+        laboratory_signoff_date: 實驗室簽署日期 
+
+      term:
+        code: 縮寫  
+        local_name: 中文名稱 
+        name: 名稱  
+        description: 描述
+        
+      ticket:
+        read_at: 閱讀日期
+        no: 編號
+        user: 用户  
+        actor: 行動人員  
+        message: 信息  
+        notifiable_id: 可通知  
+        notifiable_type: 法定類型  
+
+      team:
+        code: 縮寫  
+        local_name: 中文名稱  
+        members: 會員  
+        name: 名稱  
+        users: 用户們  
+
+      thing:
+        code: 標籤  
+        local_name: 中文名稱  
+        cname: 名稱  
+
+      user:
+        confirmation_sent_at: 確認已發送至  
+        confirmation_token: 確認令牌  
+        confirmed_at: 确认于  
+        current_password: 當前密碼
+        current_sign_in_at: 当前登录于  
+        current_sign_in_ip: 当前登录ip  
+        email: 電子郵件 
+        encrypted_password: 加密密碼  
+        failed_attempts: 尝试失败  
+        invitation_accepted_at: 邀请已在接受  
+        invitation_created_at: 邀请创建于  
+        invitation_limit: 邀请限制  
+        invitation_sent_at: 邀请发送至  
+        invitation_token: 邀请令牌  
+        invited_by: :activerecord.models.invited_by  
+        invited_by_type: 按类型邀请  
+        last_sign_in_at: 上次登录时间：  
+        last_sign_in_ip: 上次登录ip  
+        locked_at: 锁定在  
+        members: 會員  
+        name: 名稱
+        password: 密碼
+        password_confirmation: 確認密碼
+        remember_created_at: 记得创建于  
+        reset_password_sent_at: 重置密碼发送到  
+        reset_password_token: 重置密碼令牌  
+        role: 角色  
+        teams: 队伍  
+        unconfirmed_email: 未确认的电子邮件  
+        unlock_token: 解锁令牌  
+
+      work:
+        code: 縮寫  
+        local_name: 中文名稱  
+        name: 名稱  
+        icon: 圖標 
+        workflow: 工作流程 
+        workflows: 
+            record: 記錄
+            simple: 簡單 
+            internal: 內部 
+            outsource: 外判 
+
+      work_item:
+        code: 縮寫  
+        local_name: 中文名稱  
+        name: 名稱  
+        unit: 單位
+        unit_rate: 單位費率
+        description: 描述

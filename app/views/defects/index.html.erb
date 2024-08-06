@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Defects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assignment</th>
+      <th>Issue</th>
+      <th>Rating</th>
+      <th>Remarks</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @defects.each do |defect| %>
+      <tr>
+        <td><%= defect.assignment_id %></td>
+        <td><%= defect.issue_id %></td>
+        <td><%= defect.rating %></td>
+        <td><%= defect.remarks %></td>
+        <td><%= link_to 'Show', defect %></td>
+        <td><%= link_to 'Edit', edit_defect_path(defect) %></td>
+        <td><%= link_to 'Destroy', defect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Defect', new_defect_path %>

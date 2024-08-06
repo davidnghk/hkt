@@ -1,0 +1,29 @@
+<%= form_with model: line, class: 'divTableRow', id: dom_id(line, 'inline_form') do |form| %>
+    <div class="divTableCell" >
+      <%= form.text_field :description, :size=>"60" %>
+    </div>
+
+    <div class="divTableCell" >
+      <%= form.text_field :method, :size=>"30" %>
+    </div>
+  
+    <div class="divTableCell">
+      <%= form.text_field  :percentage, :size=>"6" %>
+    </div>
+
+    <div class="divTableCell">
+      <%= form.text_field :price, :size=>"6" %>
+    </div>
+
+    <div class="divTableCell">
+      <%= form.text_field :unit, :size=>"6" %>
+    </div>
+
+    <div class="divTableCell">
+        <%= form.text_field  :quantity, :size=>"6" %>
+    </div>
+    
+    <div class="divTableCell">
+      <%= form.submit %>
+    </div>
+  <% end %>

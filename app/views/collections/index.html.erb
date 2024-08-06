@@ -1,0 +1,97 @@
+<%= search_form_for @search do |f| %>
+
+    <div class="row">
+      <div class="col-md-2"><%= t('start_date') %></div>
+      <div class="col-md-4"><%= f.date_field :received_date_gteq, as: :date_picker %></div> 
+      <div class="col-md-2"><%= t('end_date') %></div>
+      <div class="col-md-4"><%= f.date_field :received_date_lteq, as: :date_picker %></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"><%= t("customer_contract_no") %></div>
+      <div class="col-md-4"><%= f.search_field :customer_contract_no_cont %></div>
+      <div class="col-md-2"><%= t('request_ref') %></div>
+      <div class="col-md-4"><%= f.search_field :request_ref_cont %></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"><%= t("location") %></div>
+      <div class="col-md-4"><%= f.search_field :location_cont %></div>
+      <div class="col-md-2"><%= t('status') %></div>
+      <div class="col-md-4"><%= f.select :status_eq, Collection.statuses.to_a.map { |w| [w[0].humanize, w[1]] },
+                         {:include_blank => true} %></div>
+    </div>
+
+
+    <br>
+    <div class="actions">
+      <%= f.submit 'Search' %>
+    </div>
+  <% end %>
+
+<div class="card" >
+  <div class="card-header">  
+    <h4><%= t("collection") %>
+    <%= link_to '<i class="fa fa-plus-circle"  style="color:blue"></i>'.html_safe,  
+          new_collection_path, data: { turbolinks: false } %></h4>
+  </div>  
+  <div class="card-body">
+
+    <table id="collections"  class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th><%= t("received_date") %></th>
+          <th><%= t("customer_contract_no") %></th>
+          <th><%= t("request_ref") %></th>
+          <th><%= t("location") %></th>
+          <th><%= t("number_of_sets") %></th>
+          <th><%= t("status") %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @collections.each do |collection| %>
+          <tr data-link="<%= collection_path(collection) %>", data: { turbolinks: false }  >
+            <td><%= collection.received_date %></td>
+            <td><%= collection.customer_contract_no %></td>
+            <td><%= collection.request_ref %></td>
+            <td><%= collection.location  %></td>
+            <td><%= collection.number_of_sets  %></td>
+            <td><%= t(collection.status)  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="card-footer text-muted">
+
+      <%= form_tag import_collections_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import" %>
+      <% end %>
+
+        Download:
+        <%= link_to "Excel", collections_path(request.parameters.merge(format: "xls"))%>
+
+  </div>
+</div>
+
+
+<!-- Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#collections').DataTable({
+      "order": [[ 0, "desc" ]],
+      "pageLength": 10
+    } );
+  });
+
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data('link');
+  });
+</script>
+

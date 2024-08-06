@@ -1,0 +1,139 @@
+
+<div class="card" style="width: 1000px">
+    <div class="card-header">
+      <div class="row">
+        <div  class="col">
+          <strong><%= t(@task.category) %>: </strong><%= @task.id %> 
+        </div>
+        <%= link_to [@task, format: :pdf], data: { turbolinks: false } do %>
+            <i class="fa fa-file-pdf fa-2x" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <%= render partial: "tasks/show_header" %>
+
+      <div class="card">
+        <div class="card-header">
+            <%= t('staff') %> 
+        </div>
+        <div class="card-body">
+          <%= render partial: "task_staffs/lines", locals: {task: @task} %>
+        </div>
+      </div> <br>
+
+      <div class="card">
+        <div class="card-header">
+            <%= t('vehicle') %> 
+        </div>
+        <div class="card-body">
+          <%= render partial: "task_vehicles/lines", locals: {task: @task} %>
+        </div>
+        <div class="card-footer">
+          <small><%= @fee %></small> 
+        </div>
+      </div> <br>
+
+      <div class="card">
+        <div class="card-header">
+            <%= t('material') %> 
+        </div>
+        <div class="card-body">
+          <%= render partial: "task_materials/lines", locals: {task: @task} %>
+        </div>
+      </div> <br>
+
+      <div class="card">
+        <div class="card-header">
+            <%= t('report') %> 
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('sample_received_date') %>: </strong>
+              <%= @task.sample_received_date %> 
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('test_start_date') %>: </strong> 
+              <%= @task.test_start_date %>   
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('test_end_date') %>: </strong>
+              <%= @task.test_end_date %> 
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('report_drafted_date') %>: </strong> 
+              <%= @task.report_drafted_date %>   
+            </div>
+          </div>
+          <div class="row">
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('report_typed_date') %>: </strong>
+              <%= @task.report_typed_date %> 
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('report_checked_date') %>: </strong> 
+              <%= @task.report_checked_date %>   
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('report_signed_date') %>: </strong>
+              <%= @task.report_signed_date %> 
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('report_dispatched_date') %>: </strong> 
+              <%= @task.report_dispatched_date %>   
+            </div>
+          </div>
+        </div>
+      </div> <br>
+  
+      <div class="card">
+        <div class="card-header">
+            <%= t('invoice') %> 
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('report_no') %>: </strong><%= @task.report_no %> 
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('quotation_no') %>: </strong><%= @task.quotation_no %>   
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('invoice_no') %>: </strong><%= @task.invoice_no %> 
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('invoice_date') %>: </strong><%= @task.invoice_date %>   
+            </div>
+          </div>
+          <div class="row">
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('invoice_amount') %>: </strong><%= @task.invoice_amount %> 
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('account_signoff_date') %>: </strong><%= @task.account_signoff_date %>   
+            </div>
+            <div  class="col-xs-3 col-md-3 ">
+              <strong><%= t('laboratory_signoff_date') %>: </strong><%= @task.laboratory_signoff_date %> 
+            </div>
+          </div>
+        </div>
+      </div> <br>
+
+    </div>
+    <div class="card-footer">
+      <%= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe, edit_task_path(@task), 
+          data: { turbolinks: false }  %> 
+      <%= link_to '<i class="fa fa-trash fa-2x" style="color:red"></i>'.html_safe, @task, 
+          data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+      <%= link_to '<i class="fa fa-list-alt fa-2x"  style="color:blue"></i>'.html_safe,  
+          tasks_path, data: { turbolinks: false } %>
+
+      <% if current_user.Engineer? or current_user.SysAdmin?  %>
+        <%= link_to '<i class="fa fa-plus-circle fa-2x"  style="color:blue"></i>'.html_safe,  
+          new_task_path, data: { turbolinks: false } %> 
+      <% end %>
+    </div>
+  </div>
+

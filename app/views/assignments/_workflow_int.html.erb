@@ -1,0 +1,56 @@
+<% if @assignment.booked? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('cancel'), cancel_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+      <%= link_to t('ask'), ask_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+    </div>
+<% end %>
+
+<% if @assignment.infoForRequest? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('cancel'), cancel_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+      <%= link_to t('ask'), ask_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+    </div>
+<% end %>
+
+<% if @assignment.asked? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('approve'), approve_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+      <%= link_to t('askRequestInfo'), askRequestInfo_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+      <%= link_to t('assign'), assign_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+    </div>
+<% end %>
+
+<% if @assignment.infoForWork? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('assign'), assign_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+    </div>
+<% end %>
+
+<% if @assignment.approved? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('assign'), assign_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+    </div>
+<% end %>
+
+<% if @assignment.assigned? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('reject'), reject_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+      <%= link_to t('acknowledge'), acknowledge_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+      <%= link_to t('start'), start_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+      <%= link_to t('askWorkInfo'), askWorkInfo_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+    </div>
+<% end %>
+
+<% if @assignment.acknowledged? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('start'), start_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+      <%= link_to t('complete'), complete_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+    </div>
+<% end %>
+
+<% if @assignment.inProgress? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('complete'), complete_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+    </div>
+<% end %>
+

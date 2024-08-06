@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: 1
+  image: MyString
+  longitude: 9.99
+  altitude: 9.99
+  latitude: 9.99
+  photoable_type: MyString
+  photoable_id: 
+  is_printable: false
+  photo_datetime: 2020-02-19 14:02:13
+
+two:
+  category: 1
+  image: MyString
+  longitude: 9.99
+  altitude: 9.99
+  latitude: 9.99
+  photoable_type: MyString
+  photoable_id: 
+  is_printable: false
+  photo_datetime: 2020-02-19 14:02:13

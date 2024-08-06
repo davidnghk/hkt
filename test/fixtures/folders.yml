@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  foldable: one
+  foldable_type: Foldable
+  code: MyString
+  name: MyString
+  active: false
+
+two:
+  foldable: two
+  foldable_type: Foldable
+  code: MyString
+  name: MyString
+  active: false

@@ -1,0 +1,76 @@
+<div class="card">
+    <div class="card-header">
+        <%= t('report') %> 
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('sample_received_date') %>: </strong>
+          <%= @task.sample_received_date %> 
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('test_start_date') %>: </strong> 
+          <%= @task.test_start_date %>   
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('test_end_date') %>: </strong>
+          <%= @task.test_end_date %> 
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('report_drafted_date') %>: </strong> 
+          <%= @task.report_drafted_date %>   
+        </div>
+      </div>
+      <div class="row">
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('report_typed_date') %>: </strong>
+          <%= @task.report_typed_date %> 
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('report_checked_date') %>: </strong> 
+          <%= @task.report_checked_date %>   
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('report_signed_date') %>: </strong>
+          <%= @task.report_signed_date %> 
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('report_dispatched_date') %>: </strong> 
+          <%= @task.report_dispatched_date %>   
+        </div>
+      </div>
+    </div>
+  </div> <br>
+
+  <div class="card">
+    <div class="card-header">
+        <%= t('invoice') %> 
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('report_no') %>: </strong><%= @task.report_no %> 
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('quotation_no') %>: </strong><%= @task.quotation_no %>   
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('invoice_no') %>: </strong><%= @task.invoice_no %> 
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('invoice_date') %>: </strong><%= @task.invoice_date %>   
+        </div>
+      </div>
+      <div class="row">
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('invoice_amount') %>: </strong><%= @task.invoice_amount %> 
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('account_signoff_date') %>: </strong><%= @task.account_signoff_date %>   
+        </div>
+        <div  class="col-xs-3 col-md-3 ">
+          <strong><%= t('laboratory_signoff_date') %>: </strong><%= @task.laboratory_signoff_date %> 
+        </div>
+      </div>
+    </div>
+  </div> <br>

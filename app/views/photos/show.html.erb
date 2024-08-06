@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @photo.category %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @photo.image %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @photo.longitude %>
+</p>
+
+<p>
+  <strong>Altitude:</strong>
+  <%= @photo.altitude %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @photo.latitude %>
+</p>
+
+<p>
+  <strong>Photoable type:</strong>
+  <%= @photo.photoable_type %>
+</p>
+
+<p>
+  <strong>Photoable:</strong>
+  <%= @photo.photoable_id %>
+</p>
+
+<p>
+  <strong>Is printable:</strong>
+  <%= @photo.is_printable %>
+</p>
+
+<p>
+  <strong>Photo datetime:</strong>
+  <%= @photo.photo_datetime %>
+</p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

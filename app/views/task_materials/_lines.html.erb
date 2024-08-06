@@ -1,0 +1,29 @@
+<table  class="table table-striped" style="width: 100%" >
+    <thead>
+      <tr>
+
+        <th><%= t("material") %></th>
+        <th><%= t("quantity") %></th>
+        <th><%= t("cost") %></th>
+        <th colspan="1"></th>    
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% task.task_materials.each do |task_material| %>
+        <tr>
+            <td><%= task_material.material.display_name %></td>
+            <td><%= task_material.quantity %></td>
+            <td><%= task_material.cost %></td>
+          <td><%= link_to '<i class="fa fa-trash" style="color:red"></i>'.html_safe, task_material, 
+            data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <script type="text/javascript">
+    $("tr[data-link]").click(function() {
+        window.location = $(this).data('link');
+    });
+  </script> 

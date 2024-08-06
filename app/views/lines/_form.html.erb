@@ -1,0 +1,23 @@
+<%= simple_form_for([lineable, Line.new], local:true) do |f| %>
+
+  <div class="form-inputs">
+    <div class="row ">
+      <div  class="col-xs-8 col-md-8  ">
+      <%= f.association :product, :autofocus => true,  
+          :collection => Product.where('parent_id > 0' ) %>
+      </div>
+      <div  class="col-xs-2 col-md-2  ">
+        <%= f.input :percentage %>
+      </div>
+      <div  class="col-xs-2 col-md-2  ">
+        <%= f.input :quantity %>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

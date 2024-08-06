@@ -1,0 +1,52 @@
+
+      <div class="row">
+        <div  class="col-xs-4 col-md-4 ">
+          <strong><%= t('task_date') %>: </strong> 
+          <%= @task.task_date %>  
+        </div>
+        <div  class="col-xs-4 col-md-4 ">
+          <strong><%= t('laboratory') %>: </strong> 
+          <%= @task.laboratory.name if @task.laboratory_id? %>  
+        </div>
+      </div>
+
+      <div class="row">
+        <div  class="col-xs-8 col-md-8 ">
+          <strong><%= t('client') %>: </strong> 
+          <%= @task.client.name if @task.client_id? %>  
+        </div>
+        <div  class="col-xs-4 col-md-4 ">
+          <strong><%= t('location') %>: </strong> 
+          <%= @task.location %>  
+        </div>
+      </div>
+
+      <div class="row">
+        <div  class="col-xs-4 col-md-4 ">
+          <strong><%= t('contact') %>: </strong> 
+          <%= @task.contact %>  
+        </div>
+        <div  class="col-xs-4 col-md-4 ">
+          <strong><%= t('phone') %>: </strong> 
+          <%= @task.phone %>  
+        </div>
+        <div  class="col-xs-4 col-md-4 ">
+          <strong><%= t('fax') %>: </strong> 
+          <%= @task.fax %> 
+        </div>
+      </div>
+
+      <div class="row">
+        <div  class="col-xs-4 col-md-4 ">
+          <strong><%= t('sample') %>: </strong> 
+          <%= @task.sample %>  
+        </div>
+        <div  class="col-xs-4 col-md-4 ">
+          <strong><%= t('no_of_sample') %>: </strong> 
+          <%= @task.no_of_sample %>  
+        </div>
+        <div  class="col-xs-4 col-md-4 ">
+          <strong><%= t('status') %>: </strong> 
+          <%= t(@task.aasm_state) %> 
+        </div>
+      </div><br>

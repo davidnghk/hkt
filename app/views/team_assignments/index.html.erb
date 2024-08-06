@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Team Assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Assignment</th>
+      <th>Role</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team_assignments.each do |team_assignment| %>
+      <tr>
+        <td><%= team_assignment.team_id %></td>
+        <td><%= team_assignment.assignment_id %></td>
+        <td><%= team_assignment.role_id %></td>
+        <td><%= link_to 'Show', team_assignment %></td>
+        <td><%= link_to 'Edit', edit_team_assignment_path(team_assignment) %></td>
+        <td><%= link_to 'Destroy', team_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Team Assignment', new_team_assignment_path %>

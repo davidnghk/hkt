@@ -1,0 +1,72 @@
+
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div  class="col">
+        <strong><%= t("collection") %>: </strong><%= @collection.id %> 
+      </div>
+        <%= link_to '<i class="fa fa-window-close fa-2x" ></i>'.html_safe, close_collection_path(@collection),
+              data: { turbolinks: false }, method: :put  %>  
+    </div>
+  </div>
+
+  <div class="card-body">
+
+    <div class="row">
+      <div  class="col-xs-4 col-md-4 ">
+        <strong><%= t('customer_contract_no') %>: </strong><%= @collection.customer_contract_no %>  
+      </div>
+      <div  class="col-xs-4 col-md-4 ">
+        <strong><%= t('request_ref') %>: </strong> <%= @collection.request_ref %>  
+      </div>
+      <div  class="col-xs-4 col-md-4 ">
+        <strong><%= t('location') %>: </strong><%= @collection.location %>  
+      </div>
+    </div><br>
+
+    <div class="album text-muted">
+      <div class="container">
+         <div class="row">
+
+          <% @collection.containers.each do |container| %>
+            <div class="card">
+              <div class="card-header" >
+                  <strong><%= t('request_ref_no') %>: </strong> 
+                    <%= link_to container.code, container, data: { turbolinks: false }  %>
+                  <strong><%= t('quantity') %>: </strong> <%= container.quantity %>
+                  <strong><%= t('checkin_quantity') %>: </strong><%= container.checkin_quantity %>
+                  <%= link_to '<i class="fa fa-window-close fa-2x" ></i>'.html_safe, close_container_path(container), 
+                      data: { turbolinks: false }, method: :put  %>  
+              </div>
+              <div class="card-body">
+                <table id="container"  class="table table-striped table-bordered">    
+                  <tbody>
+                    <% if container.checkin_quantity < container.quantity %>
+                      <%= render partial: "things/form", locals: {thingable: container} %>
+                    <% end %>
+                    <%= render partial: "things/things", locals: {thingable: container} %>
+                  </tbody>
+                </table>
+              </div>
+            </div><br>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+     <br>
+
+  <div class="card-footer">
+    <%= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe, edit_collection_path(@collection), 
+        data: { turbolinks: false }  %> 
+    <%= link_to '<i class="fa fa-trash fa-2x" style="color:red"></i>'.html_safe, @collection, 
+        data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+    <%= link_to '<i class="fa fa-list-alt fa-2x"  style="color:blue"></i>'.html_safe,  
+        collections_path, data: { turbolinks: false } %>
+    <%= link_to '<i class="fa fa-plus-circle fa-2x"  style="color:blue"></i>'.html_safe,  
+        new_collection_path, data: { turbolinks: false } %> 
+  </div>
+</div>

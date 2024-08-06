@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    	<h4>
+	 	    	<%= @product.display_name %> 
+	    </h4>
+    </div>
+	<div class="panel-body">
+	<br>
+      <div class="row ">
+        <div  class="col-xs-4 col-md-4  ">
+          <strong><%= t('code') %>: </strong>
+          <%= @product.code %>
+		</div>
+		<% if !@product.parent_id.nil? %>
+				<div  class="col-xs-4 col-md-4  ">
+					<strong><%= t('unit_rate') %>: </strong>
+					<%= @product.unit_rate %>
+				</div>
+				<div  class="col-xs-4 col-md-4  ">
+					<strong><%= t('unit_type') %>: </strong>
+					<%= @product.unit_name %>
+					<%#= @product.unit_type.display_name if @product.unit_type_id? %>
+				</div>
+		<% end %>
+	  </div>
+	  
+	  <div class="row ">
+	  	<div  class="col-xs-2 col-md-2  ">
+			<strong><%= t('name') %>: </strong>
+		</div>
+		<div  class="col-xs-10 col-md-10  ">
+			<%= @product.name %>
+		</div>
+	  </div>
+
+	  <div class="row ">
+		<div  class="col-xs-2 col-md-2  ">
+			<strong><%= t('test') %>: </strong>
+		</div>
+		<div  class="col-xs-10 col-md-10  ">
+			<%= @product.local_name %>
+		</div>
+	  </div>
+	  
+	  <div class="row ">
+	  	<div  class="col-xs-2 col-md-2  ">
+			<strong><%= t('description') %>: </strong>
+		</div>
+
+	  </div> <br>
+		<%= link_to t('edit'), edit_product_path(@product), data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+		<%= link_to t('list'), products_path, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+		<%= link_to t('category'), @product.parent,  data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " if @product.parent_id? %> 
+	  	<% if @product.children.count == 0 %>
+			<%= link_to t('delete'), @product, data: { turbolinks: false }, method: :delete, 
+					data: { confirm: 'Are you sure?' }, class: "btn btn-tab btn-danger btn-sm " %> 
+		<% end %>
+		<%#= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe, edit_product_path(@product), data: { turbolinks: false }  %>  
+		<%#= link_to '<i class="fa fa-list-alt fa-2x" style="color:blue"></i>'.html_safe,  products_path, data: { turbolinks: false } %>
+		<%#= link_to '<i class="fa fa-level-up-alt fa-2x" style="color:blue"></i>'.html_safe,  @product.parent, data: { turbolinks: false } if @product.parent_id? %>
+		</div>
+	</div>
+  </div>
+<br>
+
+<% if @product.parent_id.nil? %>
+	<div class="card" >
+	  <div class="card-header">
+	    <%= @product.display_name %> 
+	  </div>
+	  <div class="card-body">
+
+		<table id="products" class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th width="200px" ><%= t('code') %></th>
+		      <th><%= t('name') %></th>
+		      <th><%= t('test') %></th>
+		      <th><%= t('unit_rate') %></th>
+		      <th><%= t('unit_type') %></th>
+
+		    </tr>
+		  </thead> 
+
+		  <tbody>
+		    <% @product.children.each do |product| %>
+		      <tr data-link="<%= product_path(product) %>">
+		        <td width="200px" ><%= product.code %></td>
+		        <td><%= product.name %></td>
+		        <td><%= product.local_name %></td>
+		        <td><%= product.unit_rate %></td>
+		        <td><%= product.unit_name  %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>		  
+		</table>
+	  </div>
+  	  <div class="card-footer text-muted">
+		<%= link_to t('add'), new_product_path(:parent_id => @product.id),  data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+  	  	<%#= link_to '<i class="fa fa-plus-circle fa-2x" style="color:blue"></i>'.html_safe, new_product_path(:parent_id => @product.id), data: { turbolinks: false }  %>
+  	  </div>
+	</div>
+<% end %>
+
+
+<!-- Bootstrap 4 JS -->
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#products').DataTable();
+  });
+
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data('link');
+  });
+</script>

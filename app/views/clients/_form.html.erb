@@ -1,0 +1,85 @@
+
+		<%= simple_form_for(@client) do |f| %>
+
+		<div class="form-inputs">
+			<%= f.hidden_field :parent_id %>
+
+			<% if @client.parent_id? %>
+				<div class="row ">
+					<div class="col-xs-12 col-md-12  ">
+						<strong><%= t('client') %>: </strong> 
+						<%= @client.parent.name  %>
+					</div>
+				</div><br>
+			<% end %>
+
+
+			<div class="row ">
+				<div class="col-xs-8 col-md-8  ">
+					<% if @client.parent_id? %>
+						<%= f.input :name, label: t('project_site') %>
+					<% else %>
+						<%= f.input :name %>
+					<% end %>
+				</div>
+				<div class="col-xs-4 col-md-4  ">
+				<%= f.input :local_name %>
+				</div>
+			</div>
+
+			<div class="row ">
+				<div  class="col-xs-6 col-md-6  ">
+					<%= f.input :address1, label: false, input_html: { maxlength: 50}  %>
+				</div>
+			</div> 
+			<div class="row ">
+				<div  class="col-xs-6 col-md-6  ">
+					<%= f.input :address2, label: false, input_html: { maxlength: 50}  %>
+				</div>
+			</div>
+			<div class="row ">
+				<div  class="col-xs-6 col-md-6  ">
+					<%= f.input :address3, label: false, input_html: { maxlength: 50}   %>
+				</div>
+			</div>
+			<div class="row ">
+				<div  class="col-xs-6 col-md-6  ">
+					<%= f.input :address4, label: false, input_html: { maxlength: 50}   %>
+				</div>
+			</div>
+
+			<div class="row ">
+				<div  class="col-xs-12 col-md-12  ">
+					<%#= f.input :address, as: :rich_text_area  %>
+				</div>
+			</div>
+
+			<div class="row ">
+				<div class="col-xs-12 col-md-12  ">
+					<%= f.input :local_address %>
+				</div>
+			</div>  
+
+		<% if @client.site == '000' or @client.site.nil? %>
+			<div class="row ">
+				<div class="col-xs-2 col-md-2  ">
+				<%= f.input :phone %>
+				</div>
+				<div class="col-xs-2 col-md-2  ">
+				<%= f.input :phone2 %>
+				</div>
+				<div class="col-xs-2 col-md-2  ">
+				<%= f.input :fax %>
+				</div>
+				<div class="col-xs-6 col-md-6  ">
+				<%= f.input :email %>
+				</div>
+			</div>
+		<% end %>
+
+		</div>
+
+		<div class="form-actions">
+			<%= f.button :submit %>
+		</div>
+		<% end %>

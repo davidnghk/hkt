@@ -1,0 +1,30 @@
+<table  class="table table-striped" style="width: 100%" >
+  <thead>
+    <tr>
+      <th><%= t("task_role") %></th>
+      <th><%= t("staff") %></th>
+      <th><%= t("start_time") %></th>
+      <th><%= t("end_time") %></th>
+      <th colspan="1"></th> 
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <% task.task_staffs.each do |task_staff| %>
+      <tr>
+        <td><%= task_staff.task_role.display_name if task_staff.task_role_id? %></td>
+        <td><%= task_staff.staff.display_name if task_staff.staff_id? %></td>
+        <td><%= task_staff.start_time %></td> 
+        <td><%= task_staff.end_time %></td>
+        <td><%= link_to '<i class="fa fa-trash" style="color:red"></i>'.html_safe, task_staff, 
+          data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $("tr[data-link]").click(function() {
+      window.location = $(this).data('link');
+  });
+</script> 

@@ -1,0 +1,11 @@
+<% if browser.device.mobile? %> 
+    <%= render 'show_mobile' %>   
+<% else %>
+    <%= render 'show_pc' %>
+<% end %>
+
+<script type="text/javascript">
+$("tr[data-link]").click(function() {
+window.location = $(this).data('link');
+});
+</script> 

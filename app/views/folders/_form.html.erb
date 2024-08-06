@@ -1,0 +1,23 @@
+<%= simple_form_for([foldable, Folder.new], local:true) do |f| %>
+
+  <div class="form-inputs">
+    <div class="row ">
+      <div  class="col-xs-2 col-md-2  ">
+        <%= f.input :code, label: false  %>
+      </div>
+      <div  class="col-xs-3 col-md-3  ">
+        <%= f.input :uploadfile, label: false  %>
+      </div>
+      <div  class="col-xs- col-md-3  ">
+        <%= f.input :name, label: false  %>
+      </div>
+      <div  class="col-xs-2 col-md-2  ">
+        <%= f.input :active %>
+      </div>
+      <div class=" col-xs-2 col-md-2 form-actions">
+        <%= f.button :submit %>
+      </div>
+    </div>
+  </div>
+<% end %>
+

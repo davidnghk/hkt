@@ -1,0 +1,22 @@
+<fieldset>
+
+    <div class="row ">
+        <div  class="col-xs-3 col-md-3  ">
+            <%= f.hidden_field :task_id, :value => @task.id %>
+            <%= f.association :task_role, :collection => Master.TaskRole.order('code ASC'), label: false %>
+        </div>
+        <div  class="col-xs-3 col-md-3  ">
+        <%= f.association :staff, :collection => Master.Staff.order('code ASC'), label: false %>
+      </div>
+      <div  class="col-xs-2 col-md-2  ">
+        <%= f.input :start_time, as: :datetime, html5: true, label: false  %>        
+      </div>
+      <div  class="col-xs-2 col-md-2  ">
+        <%= f.input :end_time, as: :datetime, html5: true, label: false  %>        
+      </div>
+      <div class="form-actions col-xs-1 col-md-1 ">
+      	<%= link_to '<i class="fa fa-trash fa-2x" style="color:red"></i>'.html_safe, '#', class: "remove_fields"  %> 
+      </div>
+    </div>
+
+</fieldset>

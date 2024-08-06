@@ -1,0 +1,33 @@
+<%= simple_form_for([thingable, Thing.new], html: { autocomplete: "off" }, local:true) do |f| %>
+
+  <div class="form-inputs">
+    <div class="row ">
+      <div  class="col-xs-4 col-md-4  ">
+        <%= f.input :code, label: false, input_html: {id: "thing-code"}, :autofocus => true %>
+        <%#= f.association :test_items, :label => false, :readonly => true, :selected => t.id %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, id: 'submit-thing'  %>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+<!-- Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script type="text/javascript">
+  $("#thing-code").change(function(){   // 1st
+    $('#submit-thing').click();
+      // When your element is already rendered
+  });
+
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data('link');
+  });
+
+</script>

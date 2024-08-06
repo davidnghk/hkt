@@ -1,0 +1,17 @@
+
+<table  class="table table-striped table-responsive table-sm">
+<tbody>
+    <% thingable.things.each do |thing| %>
+        <%# if thing.code? %>
+            <tr>
+            <td><%= thing.set_no %> </td>
+            <td><%= thing.mark %> </td>
+            <td><%= thing.code %> </td>
+            <td><%= link_to '<i class="fa fa-trash" style="color:red"></i>'.html_safe, [thingable, thing], 
+                data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %>  
+            </td>
+            </tr>
+        <%# end %>
+    <% end %>
+</tbody>
+</table>

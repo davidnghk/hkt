@@ -1,0 +1,13 @@
+<% if @assignment.booked? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('cancel'), cancel_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+      <%= link_to t('start'), start_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+    </div>
+<% end %>
+
+<% if @assignment.inProgress? %>
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('cancel'), cancel_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info btn-tab col "  %> 
+      <%= link_to t('complete'), complete_assignment_path(@assignment), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-tab col"  %> 
+    </div>
+<% end %>

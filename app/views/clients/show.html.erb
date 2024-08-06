@@ -1,0 +1,110 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <%= t('client') %>
+      </div>
+        <%= link_to t('quotation'), new_sale_path(client_id: @client.id), data: { turbolinks: false }, class: 
+        "btn btn-tab btn-info btn-tab "  %>       
+      </div>
+  </div>
+  <div class="card-body">
+  
+    <div class="row ">
+      <div class="col-xs-8 col-md-8  ">
+        <p><strong><%= t('client_code') %>:</strong> <%= @client.code %></p>
+      </div>
+      <div class="col-xs-4 col-md-4  ">
+        <p><strong><%= t('site') %>:</strong> <%= @client.site %></p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col-xs-8 col-md-8  ">
+        <p><strong><%= t('name') %>:</strong> <%= @client.name %></p>
+      </div>
+      <div class="col-xs-4 col-md-4  ">
+        <p><strong><%= t('local_name') %>:</strong> <%= @client.local_name %></p>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="col-xs-4 col-md-4  ">
+        <p><strong><%= t('address') %></strong></p>
+        <p><%= @client.address1 %></p>
+        <p><%= @client.address2 %></p>
+        <p><%= @client.address3 %></p>
+        <p><%= @client.address4 %></p>
+      </div>
+      <div class="col-xs-4 col-md-4  ">
+        <p><strong><%= t('local_address') %>:</strong><br> <%= @client.local_address %></p>
+      </div>
+      <div class="col-xs-4 col-md-4  ">
+        <p><strong><%= t('phone') %>:</strong> <%= @client.phone %> <%= @client.phone2 %></p>
+        <p><strong><%= t('email') %>:</strong> <%= @client.email %></p>
+        </div>
+    </div>
+
+  </div>
+  <div class="card-footer">
+    <%= link_to t('add'), new_client_path, data: { turbolinks: false }, class: 
+        "btn btn-tab btn-warning btn-tab "  %> 
+    <%= link_to t('edit'), edit_client_path(@client), data: { turbolinks: false }, class: 
+        "btn btn-tab btn-warning btn-tab "  %> 
+    <% if @client.parent_id? %>  
+      <%= link_to t('client'), client_path(@client.parent), data: { turbolinks: false }, class: 
+        "btn btn-tab btn-warning btn-tab "  %> 
+    <% end %>
+
+    <%= link_to t('list'), clients_path, data: { turbolinks: false }, class: 
+        "btn btn-tab btn-warning btn-tab "  %> 
+    <%#= link_to t('delete'), @client, 
+        data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}, 
+        class: "btn btn-tab btn-warning btn-tab "  %> 
+
+<%#= link_to '<i class="fa fa-plus-circle fa-2x"  style="color:blue"></i>'.html_safe, 
+      new_client_path, data: { turbolinks: false } %>
+
+  </div>
+
+
+
+<% if @client.site.to_i == 0 %> 
+  <div class="card">
+    <div class="card-header">
+
+    </div>
+  <div class="card-body">
+      <table id="client"  class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th><%= t('code') %></th>
+            <th><%= t('name') %></th>
+            <th><%= t('address') %></th>
+            <th><%= t('phone') %> / <%= t('email') %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% if @client.children.count > 0  %> 
+            <% @client.children.each do |client| %>
+              <tr data-link="<%= client_path(client) %>", , data: { turbolinks: false }  
+                class="group border-t border-gray-400 hover:bg-gray-100">
+                <td><%= client.code %><br><%= client.site %></td>
+                <td><%= client.name %> <br> <%= client.local_name %>
+                  <%= client.site %></td>
+                <td><%= client.address1 %> <%= client.address2 %> <%= client.address3 %> <%= client.address4 %> <br> <%= client.local_address %> </td>
+                <td><%= client.phone %> <%= @client.phone2 %><br> <%= client.email %> </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+
+  </div>
+  <div class="card-footer">
+    <%= link_to t('add'), new_client_path(:parent_id => @client.id), data: { turbolinks: false }, class: 
+    "btn btn-tab btn-warning btn-tab "  %> 
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @commodity.code %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @commodity.tag %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @commodity.name %>
+</p>
+
+<p>
+  <strong>Local name:</strong>
+  <%= @commodity.local_name %>
+</p>
+
+<%= link_to 'Edit', edit_commodity_path(@commodity) %> |
+<%= link_to 'Back', commodities_path %>

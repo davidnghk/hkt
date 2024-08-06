@@ -1,0 +1,104 @@
+<% if browser.device.mobile? %> 
+        <div class="row">
+          <div  class="col-xs-6 col-md-6 ">
+            <strong><%= t('product') %>: </strong> 
+            <%= @line.description %>  
+          </div>
+          <div  class="col-xs-6 col-md-6 ">
+            <strong><%= t('testing') %>: </strong> 
+            <%= @line.product.local_name %>  
+          </div>
+        </div>
+        <div class="row">
+          <div  class="col-xs-6 col-md-6 ">
+            <strong><%= t('package') %>: </strong>
+            <%= @line.thing %> 
+          </div>
+          <div  class="col-xs-6 col-md-6 ">
+            <strong><%= t('quantity') %>: </strong> 
+            <%= @line.quantity %> (<%= @line.no_of_things %>)  
+          </div>
+        </div>
+        
+          <div class="card">
+            <div class="card-header">
+                <%= t('thing') %> 
+            </div>
+            <div class="card-body">
+              <%= render partial: "things/form", locals: {thingable: @line} %>
+              <%= render partial: "things/things", locals: {thingable: @line} %>
+            </div>
+          </div> 
+        </div>
+
+    <%= link_to '<i class="fa fa-list-alt fa-2x"  style="color:blue"></i>'.html_safe,  
+    @line.lineable, data: { turbolinks: false } %>
+
+<% else %>
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+          <div  class="col-xs-12 col-md-12 ">
+            <strong><%= t('ref') %>: </strong> 
+            <%= @line.lineable.our_ref %>  
+            <%= @line.product.code %>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('product') %>: </strong> 
+          <%= @line.description %>  
+        </div>
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('testing') %>: </strong> 
+          <%= @line.product.local_name %>  
+        </div>
+      </div>
+      <div class="row">
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('price') %>: </strong>
+          <%= @line.price %> 
+        </div>
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('discount') %>: </strong> 
+          <%= @line.percentage %>%   
+        </div>
+      </div>
+
+      <div class="row">
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('quantity') %>: </strong> 
+          <%= @line.quantity %> (<%= @line.no_of_things %>)  
+        </div>
+        <div  class="col-xs-6 col-md-6 ">
+          <strong><%= t('package') %>: </strong>
+          <%= @line.thing %> 
+        </div>
+      </div>
+
+      <div class="card">
+      <div class="card-header">
+          <%= t('thing') %> 
+      </div>
+      <div class="card-body">
+        <%= render partial: "things/form", locals: {thingable: @line} %>
+        <%= render partial: "things/things", locals: {thingable: @line} %>
+      </div>
+    </div> <br>
+
+    </div>
+    <div class="card-footer">
+      <%= link_to '<i class="fa fa-edit fa-2x" style="color:blue"></i>'.html_safe, edit_line_path(@line), 
+          data: { turbolinks: false }  %> 
+      
+      <%= link_to '<i class="fa fa-trash fa-2x" style="color:red"></i>'.html_safe, @line, 
+          data: { turbolinks: false }, method: :delete, data: {confirm: "Are your sure? "}  %> 
+
+      <%= link_to '<i class="fa fa-list-alt fa-2x"  style="color:blue"></i>'.html_safe,  
+          @line.lineable, data: { turbolinks: false } %>
+    </div>
+  </div>
+<% end %>

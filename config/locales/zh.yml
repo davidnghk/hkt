@@ -1,0 +1,474 @@
+zh: 
+  logout: 登出
+  profile: 個人資料
+  staff: 員工
+  work_order: 工作指示
+  received_date: 接收日期
+  open: 開放
+  close: 完成
+  collection: 樣品收集
+  customer_contract_no: 顧客合同  
+  request_ref: 要求参考
+  location: 地點
+  title: 標題
+  job_no: 工作
+  Trip: 工作指示
+  vehicle: 車輛
+  driver: 司機
+  start_km: 開始公里
+  end_km: 終點公里
+  run_km: 行程公里
+  trip_km: 行程公里
+  parking_expense: 停車費
+  tunnel_expense: 隧道費
+  material: 物料
+  cost: 成本
+  task_role: 職位 
+  title: 標題
+  quotation_no: 報價單號碼
+  SampleCollection: 樣品採集
+  start_time: 開始時間
+  end_time: 結束時間
+  report: 報告
+  sample_received_date: 樣品接收日期
+  test_start_date: 測試開始日期
+  test_end_date: 測試結束日期
+  report_drafted_date: 報告草稿日期
+  report_typed_date: 報告輸入日期
+  report_checked_date: 報告檢查日期
+  report_signed_date: 報告簽署日期
+  report_dispatched_date: 報告發送日期
+  report_no: 報告編號
+  invoice_no: 發票號碼
+  invoice_date: 發票日期
+  invoice_amount: 發票金額
+  account_signoff_date: 會計簽署日期
+  laboratory_signoff_date: 實驗室簽署日期 
+  cc: 抄送
+  contact: 聯絡人
+  phone: 電話
+  fax: 傳真
+  request: 請求
+  requested: 已請求
+  sample: 樣本
+  no_of_sample: 樣本數
+  laboratory: 實驗室
+  mail: 發送
+  mailed: 已發送
+  confirm: 確認
+  confirmed: 已確認
+  demo: 示範影片
+  Invoice: 發票
+  invoice: 發票
+  request_ref_no: 要求參考
+  object: 物件
+  size: 尺寸
+  number_of_sets: 套數
+  sample_collection: 樣品採集
+  object_type: 物件
+  task_date: 日期
+  customer_ref: 客戶合同號
+  request_ref: 要求參考
+  show: 顯示
+  chart: 圖表
+  calendar: 日曆
+  container: 集裝箱
+  action: 動作
+  tag: 標籤
+  commodity: 物品
+  copy: 複製
+  supersede: 取代 
+  count: 項目數
+  total: 總額
+  discount: 折扣
+  qty: 數量
+  ship_to: 送貨
+  ship_to_address: 送貨地址
+  list: 列表
+  delete: 刪除
+  add: 新增
+  client_code: 客戶編號
+  contact: 聯繫人
+  ship_contact: 送貨聯繫人
+  ship_client: 送貨客戶
+  ship_project_site: 送貨地點
+  ship_attention: 送貨負責人
+  ship_phone: 送貨電話
+  remarks: 備註
+  price: 價錢
+  test: 測試項目
+  testing: 測試項目
+  thing: 事物
+  package: 包裹
+  checkin_quantity: 登記數量
+  quantity: 數量
+  product: 產品服務
+  products: 產品服務
+  site: 項目地盤 
+  lines: 事項
+  line: 事項
+  term_details: 條款
+  terms: 條款
+  term: 條款
+  unit_type: 單位
+  search: 搜索
+  delivered-file: 交付文件
+  Quotation: 報價單
+  quotation: 報價單
+  deliver: 送交
+  delivered: 已送交
+  cancel: 取消
+  cancelled: 已取消
+  prepared: 準備中
+  pend: 提交批核
+  pending: 待批核
+  authorise: 批核
+  authorised: 已批核
+  item: 事項
+  items: 事項
+  aasm_state: 狀況
+  category: 類別
+  sale_date: 日期
+  our_ref: 銷售參考
+  client_ref: 客戶參考
+  client: 客戶
+  project_site: 項目工程
+  attention: 負責人
+  phone: 電話
+  total_amount: 總金額
+  authorised_person2: 批核人員2
+  authorised_person: 批核人員
+  authorised_date: 批核日期
+  description: 描述
+  unit: 單位
+  unit_rate: 單位費率
+  address1: 地址1
+  address2: 地址2
+  address3: 地址3
+  address4: 地址4
+  phone: 電話
+  fax: 傳真
+  email: 電郵
+  local_address: 中文地址
+  site: 工地  
+  sites: 工地  
+  clients: 客戶們
+  client: 客戶
+  serial_number: 序列號
+  assignment_items: 工作項目
+  work_items: 工作項目
+  audit: 審核版本
+  parent: 父
+  children: 子工作
+  date_range: 日期範圍
+  color: 顏色
+  start: 開始
+  cancel: 取消
+  cancelled: 已取消
+  location: 地點
+  locations: 地點
+  landing-1: 組織你的團隊
+  landing-2: 完美地完成你的任務
+  login: 登錄
+  movie-topic-1: 外務妥 V4.0 銷售系統 訂閱版
+  movie-topic-2: 智叻有限公司 版權 2020 
+
+  movie-0: 外務妥 報價輸入和報價單
+  movie-1: 手機上創建工作記錄
+  movie-2: 電腦上創建工作記錄
+  movie-3: 邀請團隊成員加入
+  movie-4: 歸檔文件和搜索
+  task: 工作
+  admin: 管理
+  edit: 編輯
+  new: 新
+  dashboard: 錶板
+  askWorkInfo: 索取工作資料
+  mgr: 管理
+  opr: 執行
+  acknowledge: 確認 
+  acknowledged: 已確認 
+  reject: 駁回
+  rejected: 已駁回
+  assign: 分配
+  assigned: 已分配
+  appraise: 評分
+  askRequestInfo: 要求申請資料
+  approve: 批准
+  approved: 批准 
+  ask: 要求
+  asked: 要求
+  Open: 立項
+  booked: 已記錄 
+  Pending: 待批
+  completed: 已完成
+  complete: 完成
+  inProgress: 工作中
+  Working: 進行中
+  Rating: 待評
+  Closed: 完結
+  All: 全部
+  comments: 註釋
+  user_ref: 客戶參考
+  state: 狀況
+  address: 地址
+  manager: 負責單位
+  operator: 執行單位
+  status: 狀態
+  heading: 標題
+  due_date: 指定日期
+  start_date: 開始日期
+  end_date: 結束日期
+  workType: 工作種類
+  work: 工作
+  works: 工作
+  workflow: 工作流程
+  assignment: 工作
+  RecordList: 記錄清單
+  NewRecord: 創建記錄
+  SysTable: 系统數據表
+  UserTable: 用户數據表
+  master_update: 更新數據表
+  master_upload: 上載數據表
+  brand: 工程寶
+  master: 數據表
+  icon: 圖標
+  setting: 設置
+  setting1: 設置
+  param1: 參數
+  tickets: 通知單
+  ticket: 通知單
+  read_at: 閱讀日期
+  ref: 編號
+  user: 用户  #g
+  actor: 行動人員  #g
+  message: 信息  #g
+  notifiable_id: 可通知  #g
+  notifiable_type: 法定類型  #g
+  back: 返回
+  unhappy: 
+  cancel_my_account: 取消我的帳戶
+  code: 略碼
+  name: 名稱
+  local_name: 中文名稱
+  team: 團隊
+  member: 會員
+  role: 角色
+  owner: 擁有者
+  staff: 員工
+  SysAdmin: 系統管理員
+  CoAdmin: 公司管理員
+  invite: 邀請
+
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 驗證失敗︰%{errors}
+        restrict_dependent_destroy:
+          has_one: 由於%{record}依賴此記錄，無法移除
+          has_many: 由於%{record}依賴此記錄，無法移除
+
+  date:
+    abbr_day_names:
+    - 周日
+    - 周一
+    - 周二
+    - 周三
+    - 周四
+    - 周五
+    - 周六
+    abbr_month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+    formats:
+      default: "%y-%m-%d"
+      long: "%Y年%m月%d日"
+      short: "%m月%d日"
+    month_names:
+    - 
+    - 一月
+    - 二月
+    - 三月
+    - 四月
+    - 五月
+    - 六月
+    - 七月
+    - 八月
+    - 九月
+    - 十月
+    - 十一月
+    - 十二月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約一小時
+        other: 約%{count}小時
+      about_x_months:
+        one: 約一個月
+        other: 約%{count}個月
+      about_x_years:
+        one: 約一年
+        other: 約%{count}年
+      almost_x_years:
+        one: 接近一年
+        other: 接近%{count}年
+      half_a_minute: 半分鐘
+      less_than_x_seconds:
+        one: 不到一秒
+        other: 不到%{count}秒
+      less_than_x_minutes:
+        one: 不到一分鐘
+        other: 不到%{count}分鐘
+      over_x_years:
+        one: 超過一年
+        other: 超過%{count}年
+      x_seconds:
+        one: 一秒
+        other: "%{count}秒"
+      x_minutes:
+        one: 一分鐘
+        other: "%{count}分鐘"
+      x_days:
+        one: 一天
+        other: "%{count}天"
+      x_months:
+        one: 一個月
+        other: "%{count}個月"
+      x_years:
+        one: 一年
+        other: "%{count} 年"
+    prompts:
+      second: 秒
+      minute: 分
+      hour: 時
+      day: 日
+      month: 月
+      year: 年
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: 必定要被接受
+      blank: 不可以是空白
+      confirmation: 與 %{attribute} 不一致
+      empty: 不可以留空
+      equal_to: 必須等於 %{count}
+      even: 必須要是雙數
+      exclusion: 是被保留的關鍵字
+      greater_than: 必須大於 %{count}
+      greater_than_or_equal_to: 必須大於或等於 %{count}
+      inclusion: 並非可被接受的內容
+      invalid: 是無效的
+      less_than: 必須小於 %{count}
+      less_than_or_equal_to: 必須小於或等於 %{count}
+      model_invalid: 驗證失敗︰%{errors}
+      not_a_number: 必須是數字
+      not_an_integer: 必須是整數
+      odd: 必須是單數
+      other_than: 不可以是 %{count} 個字
+      present: 必定要是空白
+      required: 必須存在
+      taken: 已被使用
+      too_long:
+        one: 太長（最長為一個字元）
+        other: 太長（最長為 %{count} 個字元）
+      too_short:
+        one: 太短（最少為一個字元）
+        other: 太短（最少為 %{count} 個字元）
+      wrong_length:
+        one: 字數錯誤 (應為一個字元)
+        other: 字數錯誤 (應為 %{count} 個字元)
+    template:
+      body: 以下欄位發生問題︰
+      header:
+        one: 發生一項錯誤，以致 %{model} 未能儲存。
+        other: 發生%{count}項錯誤，以致 %{model} 未能儲存。
+  helpers:
+    select:
+      prompt: 請選擇
+    submit:
+      create: 新增%{model}
+      submit: 儲存%{model}
+      update: 更新%{model}
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u %n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: HK$
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: 十億
+          million: 百萬
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: 和
+      two_words_connector: 和
+      words_connector: "、"
+  time:
+    am: 上午
+    formats:
+      default: "%y年%m月%d日 %H:%M"
+      long: "%Y年%m月%d日 %A %H:%M:%S %Z" 
+      short: "%m月%d日 %H:%M"
+    pm: 下午

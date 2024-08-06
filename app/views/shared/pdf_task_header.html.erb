@@ -1,0 +1,78 @@
+<html>
+<style>
+        .table-striped>tbody>tr:nth-child(2n+1)>td,
+        .table-striped>tbody>tr:nth-child(2n+1)>th {
+            background-color: #f2f2f2;
+        }        
+</style>
+  <body>
+    <table style=" font-size: 26px;">
+        <tbody>
+          <tr>
+            <td style="width: 850px; text-align: center; padding-left: 00px; font-weight: bold;">
+              <p>HONG KONG TESTING CO. LTD.<br>
+              WORKS ORDER - FIELD WORKS</p>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    
+    <table style=" font-size: 22px; font-weight: bold;">
+        <tbody>
+          <tr>
+            <td style="width: 480px; padding-left: 00px; ">
+              <p>Report Information</p>
+            </td>
+            <td style="width: 380px; padding-left: 00px; ">
+                <p>Job No: <%= @task.id%></p>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+    <table style="height: 50px; width: 100%; line-height: 20px; font-size: 16px;">
+      <thead>
+        <tr>
+          <th style="width: 150px"></th>
+          <th style="width: 330px"></th>
+          <th style="width: 180px"></th>
+          <th style="width: 200px"></th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+            <td><b>Laboratory:</b></td>
+            <td><%= @task.laboratory.name %></td>
+            <td><b>Date (dd/mm/yyyy):</b></td>
+            <td><%= @task.task_date %></td>
+          </tr>
+          <tr>
+            <td><b>Customer:</b></td>
+            <td><%= @task.client.name %> </td>
+            <td><b>Customer:</b></td>
+            <td><%= @task.client.code %></td>
+          </tr>
+          <tr>
+            <td><b>Site:</b></td>
+            <td><%= @task.location %></td>
+            <td><b>Contact Name:</b></td>
+            <td><%= @task.contact %></td>
+          </tr>
+          <tr>
+            <td><b>Sample Type:</b></td>
+            <td><%= @task.sample %></td>
+            <td><b>Contact Phone:</b></td>
+            <td><%= @task.phone %></td>
+          </tr>
+          <tr>
+            <td><b>No of Sample :</b></td>
+            <td><%= @task.no_of_sample %></td>
+            <td><b>Contact Fax:</b></td>
+            <td><%= @task.fax %></td>
+          </tr>
+
+        </tbody>
+    </table><br>
+
+  </body>
+</html>

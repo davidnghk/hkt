@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <%= t('line') %>
+      </div>
+    </div>
+  <div class="card-body">
+    <table class="table" id="line-list">
+      <thead>
+        <tr>
+          <th><%= t('description') %></th>
+          <th><%= t('discount') %></th>
+          <th><%= t('price') %></th>
+          <th><%= t('qty') %></th>
+          <th><%= t('thing') %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @lines.each do |line| %>
+          <tr>
+            <td><%= line.product.code %> <%= line.description %></td>
+            <td><%= line.percentage %></td>
+            <td><%= line.price %></td>
+            <td><%= line.quantity %></td>
+            <td><%= line.thing %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-footer">
+  </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#line-list').DataTable();
+  });
+</script>

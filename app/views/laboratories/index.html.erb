@@ -1,0 +1,41 @@
+<h1><%= t('laboratory') %></h1>
+
+<table id="laboratories"  class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th><%= t('code') %></th>
+      <th><%= t('name') %></th>
+      <th><%= t('local_name') %></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @laboratories.each do |laboratory| %>
+      <tr data-link="<%= laboratory_path(laboratory) %>">
+        <td><%= laboratory.code %></td>
+        <td><%= laboratory.name %></td>
+        <td><%= laboratory.local_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to t('add'), new_laboratory_path,  data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+
+<br>
+
+<!-- Bootstrap 4 JS -->
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#laboratories').DataTable();
+  });
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data('link');
+  });
+</script>
+

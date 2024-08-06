@@ -1,0 +1,28 @@
+<div class="card" >
+  <div class="card-header">
+    <h2>
+            <%= t('laboratory')   %> 
+    </h2>
+  </div>
+  <div class="card-body">
+    <%= simple_form_for(@laboratory) do |f| %>
+
+        <div class="form-inputs">
+          <%= f.input :code %>
+          <%= f.input :name  %>          
+          <%= f.input :local_name %>          
+        </div>
+
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
+      <% end %>
+
+  </div>
+  <div class="card-footer text-muted">
+    <%= link_to t('show'), @laboratory,  data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+    <%= link_to t('list'), laboratories_path,  data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+  </div>
+</div>
+
+

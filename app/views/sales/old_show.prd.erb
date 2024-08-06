@@ -1,0 +1,188 @@
+<style>
+    .table1 td, .table1 th {
+        font-size: 15px;
+        height: 40px;
+    }
+    .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+       background-color: #f2f2f2;
+    }
+    p.small {
+      line-height: 0.7;
+    }
+
+</style>
+
+<div id="invoice">
+<div class="invoice overflow-auto">
+<div style="width: 100%;">
+<header>
+  <table style="height: 50px; line-height: 3px;">
+    <tbody>
+      <tr>
+        <td style="width: 70px; padding-left: 00px;">
+          <%=  wicked_pdf_image_tag image_url('HKT-logo.jpeg'), size: "125x125" %>
+        </td>
+        <td style="width: 800px;">
+        <h2 style="font-size: 30px;">香港試驗有限公司</h2>
+        <h2 style="font-size: 30px;">HONG KONG TESTING CO., LTD.</h2>
+        <p style="font-size: 14px;">Room 205, 2/F, Fuk Shing Commercial Building, 28 On Lok Mun Street, On Lok Tsuen, Fanling, N.T. Hong Kong</p>
+        <p style="font-size: 14px;">Tel: (852) 2692 2171&nbsp; Fax: (852) 2691 4874&nbsp; Email: info@hktesting.com.hk</a></p>
+        <p style="font-size: 14px;">Website: www.hktesting.com.hk</p>
+        <p style="font-size: 14px;">地址：香港新界粉嶺安樂村安樂門街28號福成商業大廈2樓205室 電話: (852)2692 2171&nbsp; 傳真:(852) 2691 4874</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</header>
+
+<div class="text-gray-light" style="text-align: center;">&nbsp;</div>
+<div class="text-gray-light" style="text-align: center;"><h3>QUOTATION</h3></div>
+<div class="text-gray-light" style="text-align: center;">&nbsp;</div>
+
+<table style="height: 121px; width: 800px; line-height: 3px;">
+<tbody>
+<tr>
+<td style="width: 91px; text-align: left;"><strong>Our Ref:</strong></td>
+<td style="width: 311px; text-align: left;"><%= @sale.our_ref %></td>
+<td style="width: 225px; text-align: left;"><p><strong>Date:</strong> <%= @sale.sale_date %></p>
+</td>
+<tr>
+<td style="width: 91px; text-align: left;"><strong>Customer:</strong></td>
+<td style="width: 311px; text-align: left;"><strong><%= @sale.client.client_name %></strong></td>
+<td style="width: 225px; text-align: left;"><strong>Customer Code:</strong> <%= @sale.client.code %></td>
+</tr>
+</tr>
+<tr>
+<td style="width: 91px; text-align: left;"></td>
+<td style="width: 311px; text-align: left;">
+  <p><%= @sale.client.address1 if @sale.client.address1? %></p>  
+  <p><%= @sale.client.address2 if @sale.client.address2? %></p> 
+  <%if @sale.client.address3? %> 
+    <p><%= @sale.client.address3 %></p>
+  <% end %>
+  <% if @sale.client.address4? %>  
+    <p><%= @sale.client.address4 %></p> 
+  <% end %> </td>
+<td style="width: 225px; text-align: left;">
+<p><strong>Phone:</strong>&nbsp;&nbsp;<%= @sale.client.phone %></p>
+<p><strong>Fax:</strong>&nbsp;&nbsp;<%= @sale.client.fax %></p>
+<p><strong>Email:</strong>&nbsp;&nbsp;<%= @sale.client.email %></p>
+</td>
+</tr>
+<tr>
+<td style="width: 91px; text-align: left;"><strong>Attention:</strong></td>
+<td style="width: 311px; text-align: left;"><p><%= @sale.attention %></p></td>
+<td style="width: 225px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 91px; text-align: left;"><strong>Site:</strong></td>
+<td style="width: 311px; text-align: left;"><p><%= @sale.project_site %></p></td>
+<td style="width: 225px;">&nbsp;</td>
+</tr>
+</tbody>
+</table >
+</div><br>
+
+      <div class="card">
+          <div class="card-header">
+          </div>
+          <div class="card-body">
+            <% if @sale.lines.count > 0 %>
+              <table class="table1 table-striped" style="width:900px;">
+                  <colgroup>
+                    <col span="1" style="width:  5%;">
+                    <col span="1" style="width: 60%;">
+                    <col span="1" style="width:  5%;">
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 10%;">
+                  </colgroup>
+                <thead>
+                  <th>Item</th>
+                  <th>Description</th>
+                  <th>Qty</th>
+                  <th>Rate</th>
+                  <th>Unit</th>
+                  <th>Amount</th>
+                </thead>
+                <tbody>
+                    <% counter = 0 %>
+                    <% current_category = "XXX" %>
+                    <% @sale.lines.each do |line| %>
+                      <% if current_category != line.category %>
+                        <tr>
+                          <td colspan="6"><strong><%= line.category %></strong><td>
+                        </tr>
+                        <% current_category = line.category %>
+                      <% end %>
+                      <tr>
+                        <td><% counter = counter + 1 %><p style="text-align: center;"><%= counter %></p></td>
+                        <td><p style="font-size: 16px;">
+                          <strong><%= line.product.name %></strong><br>
+                          <%= line.product.local_name %>
+                        </p> </td>
+                        <td><p style="text-align: center;"><%= line.quantity if line.quantity %></p></td>
+                        <td>
+                          <% if line.price? %>
+                            <p style="text-align: center;"><%= number_to_currency(line.price, unit: '$', precision: 0) %></p>
+                          <% else %>
+                            <p style="text-align: center;"><%= number_to_currency(line.product.unit_rate, unit: '$', precision: 0) %></p>
+                          <% end %>
+                        </td>
+                        <td style="text-align: center;"><%= line.product.unit_name %>
+                            <% if line.percentage >  0.0  %>
+                              <br>-<%= line.percentage %>% 
+                            <% end %>
+                        </td>
+                        <td style="text-align: right;"><% if line.quantity? %>
+                              <% if line.percentage >  0.0  %>
+                                <%= number_to_currency(line.product.unit_rate * line.quantity, unit: '$', precision: 0) %><br>
+                                <%= number_to_currency(line.product.unit_rate * line.quantity * line.percentage * -1 /100 , 
+                                      unit: '$', precision: 0) %> 
+                              <% else %>
+                                <%= number_to_currency(line.actual_price * line.quantity, unit: '$', precision: 0) %> 
+                              <% end %>
+                            <% else %> 
+                                <p>rate only</p> 
+                            <% end %>
+                        </td>
+                      </tr>
+                      
+                  <% end %>
+                  <% if @sale.discount > 0 %>
+                    <tr>
+                      <td colspan="5"><p style="text-align: right;">Amount Before Discount</p></td>
+                      <td>
+                        <p style="text-align: right;"><%= number_to_currency(@sale.amount_before_discount, unit: '$', precision: 0) %> </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="5"><p style="text-align: right;">-<%= @sale.discount %>% </p></td>
+                      <td>
+                        <p style="text-align: right;"> <%= number_to_currency(-1 * @sale.amount_before_discount * @sale.discount / 100, unit: '$', precision: 0) %> </p>
+                      </td>
+                    </tr>
+                  <% end %>
+                    <tr>
+                      <td colspan="5" style="text-align: right;">Total(HK$)</td>
+                      <td>
+                        <p style="text-align: right;"><%= number_to_currency(@sale.calc_amount, unit: '$', precision: 0)  %></p>
+                      </td>
+                      </tr>
+                </tbody>
+              </table>
+            <% end %>
+          </div>
+      </div>
+
+      </div>
+      </div>
+      <br> <br>
+
+      <div class="card">
+        <div class="card-body "> 
+          <%= @sale.remarks%>
+        </div>
+      </div><br>
+

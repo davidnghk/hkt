@@ -1,0 +1,230 @@
+<div class="card">
+  <div class="card-header">
+    <%= t("work_order") %>
+  </div>
+  <div class="card-body">
+
+    <%= simple_form_for(@task) do |f| %>
+    <%= f.input :category, :as => :hidden %>
+
+    <div class="form-inputs">
+      <div class="row ">
+        <div class="col-xs-4 col-md-4  ">
+          <%#= f.input :category %>
+        </div>
+      </div>
+
+      <% if current_user.SysAdmin? or current_user.Engineer? %> 
+        <div class="row ">
+          <div class="col-xs-4 col-md-4  ">
+            <%= f.input :task_date, as: :date, html5: true %>
+          </div>
+          <div class="col-xs-4 col-md-4  ">
+            <%= f.association :laboratory %>
+          </div>
+          <div class="col-xs-4 col-md-4  ">
+            <%= f.association :client %>
+          </div>
+        </div>
+
+        <div class="row ">
+          <div class="col-xs-4 col-md-4  ">
+            <%= f.input :location %>
+          </div>
+            <div class="col-xs-4 col-md-4  ">
+              <%= f.input :sample %>
+            </div>
+            <div class="col-xs-4 col-md-4  ">
+              <%= f.input :no_of_sample %>
+            </div>
+          </div>
+
+        <div class="row ">
+          <div class="col-xs-4 col-md-4  ">
+            <%= f.input :contact %>
+          </div>
+          <div class="col-xs-4 col-md-4  ">
+            <%= f.input :phone %>
+          </div>
+          <div class="col-xs-4 col-md-4  ">
+            <%= f.input :fax %>
+          </div>
+        </div>
+      <% else %>
+        <%= render partial: "tasks/show_header" %>
+      <% end %>
+    </div><br>
+
+    <div class="card">
+      <div class="card-header">
+        <%= t("staff")  %>
+      </div>
+      <div class="card-body">
+        <table  class="table table-striped" style="width: 100%" >
+          <thead>
+            <tr>
+              <th><%= t("task_role") %></th>
+              <th><%= t("staff") %></th>
+              <th><%= t("start_time") %></th>
+              <th><%= t("end_time") %></th>
+              <th colspan="1"></th> 
+            </tr>
+          </thead>
+        </table>
+        <%= f.fields_for :task_staffs do |builder| %>
+          <%= render 'task_staff_fields', f: builder %>
+        <% end %>
+        <%= link_to_add_fields '<i class="fa fa-plus-circle fa-2x"  style="color:blue"></i>'.html_safe,  
+          f, :task_staffs %> 
+      </div>
+    </div><br>
+
+    <div class="card">
+      <div class="card-header">
+        <%= t("vehicle")  %>
+      </div>
+      <div class="card-body">
+        <table  class="table table-striped" style="width: 100%" >
+          <thead>
+            <tr>
+              <th><%= t("vehicle") %></th>
+              <th><%= t("driver") %></th>
+              <th><%= t("start_km") %></th>
+              <th><%= t("end_km") %></th>
+              <th><%= t("tunnel_expense") %></th>
+              <th><%= t("parking_expense") %></th>
+              <th colspan="1"></th> 
+            </tr>
+          </thead>
+        </table>
+        <%= f.fields_for :task_vehicles do |builder| %>
+          <%= render 'task_vehicle_fields', f: builder %>
+        <% end %>
+        <%= link_to_add_fields '<i class="fa fa-plus-circle fa-2x"  style="color:blue"></i>'.html_safe,  
+          f, :task_vehicles %> 
+      </div>
+      <div class="card-footer">
+        <small>
+          紅隧: 15/20 東隧: 25/38 西隧: 40/55 香港仔: 5/5 獅子山: 8/8 馬灣: 40/40 
+          大欖: 25/28 清馬: 30/40 城門: 5/5 將軍澳: 3/3 大老山: 12/18</small> 
+      </div>
+    </div><br>
+
+    <div class="card">
+      <div class="card-header">
+        <%= t("material")  %>
+      </div>
+      <div class="card-body">
+
+        <table  class="table table-striped" style="width: 100%" >
+          <thead>
+            <tr>
+
+              <th colspan="3"><%= t("material") %></th>
+              <th colspan="3"><%= t("quantity") %></th>
+              <th><%= t("cost") %></th>
+              <th colspan="1"></th>    
+            </tr>
+          </thead>
+        </table>
+
+        <%= f.fields_for :task_materials do |builder| %>
+          <%= render 'task_material_fields', f: builder %>
+        <% end %>
+        <%= link_to_add_fields '<i class="fa fa-plus-circle fa-2x"  style="color:blue"></i>'.html_safe,  
+          f, :task_materials %> 
+      </div>
+    </div><br>
+
+    <% if current_user.SysAdmin? or current_user.Engineer? or current_user.Supervisor? %> 
+      <div class="card">
+        <div class="card-header">
+          <%= t("report")  %>
+        </div>
+        <div class="card-body">
+
+          <div class="row ">
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :sample_received_date, as: :date, html5: true %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :test_start_date, as: :date, html5: true %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :test_end_date, as: :date, html5: true %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :report_drafted_date, as: :date, html5: true %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :report_typed_date, as: :date, html5: true %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :report_checked_date, as: :date, html5: true %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :report_signed_date, as: :date, html5: true %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :report_dispatched_date, as: :date, html5: true %>
+            </div>
+          </div>
+
+        </div>
+      </div><br>
+
+      <div class="card">
+        <div class="card-header">
+          <%= t("invoice")  %>
+        </div>
+        <div class="card-body">
+
+          <div class="row ">
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :report_no %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :quotation_no  %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :invoice_no %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :invoice_date, as: :date, html5: true %>
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :invoice_amount %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :account_signoff_date, as: :date, html5: true %>
+            </div>
+            <div class="col-xs-3 col-md-3  ">
+              <%= f.input :laboratory_signoff_date, as: :date, html5: true %>
+            </div>
+          </div>
+
+        </div>
+      </div><br>
+    <% else %>
+      <%= render partial: "tasks/show_footer" %>
+    <% end %>
+
+
+    
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
+  <% end %>
+</div>
+  <div class="card-footer text-muted">
+    <%= link_to t('list'), tasks_path, data: { turbolinks: false }, class: 
+    "btn btn-tab btn-warning btn-tab "  %> 
+  </div>
+</div>

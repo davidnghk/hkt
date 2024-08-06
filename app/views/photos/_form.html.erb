@@ -1,0 +1,21 @@
+
+<%= simple_form_for(@photo) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :category %>
+    <%= f.input :image %>
+    <%= f.input :longitude %>
+    <%= f.input :altitude %>
+    <%= f.input :latitude %>
+    <%= f.input :photoable_type %>
+    <%= f.input :photoable_id %>
+    <%= f.input :is_printable %>
+    <%= f.input :photo_datetime %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t('term') %></h1>
+
+<table id="terms-list"  class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th><%= t('code') %></th>
+      <th><%= t('name') %></th>
+      <th><%= t('local_name') %></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @terms.each do |term| %>
+      <tr data-link="<%= term_path(term) %>">
+        <td><%= term.code %></td>
+        <td><%= term.name %></td>
+        <td><%= term.local_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to t('add'), new_term_path,  data: { turbolinks: false }, class: "btn btn-tab btn-warning btn-sm " %> 
+
+<br><br>
+<%= form_tag import_clients_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<!-- Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#terms-list').DataTable( {
+      "pageing": false
+    }
+    );
+  });
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data('link');
+  });
+</script>

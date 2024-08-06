@@ -1,0 +1,27 @@
+<%= simple_form_for([Task, TaskStaff.new], local:true) do |f| %>
+
+  <div class="form-inputs">
+    <div class="row ">
+        <div  class="col-xs-8 col-md-4  ">
+            <%= f.hidden_field :task_id, :value => @task.id %>
+
+            <%= f.association :task_role, :collection => Master.TaskRole %>
+        </div>
+        <div  class="col-xs-8 col-md-4  ">
+        <%= f.association :staff, :collection => Master.Staff %>
+      </div>
+      <div  class="col-xs-2 col-md-2  ">
+        <%= f.input :start_time, as: :date, html5: true %>        
+      </div>
+      <div  class="col-xs-2 col-md-2  ">
+        <%= f.input :end_time, as: :date, html5: true %>        
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

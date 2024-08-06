@@ -1,0 +1,175 @@
+<style>
+  .table {
+    font-size: 13px;
+    height: 13px;
+    padding: 1px;
+  },
+  .table td{
+    font-size: 13px;
+    height: 15px;
+    padding: 1px;
+  },
+  .table th {
+    font-size: 12px;
+    height: 30px;
+  }
+
+  .table-striped>tbody>tr:nth-child(2n+1)>td,
+  .table-striped>tbody>tr:nth-child(2n+1)>th {
+    background-color: #f2f2f2;
+  }
+
+</style>
+    
+    <hr><h3>Staff Information</h3><br>
+
+    <table>
+        <tbody>
+          <% @task.task_staffs.each do |task_staff| %>
+            <tr>
+              <td style="width: 160px;" ><%= task_staff.task_role.name if task_staff.task_role_id? %></td>
+              <td><%= task_staff.staff.name if task_staff.staff_id? %></td>
+              <td>Start Time</td>
+              <td><%= task_staff.start_time if task_staff.start_time? %></td>
+              <td>End Time</td>
+              <td><%= task_staff.end_time if task_staff.end_time? %></td>
+            </tr>
+          <% end %>
+
+          <% if @task.task_staffs.count == 0 %>
+            <tr>
+              <td style="width: 160px;" >Supervisor</td>
+              <td>__________________________</td>
+              <td>Start Time </td>
+              <td>________________</td>
+              <td>End Time </td>
+              <td>________________</td>
+            </tr>
+            <tr>
+              <td>Techician</td>
+              <td>__________________________</td>
+              <td></td>
+              <td>________________</td>
+              <td></td>
+              <td>________________</td>
+            </tr>
+          <% end %>
+            <tr>
+              <td></td>
+              <td>__________________________</td>
+              <td></td>
+              <td>________________</td>
+              <td></td>
+              <td>________________</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br><hr><h3>Vehicle Information</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Vehicle No.</th>
+          <th>Driver</th>
+          <th>Start Km</th>
+          <th>End Km</th>
+          <th>Km Run</th>
+          <th>Tunnel Exp</th>
+          <th>Parking Exp</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @task.task_vehicles.each do |task_vehicle| %>
+            <tr>
+              <td style="text-align: center;"><%= task_vehicle.vehicle.name if task_vehicle.vehicle_id? %></td>
+              <td style="text-align: center;"><%= task_vehicle.driver.name if task_vehicle.driver_id? %></td>
+
+              <td style="text-align: center;"><%= task_vehicle.start_km %></td>
+              <td style="text-align: center;"><%= task_vehicle.end_km %></td>
+              <td style="text-align: center;"><%= task_vehicle.trip_km %></td>
+              <td style="text-align: center;">
+                <% if task_vehicle.tunnel_expense? %>
+                  <%= number_to_currency(task_vehicle.tunnel_expense, unit: '$', precision: 2) %>
+                <% end %>
+              </td>
+              <td style="text-align: center;">
+                <% if task_vehicle.tunnel_expense? %>
+                  <%= number_to_currency(task_vehicle.parking_expense, unit: '$', precision: 2) %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+
+          <% if @task.task_vehicles.count == 0 %>
+            <tr>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+            </tr>
+            <tr>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+              <td>______________</td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>______________</td>
+            <td>______________</td>
+            <td>______________</td>
+            <td>______________</td>
+            <td>______________</td>
+            <td>______________</td>
+            <td>______________</td>
+          </tr>
+        </tbody>
+    </table>
+            <small><%= @fee %></small> 
+
+    <br><br><hr><h3>Consumable Information</h3>
+
+    <table>
+        <tbody>
+          <% @task.task_materials.each do |task_material| %>
+            <tr>
+              <td style="width: 200px;" >Materials Used</td>
+              <td><%= task_material.material.name if task_material.material_id? %></td>
+              <td>Quantity: </td>
+              <td><%= task_material.quantity %></td>
+              <td>Cost: </td>
+              <td style="text-align: right; ">
+                <% if task_material.cost? %>
+                  <%= number_to_currency(task_material.cost, unit: '$', precision: 2) %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+
+          <% if @task.task_materials.count == 0 %>
+            <tr>
+              <td>Materials  Used</td>
+              <td>__________________________</td>
+              <td>Quantity</td>
+              <td>______________</td>
+              <td>Cost $</td>
+              <td>______________</td>
+            </tr>
+          <% end %>
+          <tr>
+              <td></td>
+              <td>__________________________</td>
+              <td></td>
+              <td>______________</td>
+              <td></td>
+              <td>______________</td>
+          </tr>
+        </tbody>
+    </table>

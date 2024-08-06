@@ -1,0 +1,91 @@
+<div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('Open'), assignments_path(:status => "Open"), data: { turbolinks: false }, class: 
+          "btn btn-tab btn-info btn-tab col-xs-3 col-md-3 "  %> 
+      <%= link_to t('Pending'), assignments_path(:status => "Pending"), data: { turbolinks: false }, class: 
+          "btn btn-tab btn-warning btn-tab col-xs-3 col-md-3 "  %> 
+      <%= link_to t('Working'), assignments_path(:status => "Working"), data: { turbolinks: false }, class: 
+          "btn btn-tab btn-danger btn-tab  col-xs-3 col-md-3 "  %> 
+      <%= link_to t('Rating'), assignments_path(:status => "Rating"), data: { turbolinks: false }, class: 
+          "btn btn-tab btn-secondary btn-tab  col-xs-3 col-md-3 "  %>
+      <%= link_to t('Closed'), assignments_path(:status => "Closed"), data: { turbolinks: false }, class: 
+          "btn btn-tab btn-success btn-tab  col-xs-3 col-md-3 "  %>
+      <%= link_to t('All'), assignments_path, data: { turbolinks: false }, class: 
+          "btn btn-tab btn-default btn-tab  col-xs-3 col-md-3 "  %>
+</div>
+<div class="card" >
+  <div class="card-body">
+    <table  class="table striped">
+      <thead>
+          <tr>
+            <th><%= t('work') %></th> 
+            <th><%= t('heading') %></th> 
+            <th><%= t('start_date') %></th>
+            <th><%= t('due_date') %></th>
+            <th><%= t('mgr') %></th>
+            <th><%= t('opr') %></th>
+            <th><%= t('status') %></th>        
+            <th><%= t('state') %></th>        
+            <% if false %>             %>
+            <th><%= t('BC') %></th>
+            <% end %>
+          </tr> 
+      </thead>
+
+      <tbody>
+        <% if (@assignments != nil) then %>
+          <% @assignments.each do |assignment| %>
+            <tr data-link="<%= assignment_path(assignment) %>">
+              <td>
+                <%= name_avatar(assignment.work.display_name, 24) %><br>
+                (#<%= assignment.ref_no %>)
+              </td>  
+              <td><b><%= assignment.work.display_name %>
+                </b><%= assignment.user_ref %> <br>
+                <%#= assignment.address %>
+                <%#= assignment.location.display_name if assignment.location_id? %>
+                <%= assignment.client.display_name if assignment.client_id? %>
+                <% if assignment.address? %>                
+                  <br><%= assignment.address %>
+                <% end %>
+              </td>
+              <td><%= assignment.start_datetime.strftime('%F %H:%M') if assignment.start_datetime? %></td>
+              <td><b><%= assignment.due_datetime.strftime('%F %H:%M') if assignment.due_datetime? %></b><br>
+                <%= assignment.end_datetime.strftime('%F %H:%M') if assignment.end_datetime? %>
+              </td>            
+               <td><%= name_avatar(assignment.team.display_name, 24) %>
+               <td><%= name_avatar(assignment.operation_team.display_name, 24) %>
+               <td><%= name_avatar(assignment.status, 24) %><%= t(assignment.status) %>
+               <td><%= t(assignment.aasm_state) %></td> 
+
+              <% if false %>  
+                 <td><% if assignment.valid_block? %> 
+                      <%=  image_tag("bc-25.png") %>
+                     <% else %>
+                      <%= image_tag("bbc-25.png") %>
+                     <% end %>
+                 </td>
+               <% end %>
+
+          <% end %>
+        <% end %>
+      </tbody>
+
+    </table>
+
+    <%= paginate @assignments %>
+  </div>
+  <div class="card-footer text-muted">
+    <% if current_user.SysAdmin? %>
+      <h2><%= t('import') %></h2>
+      <%= form_tag import_assignments_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag 'import' %>
+      <% end %>
+    <% end %>
+
+    <%= link_to '<i class="fa fa-plus-circle fa-2x"  style="color:blue"></i>'.html_safe, 
+      new_assignment_path, data: { turbolinks: false } %>
+    <%= link_to '<i class="fa fa-calendar fa-2x"  style="color:blue"></i>'.html_safe, 
+       calendar_path, data: { turbolinks: false } %>
+
+  </div>

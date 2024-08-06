@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Task Staff:</strong>
+  <%= @task_staff.id %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @task_staff.task_id %>
+</p>
+
+<p>
+  <strong>Task role:</strong>
+  <%= @task_staff.task_role_id %>
+</p>
+
+<p>
+  <strong>Staff:</strong>
+  <%= @task_staff.staff_id %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @task_staff.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @task_staff.end_time %>
+</p>
+
+<%= link_to 'Destroy', @task_staff, method: :delete, data: { confirm: 'Are you sure?' } %>

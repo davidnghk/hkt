@@ -1,0 +1,138 @@
+<div class="card" style="width: 1000px">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <%= name_avatar(@sale.category.upcase, 24) %> 
+        <%= t(@sale.category) %>(<%= @sale.our_ref %>)
+        <% if @sale.parent_id? %>
+          <%= link_to @sale.parent.our_ref, sale_path(@sale.parent), data: { turbolinks: false }, 
+          class: "btn btn-sm btn-warning"  %> 
+        <% end %>
+      </div>
+        <%= link_to [@sale, format: :pdf], data: { turbolinks: false } do %>
+            <i class="fa fa-file-pdf fa-2x" aria-hidden="true"></i>
+        <% end %>
+    </div>
+
+
+  <div class="card-body">
+
+    <div class="row "> 
+      <div  class="col-xs-4 col-md-4  ">
+        <strong><%= t('client') %>: </strong> 
+        <%= @sale.client.client_name %> <br>
+        <%= @sale.client.address1 %><br>
+        <%= @sale.client.address2 %><br>
+        <%= @sale.client.address3 %><br>
+        <%= @sale.client.address4 %><br>
+      </div>
+      <div  class="col-xs-4 col-md-4  ">
+        <strong><%= t('site') %>: </strong><%= @sale.project_site %><br>
+        <strong><%= t('attention') %>: </strong><%= @sale.attention %> <br>
+        <strong><%= t('phone') %>: </strong><%= @sale.phone %><br>
+        <strong><%= t('fax') %>: </strong><%= @sale.fax %><br>
+        <strong><%= t('email') %>: </strong><%= @sale.email %><br> 
+        <strong><%= t('cc') %>: </strong><%= @sale.cc %> 
+      </div>
+      <div  class="col-xs-4 col-md-4  ">
+        <strong><%= t('sale_date') %>: </strong><%= @sale.sale_date %><br>
+        <strong><%= t('status') %>: </strong><%= t(@sale.aasm_state) %><br>
+        <strong><%= t('client_ref') %>: </strong><%= @sale.client_ref %><br>
+        <strong><%= t('authorised_person') %>: </strong><%= @sale.authorised_person %><br> 
+        <strong><%= t('authorised_person2') %>: </strong><%= @sale.authorised_person2 %> 
+      </div>
+    </div>
+
+    <br>
+ 
+    <div class="card">
+      <div class="card-header">
+          <%= t('lines') %> 
+      </div>
+      <div class="card-body">
+        <%= render partial: "lines/lines", locals: {lineable: @sale} %>
+        <%#= render partial: "lines/form", locals: {lineable: @sale} %>
+      </div>
+      <div class="card-footer">
+        <% if current_user.Engineer? or current_user.SysAdmin?  %>
+          <%= link_to t('edit'), sale_lines_path(@sale), data: { turbolinks: false }, 
+            class: "btn btn-tab btn-warning btn-tab "  %> 
+        <% end %>
+      </div>
+    </div> <br>
+ 
+      <div class="row ">
+      <div  class="col-xs-4 col-md-4  ">
+        <strong><%= t('status') %>: </strong>
+        <%= t(@sale.aasm_state) %>
+      </div>
+      <div  class="col-xs-4 col-md-4  ">
+        <strong><%= t('discount') %>: </strong>
+        <%= @sale.discount %>%
+      </div>
+      <div  class="col-xs-4 col-md-4  ">
+          <strong><%= t('total_amount') %>: </strong>
+          <%= number_to_currency(@sale.calc_amount, unit: '$', precision: 0) %>
+        </div>
+      </div>
+      <br>
+
+  </div>
+  <div class="card-footer text-muted">
+    <div class="btn-group d-flex" role="group" aria-label="...">
+      <%= link_to t('quotation'), sales_path(:commit => "Search"), data: { turbolinks: false }, class: "btn btn-sm btn-default btn-tab col "  %> 
+      <%= link_to t('supersede'), supersede_sale_path(@sale), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-danger col "  %> 
+      <%= link_to t('copy'), copy_sale_path(@sale), method: :put, data: { turbolinks: false }, class: "btn btn-tab btn-info col "  %> 
+      <% if current_user.Engineer? or current_user.SysAdmin?  %>
+        <%= link_to t('edit'), edit_sale_path(@sale), data: { turbolinks: false }, class: "btn btn-tab btn-warning col "  %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'photo_upload' %>
+
+  <% if @sale.uploadfile.attached? %>
+   <div class="row ">
+      <div  class="col-xs-12 col-md-12  ">
+        <strong><%= t('delivered-file') %>:  </strong> 
+        <%#= link_to @sale.uploadfile.filename, rails_blob_path(@sale.uploadfile, 
+          disposition: :attachment) %>
+        <%= link_to url_for(@sale.uploadfile), 
+                class: "btn btn-sm btn-warning" do %>
+            <i class="fas fa-paperclip fa-lg p-r-5"></i> 
+            <%= @sale.uploadfile.filename %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>
+
+<%= render partial: "workflow_sales" %><br>
+
+<div class="card">
+  <div class="card-header "> 
+    <%= t("terms") %>
+  </div>
+  <div class="card-body "> 
+    <% @sale.terms.order(code: :desc).each do |term| %>
+        <p><%= term.code %>: <%= term.name %><p>         
+    <% end %>
+  </div>
+</div><br>
+
+<div class="card">
+  <div class="card-header "> 
+    <%= t("remarks") %>
+  </div>
+  <div class="card-body "> 
+    <%= @sale.remarks %>
+  </div>
+</div><br>
+
+<script type="text/javascript">
+    $("tr[data-link]").click(function() {
+        window.location = $(this).data('link');
+    });
+</script> 
